@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6E77406215CB6727CD3000E5621EB9B4CF035116",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A810498716749D1E96222CD9263F5E5608C353ED" : 9223372036854775807,
+    "6E77406215CB6727CD3000E5621EB9B4CF035116" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "772092A4-4EF9-444F-8245-2D879F0D9D7E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A810498716749D1E96222CD9263F5E5608C353ED" : "..",
+    "6E77406215CB6727CD3000E5621EB9B4CF035116" : "wallet-stone\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "wallet-stone",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "wallet-stone\/wallet-stone.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lftapajos\/wallet-stone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E77406215CB6727CD3000E5621EB9B4CF035116"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lftapajos\/Carros.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A810498716749D1E96222CD9263F5E5608C353ED"
+    }
+  ]
+}
