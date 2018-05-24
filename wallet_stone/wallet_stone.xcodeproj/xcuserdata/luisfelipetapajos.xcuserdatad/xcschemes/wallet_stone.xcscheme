@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "69791C8220B7660B0002DEAD"
-               BuildableName = "wallet-stone.app"
-               BlueprintName = "wallet-stone"
-               ReferencedContainer = "container:wallet-stone.xcodeproj">
+               BlueprintIdentifier = "69791CA320B76A520002DEAD"
+               BuildableName = "wallet_stone.app"
+               BlueprintName = "wallet_stone"
+               ReferencedContainer = "container:wallet_stone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "69791C8220B7660B0002DEAD"
-            BuildableName = "wallet-stone.app"
-            BlueprintName = "wallet-stone"
-            ReferencedContainer = "container:wallet-stone.xcodeproj">
+            BlueprintIdentifier = "69791CA320B76A520002DEAD"
+            BuildableName = "wallet_stone.app"
+            BlueprintName = "wallet_stone"
+            ReferencedContainer = "container:wallet_stone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "69791C8220B7660B0002DEAD"
-            BuildableName = "wallet-stone.app"
-            BlueprintName = "wallet-stone"
-            ReferencedContainer = "container:wallet-stone.xcodeproj">
+            BlueprintIdentifier = "69791CA320B76A520002DEAD"
+            BuildableName = "wallet_stone.app"
+            BlueprintName = "wallet_stone"
+            ReferencedContainer = "container:wallet_stone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "69791C8220B7660B0002DEAD"
-            BuildableName = "wallet-stone.app"
-            BlueprintName = "wallet-stone"
-            ReferencedContainer = "container:wallet-stone.xcodeproj">
+            BlueprintIdentifier = "69791CA320B76A520002DEAD"
+            BuildableName = "wallet_stone.app"
+            BlueprintName = "wallet_stone"
+            ReferencedContainer = "container:wallet_stone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69791C8720B7660B0002DEAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791C8620B7660B0002DEAD /* AppDelegate.swift */; };
-		69791C8920B7660B0002DEAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791C8820B7660B0002DEAD /* ViewController.swift */; };
-		69791C8C20B7660B0002DEAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69791C8A20B7660B0002DEAD /* Main.storyboard */; };
-		69791C8E20B7660B0002DEAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69791C8D20B7660B0002DEAD /* Assets.xcassets */; };
-		69791C9120B7660B0002DEAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69791C8F20B7660B0002DEAD /* LaunchScreen.storyboard */; };
-		69791C9A20B7674B0002DEAD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791C9920B7674B0002DEAD /* Constants.swift */; };
+		69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CA720B76A520002DEAD /* AppDelegate.swift */; };
+		69791CAA20B76A520002DEAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CA920B76A520002DEAD /* ViewController.swift */; };
+		69791CAD20B76A520002DEAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69791CAB20B76A520002DEAD /* Main.storyboard */; };
+		69791CAF20B76A520002DEAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69791CAE20B76A520002DEAD /* Assets.xcassets */; };
+		69791CB220B76A520002DEAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69791CB020B76A520002DEAD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		69791C8320B7660B0002DEAD /* wallet-stone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wallet-stone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69791C8620B7660B0002DEAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69791C8820B7660B0002DEAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		69791C8B20B7660B0002DEAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		69791C8D20B7660B0002DEAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		69791C9020B7660B0002DEAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		69791C9220B7660B0002DEAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69791C9920B7674B0002DEAD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		69791CA420B76A520002DEAD /* wallet_stone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wallet_stone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69791CA720B76A520002DEAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		69791CA920B76A520002DEAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69791CAC20B76A520002DEAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69791CAE20B76A520002DEAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69791CB120B76A520002DEAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		69791CB320B76A520002DEAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		69791C8020B7660B0002DEAD /* Frameworks */ = {
+		69791CA120B76A520002DEAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,82 +35,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		69791C7A20B7660B0002DEAD = {
+		69791C9B20B76A520002DEAD = {
 			isa = PBXGroup;
 			children = (
-				69791C8520B7660B0002DEAD /* wallet-stone */,
-				69791C8420B7660B0002DEAD /* Products */,
+				69791CA620B76A520002DEAD /* wallet_stone */,
+				69791CA520B76A520002DEAD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		69791C8420B7660B0002DEAD /* Products */ = {
+		69791CA520B76A520002DEAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69791C8320B7660B0002DEAD /* wallet-stone.app */,
+				69791CA420B76A520002DEAD /* wallet_stone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		69791C8520B7660B0002DEAD /* wallet-stone */ = {
+		69791CA620B76A520002DEAD /* wallet_stone */ = {
 			isa = PBXGroup;
 			children = (
-				69791C9820B7673B0002DEAD /* Help */,
-				69791C8620B7660B0002DEAD /* AppDelegate.swift */,
-				69791C8820B7660B0002DEAD /* ViewController.swift */,
-				69791C8A20B7660B0002DEAD /* Main.storyboard */,
-				69791C8D20B7660B0002DEAD /* Assets.xcassets */,
-				69791C8F20B7660B0002DEAD /* LaunchScreen.storyboard */,
-				69791C9220B7660B0002DEAD /* Info.plist */,
+				69791CA720B76A520002DEAD /* AppDelegate.swift */,
+				69791CA920B76A520002DEAD /* ViewController.swift */,
+				69791CAB20B76A520002DEAD /* Main.storyboard */,
+				69791CAE20B76A520002DEAD /* Assets.xcassets */,
+				69791CB020B76A520002DEAD /* LaunchScreen.storyboard */,
+				69791CB320B76A520002DEAD /* Info.plist */,
 			);
-			path = "wallet-stone";
-			sourceTree = "<group>";
-		};
-		69791C9820B7673B0002DEAD /* Help */ = {
-			isa = PBXGroup;
-			children = (
-				69791C9920B7674B0002DEAD /* Constants.swift */,
-			);
-			name = Help;
+			path = wallet_stone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		69791C8220B7660B0002DEAD /* wallet-stone */ = {
+		69791CA320B76A520002DEAD /* wallet_stone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69791C9520B7660B0002DEAD /* Build configuration list for PBXNativeTarget "wallet-stone" */;
+			buildConfigurationList = 69791CB620B76A520002DEAD /* Build configuration list for PBXNativeTarget "wallet_stone" */;
 			buildPhases = (
-				69791C7F20B7660B0002DEAD /* Sources */,
-				69791C8020B7660B0002DEAD /* Frameworks */,
-				69791C8120B7660B0002DEAD /* Resources */,
+				69791CA020B76A520002DEAD /* Sources */,
+				69791CA120B76A520002DEAD /* Frameworks */,
+				69791CA220B76A520002DEAD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "wallet-stone";
-			productName = "wallet-stone";
-			productReference = 69791C8320B7660B0002DEAD /* wallet-stone.app */;
+			name = wallet_stone;
+			productName = wallet_stone;
+			productReference = 69791CA420B76A520002DEAD /* wallet_stone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		69791C7B20B7660B0002DEAD /* Project object */ = {
+		69791C9C20B76A520002DEAD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Luis Felipe Tapajos";
 				TargetAttributes = {
-					69791C8220B7660B0002DEAD = {
+					69791CA320B76A520002DEAD = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = WKFLY4V8UQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 69791C7E20B7660B0002DEAD /* Build configuration list for PBXProject "wallet-stone" */;
+			buildConfigurationList = 69791C9F20B76A520002DEAD /* Build configuration list for PBXProject "wallet_stone" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -120,55 +109,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 69791C7A20B7660B0002DEAD;
-			productRefGroup = 69791C8420B7660B0002DEAD /* Products */;
+			mainGroup = 69791C9B20B76A520002DEAD;
+			productRefGroup = 69791CA520B76A520002DEAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				69791C8220B7660B0002DEAD /* wallet-stone */,
+				69791CA320B76A520002DEAD /* wallet_stone */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		69791C8120B7660B0002DEAD /* Resources */ = {
+		69791CA220B76A520002DEAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69791C9120B7660B0002DEAD /* LaunchScreen.storyboard in Resources */,
-				69791C8E20B7660B0002DEAD /* Assets.xcassets in Resources */,
-				69791C8C20B7660B0002DEAD /* Main.storyboard in Resources */,
+				69791CB220B76A520002DEAD /* LaunchScreen.storyboard in Resources */,
+				69791CAF20B76A520002DEAD /* Assets.xcassets in Resources */,
+				69791CAD20B76A520002DEAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		69791C7F20B7660B0002DEAD /* Sources */ = {
+		69791CA020B76A520002DEAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69791C8920B7660B0002DEAD /* ViewController.swift in Sources */,
-				69791C8720B7660B0002DEAD /* AppDelegate.swift in Sources */,
-				69791C9A20B7674B0002DEAD /* Constants.swift in Sources */,
+				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
+				69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		69791C8A20B7660B0002DEAD /* Main.storyboard */ = {
+		69791CAB20B76A520002DEAD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69791C8B20B7660B0002DEAD /* Base */,
+				69791CAC20B76A520002DEAD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		69791C8F20B7660B0002DEAD /* LaunchScreen.storyboard */ = {
+		69791CB020B76A520002DEAD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69791C9020B7660B0002DEAD /* Base */,
+				69791CB120B76A520002DEAD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -176,7 +164,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		69791C9320B7660B0002DEAD /* Debug */ = {
+		69791CB420B76A520002DEAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +214,7 @@
 			};
 			name = Debug;
 		};
-		69791C9420B7660B0002DEAD /* Release */ = {
+		69791CB520B76A520002DEAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,12 +257,12 @@
 			};
 			name = Release;
 		};
-		69791C9620B7660B0002DEAD /* Debug */ = {
+		69791CB720B76A520002DEAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WKFLY4V8UQ;
-				INFOPLIST_FILE = "wallet-stone/Info.plist";
+				INFOPLIST_FILE = wallet_stone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stone.wallet-stone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,12 +270,12 @@
 			};
 			name = Debug;
 		};
-		69791C9720B7660B0002DEAD /* Release */ = {
+		69791CB820B76A520002DEAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WKFLY4V8UQ;
-				INFOPLIST_FILE = "wallet-stone/Info.plist";
+				INFOPLIST_FILE = wallet_stone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stone.wallet-stone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,24 +286,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		69791C7E20B7660B0002DEAD /* Build configuration list for PBXProject "wallet-stone" */ = {
+		69791C9F20B76A520002DEAD /* Build configuration list for PBXProject "wallet_stone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				69791C9320B7660B0002DEAD /* Debug */,
-				69791C9420B7660B0002DEAD /* Release */,
+				69791CB420B76A520002DEAD /* Debug */,
+				69791CB520B76A520002DEAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69791C9520B7660B0002DEAD /* Build configuration list for PBXNativeTarget "wallet-stone" */ = {
+		69791CB620B76A520002DEAD /* Build configuration list for PBXNativeTarget "wallet_stone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				69791C9620B7660B0002DEAD /* Debug */,
-				69791C9720B7660B0002DEAD /* Release */,
+				69791CB720B76A520002DEAD /* Debug */,
+				69791CB820B76A520002DEAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 69791C7B20B7660B0002DEAD /* Project object */;
+	rootObject = 69791C9C20B76A520002DEAD /* Project object */;
 }
