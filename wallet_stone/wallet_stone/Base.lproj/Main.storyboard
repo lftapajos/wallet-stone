@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fdl-q8-nlh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="wallet_stone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,142 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Stone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Me-xa-j2k">
+                                <rect key="frame" x="16" y="72" width="343" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.4549019608" green="0.70588235290000001" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0p-fh-eNE">
+                                <rect key="frame" x="40" y="352" width="294" height="75"/>
+                                <state key="normal" backgroundImage="entrar_button_c.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-go-0uC">
+                                <rect key="frame" x="40" y="251" width="294" height="75"/>
+                                <state key="normal" backgroundImage="registrar_button_c.png"/>
+                                <connections>
+                                    <action selector="registroCliente:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5sw-Px-aVZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="c0p-fh-eNE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="Axo-2x-eiL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c0p-fh-eNE" secondAttribute="trailing" constant="25" id="CAb-AR-LWz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OL0-go-0uC" secondAttribute="trailing" constant="25" id="ExO-bH-6qU"/>
+                            <constraint firstItem="c0p-fh-eNE" firstAttribute="top" secondItem="OL0-go-0uC" secondAttribute="bottom" constant="26" id="GDH-OZ-G45"/>
+                            <constraint firstItem="OL0-go-0uC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="187" id="Q30-wf-ahX"/>
+                            <constraint firstItem="OL0-go-0uC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="QKB-PG-ImI"/>
+                            <constraint firstItem="OL0-go-0uC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rah-3F-hhM"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4Me-xa-j2k" secondAttribute="leading" id="T5y-HU-zIw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Me-xa-j2k" secondAttribute="trailing" id="UWs-6p-tLz"/>
+                            <constraint firstItem="4Me-xa-j2k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VeA-D3-9og"/>
+                            <constraint firstItem="4Me-xa-j2k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="guY-l7-aca"/>
+                            <constraint firstItem="c0p-fh-eNE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wtw-Qp-IkF"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QeV-0H-6Ll"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="113.79310344827587"/>
+        </scene>
+        <!--Registrar Cliente View Controller-->
+        <scene sceneID="jFZ-kh-J3T">
+            <objects>
+                <viewController storyboardIdentifier="RegistrarClienteViewController" id="eXb-XG-QCm" customClass="RegistrarClienteViewController" customModule="wallet_stone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ajY-ac-vpF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nnh-e7-atl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yql-js-E1M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Stone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-Eh-Nbd">
+                                <rect key="frame" x="16" y="28" width="343" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.4549019608" green="0.70588235290000001" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s69-EY-NVU">
+                                <rect key="frame" x="16" y="83" width="57" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.4549019608" green="0.70588235290000001" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-74-BKU">
+                                <rect key="frame" x="93" y="78" width="266" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pry-M5-KTK">
+                                <rect key="frame" x="230" y="116" width="129" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="SAn-c7-7WE"/>
+                                    <constraint firstAttribute="height" constant="55" id="kvJ-1w-yrN"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="button_finalizar.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3x-rR-Ygd">
+                                <rect key="frame" x="21" y="28" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="2F1-ZF-WV8"/>
+                                    <constraint firstAttribute="height" constant="30" id="6B9-9f-rcM"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="button_voltar.png"/>
+                                <connections>
+                                    <action selector="retornar:" destination="eXb-XG-QCm" eventType="touchUpInside" id="3ke-KU-sz1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n1D-74-BKU" firstAttribute="top" secondItem="2kD-Eh-Nbd" secondAttribute="bottom" constant="22.5" id="0wv-RO-0jn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2kD-Eh-Nbd" secondAttribute="leading" id="8mN-84-bv5"/>
+                            <constraint firstItem="n1D-74-BKU" firstAttribute="leading" secondItem="s69-EY-NVU" secondAttribute="trailing" constant="20" id="EpP-e7-ou3"/>
+                            <constraint firstItem="L3x-rR-Ygd" firstAttribute="leading" secondItem="yql-js-E1M" secondAttribute="leadingMargin" constant="5" id="GJY-77-ETI"/>
+                            <constraint firstItem="s69-EY-NVU" firstAttribute="top" secondItem="2kD-Eh-Nbd" secondAttribute="bottom" constant="27.5" id="Hhl-pc-2aj"/>
+                            <constraint firstItem="2kD-Eh-Nbd" firstAttribute="leading" secondItem="L3x-rR-Ygd" secondAttribute="trailing" constant="-51" id="U26-MN-Hdg"/>
+                            <constraint firstItem="pry-M5-KTK" firstAttribute="top" secondItem="n1D-74-BKU" secondAttribute="bottom" constant="8" id="VII-D6-mGg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2kD-Eh-Nbd" secondAttribute="trailing" id="aWf-23-FlC"/>
+                            <constraint firstItem="2kD-Eh-Nbd" firstAttribute="top" secondItem="ajY-ac-vpF" secondAttribute="bottom" constant="8" id="bMx-Ii-b87"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pry-M5-KTK" secondAttribute="trailing" id="dyf-g8-1e9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="s69-EY-NVU" secondAttribute="leading" id="e3N-AT-baQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n1D-74-BKU" secondAttribute="trailing" id="j0V-0r-mZO"/>
+                            <constraint firstItem="L3x-rR-Ygd" firstAttribute="top" secondItem="ajY-ac-vpF" secondAttribute="bottom" constant="8" id="qPw-p3-dMk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSw-qK-S1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.8" y="113.79310344827587"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eg1-s7-kGK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Fdl-q8-nlh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qDw-S9-ijj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="E5f-s2-Paq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCF-GW-YYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="113.79310344827587"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button_finalizar.png" width="152" height="60"/>
+        <image name="button_voltar.png" width="37" height="28"/>
+        <image name="entrar_button_c.png" width="294" height="75"/>
+        <image name="registrar_button_c.png" width="294" height="75"/>
+    </resources>
 </document>
