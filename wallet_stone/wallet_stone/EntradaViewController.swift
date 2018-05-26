@@ -1,5 +1,5 @@
 //
-//  RegistrarClienteViewController.swift
+//  EntradaViewController.swift
 //  wallet_stone
 //
 //  Created by Luis Felipe Tapajos on 25/05/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrarClienteViewController: UIViewController {
+class EntradaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,6 @@ class RegistrarClienteViewController: UIViewController {
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
         }
-    }
-    
-    @IBAction func registrarCliente(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
-        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

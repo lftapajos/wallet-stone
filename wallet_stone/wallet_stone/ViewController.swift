@@ -50,6 +50,12 @@ class ViewController: UIViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: "RegistrarClienteViewController") as! RegistrarClienteViewController
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    @IBAction func loginCliente(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginClienteViewController") as! LoginClienteViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 
     
     override func didReceiveMemoryWarning() {

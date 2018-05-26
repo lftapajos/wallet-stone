@@ -27,6 +27,8 @@
 		69791CD420B83E330002DEAD /* entrar_button_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CD320B83E330002DEAD /* entrar_button_c.png */; };
 		69791CD620B83E430002DEAD /* registrar_button_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CD520B83E430002DEAD /* registrar_button_c.png */; };
 		69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */; };
+		69791CDB20B865450002DEAD /* LoginClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CDA20B865450002DEAD /* LoginClienteViewController.swift */; };
+		69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CDC20B901870002DEAD /* EntradaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		69791CD320B83E330002DEAD /* entrar_button_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrar_button_c.png; sourceTree = "<group>"; };
 		69791CD520B83E430002DEAD /* registrar_button_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registrar_button_c.png; sourceTree = "<group>"; };
 		69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrarClienteViewController.swift; sourceTree = "<group>"; };
+		69791CDA20B865450002DEAD /* LoginClienteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginClienteViewController.swift; sourceTree = "<group>"; };
+		69791CDC20B901870002DEAD /* EntradaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntradaViewController.swift; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,8 @@
 			children = (
 				69791CA920B76A520002DEAD /* ViewController.swift */,
 				69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */,
+				69791CDA20B865450002DEAD /* LoginClienteViewController.swift */,
+				69791CDC20B901870002DEAD /* EntradaViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -297,10 +303,12 @@
 			files = (
 				69791CD220B83B2A0002DEAD /* Clientes.xcdatamodeld in Sources */,
 				69791CBD20B7AA500002DEAD /* APIManager.swift in Sources */,
+				69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */,
 				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
 				69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */,
 				69791CC020B7AAA70002DEAD /* ApiResponse.swift in Sources */,
 				69791CBB20B76BA70002DEAD /* Constants.swift in Sources */,
+				69791CDB20B865450002DEAD /* LoginClienteViewController.swift in Sources */,
 				69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
