@@ -17,6 +17,12 @@ class Cliente : Object {
     dynamic var saldo = 0
 }
 
+class Moeda : Object {
+    
+    dynamic var nome = ""
+    dynamic var quantidade = 0
+}
+
 class Brita : Object {
     
     dynamic var nome = ""

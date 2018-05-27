@@ -33,6 +33,12 @@
 		69791CE520B98D1B0002DEAD /* Cliente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE420B98D1B0002DEAD /* Cliente.swift */; };
 		69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */; };
 		69791CEA20BA611F0002DEAD /* Brita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE920BA611F0002DEAD /* Brita.swift */; };
+		69791CEC20BAE16C0002DEAD /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */; };
+		69791CEE20BAEC010002DEAD /* btn_comprar_moeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */; };
+		69791CF020BAED5F0002DEAD /* btn_vender_moeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CEF20BAED5F0002DEAD /* btn_vender_moeda.png */; };
+		69791CF420BAF48F0002DEAD /* btn_transacoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CF320BAF48F0002DEAD /* btn_transacoes.png */; };
+		69791CF620BAF6DF0002DEAD /* Moeda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CF520BAF6DF0002DEAD /* Moeda.swift */; };
+		69791CF820BAF84E0002DEAD /* ListMoedasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CF720BAF84E0002DEAD /* ListMoedasTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +71,12 @@
 		69791CE420B98D1B0002DEAD /* Cliente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cliente.swift; sourceTree = "<group>"; };
 		69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCriptoTableViewCell.swift; sourceTree = "<group>"; };
 		69791CE920BA611F0002DEAD /* Brita.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brita.swift; sourceTree = "<group>"; };
+		69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_comprar_moeda.png; sourceTree = "<group>"; };
+		69791CEF20BAED5F0002DEAD /* btn_vender_moeda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_vender_moeda.png; sourceTree = "<group>"; };
+		69791CF320BAF48F0002DEAD /* btn_transacoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_transacoes.png; sourceTree = "<group>"; };
+		69791CF520BAF6DF0002DEAD /* Moeda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moeda.swift; sourceTree = "<group>"; };
+		69791CF720BAF84E0002DEAD /* ListMoedasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMoedasTableViewCell.swift; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +158,9 @@
 		69791CC120B83A600002DEAD /* Assests */ = {
 			isa = PBXGroup;
 			children = (
+				69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */,
+				69791CEF20BAED5F0002DEAD /* btn_vender_moeda.png */,
+				69791CF320BAF48F0002DEAD /* btn_transacoes.png */,
 				69791CC220B83A940002DEAD /* button_adicionar.png */,
 				69791CC320B83A940002DEAD /* button_banco.png */,
 				69791CC420B83A940002DEAD /* button_comprar.png */,
@@ -166,6 +181,7 @@
 				69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */,
 				69791CDA20B865450002DEAD /* LoginClienteViewController.swift */,
 				69791CDC20B901870002DEAD /* EntradaViewController.swift */,
+				69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +200,7 @@
 			children = (
 				69791CE420B98D1B0002DEAD /* Cliente.swift */,
 				69791CE920BA611F0002DEAD /* Brita.swift */,
+				69791CF520BAF6DF0002DEAD /* Moeda.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -192,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */,
+				69791CF720BAF84E0002DEAD /* ListMoedasTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -267,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69791CF420BAF48F0002DEAD /* btn_transacoes.png in Resources */,
 				69791CCC20B83A940002DEAD /* button_detalhes.png in Resources */,
 				69791CCF20B83A940002DEAD /* button_voltar.png in Resources */,
 				69791CC920B83A940002DEAD /* button_adicionar.png in Resources */,
@@ -276,6 +295,8 @@
 				69791CCA20B83A940002DEAD /* button_banco.png in Resources */,
 				69791CB220B76A520002DEAD /* LaunchScreen.storyboard in Resources */,
 				69791CD420B83E330002DEAD /* entrar_button_c.png in Resources */,
+				69791CF020BAED5F0002DEAD /* btn_vender_moeda.png in Resources */,
+				69791CEE20BAEC010002DEAD /* btn_comprar_moeda.png in Resources */,
 				69791CAF20B76A520002DEAD /* Assets.xcassets in Resources */,
 				69791CCB20B83A940002DEAD /* button_comprar.png in Resources */,
 				69791CAD20B76A520002DEAD /* Main.storyboard in Resources */,
@@ -337,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69791CF820BAF84E0002DEAD /* ListMoedasTableViewCell.swift in Sources */,
 				69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */,
 				69791CD220B83B2A0002DEAD /* Clientes.xcdatamodeld in Sources */,
 				69791CBD20B7AA500002DEAD /* APIManager.swift in Sources */,
@@ -344,11 +366,13 @@
 				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
 				69791CE520B98D1B0002DEAD /* Cliente.swift in Sources */,
 				69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */,
+				69791CF620BAF6DF0002DEAD /* Moeda.swift in Sources */,
 				69791CC020B7AAA70002DEAD /* ApiResponse.swift in Sources */,
 				69791CBB20B76BA70002DEAD /* Constants.swift in Sources */,
 				69791CDB20B865450002DEAD /* LoginClienteViewController.swift in Sources */,
 				69791CE020B980050002DEAD /* AllRealmObjects.swift in Sources */,
 				69791CEA20BA611F0002DEAD /* Brita.swift in Sources */,
+				69791CEC20BAE16C0002DEAD /* PerfilViewController.swift in Sources */,
 				69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

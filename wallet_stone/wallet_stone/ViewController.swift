@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Remove Moedas
+        deleteMoeda()
+        
+        //Adiciona Moedas
+        addMoeda("Brita", quantidade: 0)
+        addMoeda("BTC", quantidade: 0)
+        
         let apiCall = APIManager.shared.fetchCotacaoDolarFromApi()
         apiCall.then {
             dolares -> Void in

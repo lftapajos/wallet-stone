@@ -33,7 +33,7 @@ class LoginClienteViewController: UIViewController {
         
         if (retorno) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "PerfilViewController") as! PerfilViewController
             self.navigationController?.pushViewController(controller, animated: true)
         }
         
