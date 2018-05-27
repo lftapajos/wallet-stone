@@ -1,0 +1,82 @@
+//
+//  Cliente.swift
+//  wallet_stone
+//
+//  Created by Luis Felipe Tapajos on 26/05/18.
+//  Copyright © 2018 Luis Felipe Tapajos. All rights reserved.
+//
+
+import Foundation
+import RealmSwift
+
+func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
+    
+    let user = Cliente()
+    
+    user.nome = nome
+    user.email = email
+    user.senha = senha
+    user.saldo = saldo //R$100.000
+    
+    let realm = try! Realm()
+    
+    try! realm.write {
+        realm.add(user)
+        print("Usuário \(user.nome) adicionado no Realm.")
+    }
+    
+}
+
+func listAllClientes() {
+    
+    let realm = try! Realm()
+    
+    let allClientes = realm.objects(Cliente.self)
+    
+    for cliente in allClientes {
+        print("Nome: \(cliente.nome)")
+    }
+    
+}
+
+func listDetailCliente(_ email: String) -> Cliente {
+    
+    let realm = try! Realm()
+    let cliente = Cliente()
+    
+    let detailCliente = realm.objects(Cliente.self)
+    
+    let predicate = NSPredicate(format: "email = %@", email)
+    let filteredCliente = detailCliente.filter(predicate)
+    
+    for user in filteredCliente {
+        
+        cliente.nome = user.nome
+        cliente.email = user.email
+        cliente.senha = user.senha
+        cliente.saldo = user.saldo
+        
+    }
+    
+    return cliente
+}
+
+func verifyLoginCliente(_ email: String, senha: String) -> Bool {
+    
+    let realm = try! Realm()
+    
+    let cliente = realm.objects(Cliente.self)
+    
+    let predicate = NSPredicate(format: "email = %@ AND senha = %@", email, senha)
+    let filteredCliente = cliente.filter(predicate)
+    
+    if (filteredCliente.count > 0) {
+        print("Nome: \(String(describing: filteredCliente.first!.nome))")
+        return true
+    } else {
+        print("Usuário não encontrado!")
+        return false
+    }
+    
+}
+

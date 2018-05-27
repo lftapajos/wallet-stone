@@ -39,7 +39,7 @@ class APIManager {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch (response.result) {
                 case .success(let responseString):
-                    //print(responseString)
+                    print(responseString)
                     let dolarResponse = ApiResponse(JSONString:"\(responseString)")!
                     fullfil(dolarResponse.dolares!)
                 case .failure(let error):

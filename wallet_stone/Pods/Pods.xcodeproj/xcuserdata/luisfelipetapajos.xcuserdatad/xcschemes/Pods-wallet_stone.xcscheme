@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "697B12CE1D864AF09F11E6DD517CDE48"
+               BlueprintIdentifier = "B542DE81C80F7FE85BA748010BED5746"
                BuildableName = "Pods_wallet_stone.framework"
                BlueprintName = "Pods-wallet_stone"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "697B12CE1D864AF09F11E6DD517CDE48"
+            BlueprintIdentifier = "B542DE81C80F7FE85BA748010BED5746"
             BuildableName = "Pods_wallet_stone.framework"
             BlueprintName = "Pods-wallet_stone"
             ReferencedContainer = "container:Pods.xcodeproj">

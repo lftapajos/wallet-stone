@@ -14,6 +14,11 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.2.0):
     - PromiseKit/CorePromise
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -21,6 +26,7 @@ DEPENDENCIES:
   - AlamofireImage
   - ObjectMapper (~> 2.2)
   - PromiseKit
+  - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -28,8 +34,10 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
   PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 0802c36d05b61dea55bcc3d9369a7087a3ced4b8
+PODFILE CHECKSUM: 6a2c9dd8b787eca9e255490db24d2c1001c420ca
 
 COCOAPODS: 1.0.0

@@ -11,6 +11,7 @@ target 'wallet_stone' do
   pod 'AlamofireImage'
   pod 'ObjectMapper', '~> 2.2'
   pod 'PromiseKit'
+  pod 'RealmSwift'
   
 end
 

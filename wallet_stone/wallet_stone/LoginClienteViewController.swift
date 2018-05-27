@@ -10,10 +10,14 @@ import UIKit
 
 class LoginClienteViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var senhaTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        emailTextField.text = "jose@gmail.com"
+        senhaTextField.text = "j0$3"
     }
 
     @IBAction func retornar(_ sender: Any) {
@@ -23,25 +27,20 @@ class LoginClienteViewController: UIViewController {
     }
     
     @IBAction func loginCliente(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+        
+        //Pesquisa se o Cliente existe no Realm
+        let retorno = verifyLoginCliente(emailTextField.text!, senha: senhaTextField.text!)
+        
+        if (retorno) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

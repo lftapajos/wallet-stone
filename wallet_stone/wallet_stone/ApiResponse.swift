@@ -35,6 +35,7 @@ class ApiResponse : Mappable {
 
 class Dolar: Mappable {
     
+    var nome : String?
     var cotacaoCompra: Double?
     var cotacaoVenda: Double?
     var dataHoraCotacao: String?

@@ -29,6 +29,10 @@
 		69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */; };
 		69791CDB20B865450002DEAD /* LoginClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CDA20B865450002DEAD /* LoginClienteViewController.swift */; };
 		69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CDC20B901870002DEAD /* EntradaViewController.swift */; };
+		69791CE020B980050002DEAD /* AllRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CDF20B980050002DEAD /* AllRealmObjects.swift */; };
+		69791CE520B98D1B0002DEAD /* Cliente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE420B98D1B0002DEAD /* Cliente.swift */; };
+		69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */; };
+		69791CEA20BA611F0002DEAD /* Brita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE920BA611F0002DEAD /* Brita.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,10 @@
 		69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrarClienteViewController.swift; sourceTree = "<group>"; };
 		69791CDA20B865450002DEAD /* LoginClienteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginClienteViewController.swift; sourceTree = "<group>"; };
 		69791CDC20B901870002DEAD /* EntradaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntradaViewController.swift; sourceTree = "<group>"; };
+		69791CDF20B980050002DEAD /* AllRealmObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRealmObjects.swift; sourceTree = "<group>"; };
+		69791CE420B98D1B0002DEAD /* Cliente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cliente.swift; sourceTree = "<group>"; };
+		69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCriptoTableViewCell.swift; sourceTree = "<group>"; };
+		69791CE920BA611F0002DEAD /* Brita.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brita.swift; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,10 +111,12 @@
 		69791CA620B76A520002DEAD /* wallet_stone */ = {
 			isa = PBXGroup;
 			children = (
+				69791CDE20B97FEA0002DEAD /* Realm */,
+				69791CE620B9E6570002DEAD /* Views */,
+				69791CBE20B7AA950002DEAD /* Models */,
 				69791CD720B840540002DEAD /* Controllers */,
 				69791CC120B83A600002DEAD /* Assests */,
 				69791CB920B76B3B0002DEAD /* Help */,
-				69791CBE20B7AA950002DEAD /* Models */,
 				69791CA720B76A520002DEAD /* AppDelegate.swift */,
 				69791CAB20B76A520002DEAD /* Main.storyboard */,
 				69791CAE20B76A520002DEAD /* Assets.xcassets */,
@@ -158,6 +168,32 @@
 				69791CDC20B901870002DEAD /* EntradaViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		69791CDE20B97FEA0002DEAD /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				69791CE120B98CB90002DEAD /* Models */,
+				69791CDF20B980050002DEAD /* AllRealmObjects.swift */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		69791CE120B98CB90002DEAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				69791CE420B98D1B0002DEAD /* Cliente.swift */,
+				69791CE920BA611F0002DEAD /* Brita.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		69791CE620B9E6570002DEAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		CEBF8FF53AB762762ED17025 /* Frameworks */ = {
@@ -301,14 +337,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */,
 				69791CD220B83B2A0002DEAD /* Clientes.xcdatamodeld in Sources */,
 				69791CBD20B7AA500002DEAD /* APIManager.swift in Sources */,
 				69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */,
 				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
+				69791CE520B98D1B0002DEAD /* Cliente.swift in Sources */,
 				69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */,
 				69791CC020B7AAA70002DEAD /* ApiResponse.swift in Sources */,
 				69791CBB20B76BA70002DEAD /* Constants.swift in Sources */,
 				69791CDB20B865450002DEAD /* LoginClienteViewController.swift in Sources */,
+				69791CE020B980050002DEAD /* AllRealmObjects.swift in Sources */,
+				69791CEA20BA611F0002DEAD /* Brita.swift in Sources */,
 				69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
