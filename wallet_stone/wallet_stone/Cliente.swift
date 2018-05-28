@@ -99,3 +99,18 @@ func verifyLoginCliente(_ email: String, senha: String) -> Bool {
     
 }
 
+//Atualiza saldo do cliente
+func atualizaSaldoCliente(_ clienteID: String, novoSaldo: Double) {
+    //print("clienteID: \(clienteID)")
+    //print("novoSaldo: \(novoSaldo)")
+    
+    let realm = try! Realm()
+    let detailCliente = realm.objects(Cliente.self).filter("clienteID = %@", clienteID)
+    
+    if let  cliente = detailCliente.first {
+        try! realm.write {
+            cliente.saldo = Int(novoSaldo)
+        }
+    }
+}
+

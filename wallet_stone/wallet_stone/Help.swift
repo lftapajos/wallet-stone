@@ -18,3 +18,7 @@ func formatMoeda(_ codigo: String, valor: Double) -> String {
     return valorFormatado!
     
 }
+
+//func calculaCompraMoeda(_ saldo: Double, valorBruto: Double, conversao: String) {
+//    
+//}

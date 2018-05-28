@@ -13,26 +13,34 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var saldoAtual = 0.0
+    var clienteID = ""
+    
     var dataSourceArray = [Moeda]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let cliente = listDetailCliente("jose@gmail.com")
         
-        let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        let cliente = listDetailCliente("jose@gmail.com")
+        saldoAtual = Double(cliente.saldo)
+        
+        let saldoFomatado = formatMoeda("pt_BR", valor:  saldoAtual)
         saldoLabel.text = "\(saldoFomatado)"
+        
+        clienteID = cliente.clienteID
         
         //Carrega dados de cotação das Moedas salvas no Realm
         dataSourceArray = listMoedas()
-
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
         self.tableView.reloadData()
-        
     }
-
+    
     @IBAction func retornar(_ sender: Any) {
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
@@ -62,7 +70,7 @@ extension EntradaViewController : UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         let moeda = dataSourceArray[row]
         
-        cell.configuraCelulaMoeda(cripto: moeda)
+        cell.configuraCelulaMoeda(clienteID: clienteID, saldo: saldoAtual, cripto: moeda)
         
         return cell
     }

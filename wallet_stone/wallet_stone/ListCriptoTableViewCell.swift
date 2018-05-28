@@ -10,6 +10,10 @@ import UIKit
 
 class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
 
+    var valorCotacaoCompra = 0.0
+    var saldoAtual = 0.0
+    var paramClienteID = ""
+    
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
     @IBOutlet weak var cotacaoVendaLabel: UILabel!
@@ -20,9 +24,11 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    func configuraCelulaMoeda(cripto: Moeda) { //index: Int, Dolar
+    func configuraCelulaMoeda(clienteID: String, saldo: Double, cripto: Moeda) { //index: Int, Dolar
         
         moedaLabel.text = cripto.nome
+        saldoAtual = saldo
+        paramClienteID = clienteID
         
         let cotacaoCompra = formatMoeda("en_US", valor: cripto.cotacaoCompra)
         let cotacaoVenda = formatMoeda("en_US", valor: cripto.cotacaoVenda)
@@ -30,6 +36,8 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         cotacaoCompraLabel.text = "Cotação de Compra: U\(String(describing: cotacaoCompra))"
         cotacaoVendaLabel.text = "Cotação de Venda: U\(String(describing: cotacaoVenda))"
         dataHoraCotacaoLabel.text = "Data: \(cripto.dataHoraCotacao)"
+        
+        valorCotacaoCompra = cripto.cotacaoCompra
         
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor
@@ -42,6 +50,31 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func doneButtonTappedForMyNumericTextField() {
         print("Done");
         quantidadeTextField.resignFirstResponder()
+        
+        let quantidade = quantidadeTextField.text
+        //print("saldoAtual =====> \(saldoAtual)")
+        
+        let saldoConvertido = (saldoAtual / valorCotacaoCompra)
+        //print("saldoConvertido =====> \(saldoConvertido) dólares")
+        
+        //print("quantidadeTextField =====> \(quantidade ?? "")")
+        //print("valorCotacaoCompra =====> \(valorCotacaoCompra)")
+        
+        let calculoCompra = (Double(quantidade!)! * valorCotacaoCompra)
+        //print("calculo =====> \(calculoCompra) dólares")
+        
+        let calculoFinal = (saldoConvertido - calculoCompra)
+        //print("saldo final =====> \(calculoFinal) dólares")
+        
+        let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
+        //print("saldo final desconvertido =====> \(saldoFinalDesconvertido) reais")
+        
+        //print("paramClienteID =====> \(paramClienteID)")
+        
+        atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
+        
+        saldoAtual = saldoFinalDesconvertido
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method

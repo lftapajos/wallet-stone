@@ -19,6 +19,9 @@ class PerfilViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         let cliente = listDetailCliente("jose@gmail.com")
         
         let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
