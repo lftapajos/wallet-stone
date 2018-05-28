@@ -12,6 +12,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     var valorCotacaoCompra = 0.0
     var saldoAtual = 0.0
+    var moedaAtual = ""
     var paramClienteID = ""
     
     @IBOutlet weak var moedaLabel: UILabel!
@@ -27,6 +28,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func configuraCelulaMoeda(clienteID: String, saldo: Double, cripto: Moeda) { //index: Int, Dolar
         
         moedaLabel.text = cripto.nome
+        moedaAtual = cripto.nome
         saldoAtual = saldo
         paramClienteID = clienteID
         
@@ -48,33 +50,56 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func doneButtonTappedForMyNumericTextField() {
-        print("Done");
+        //print("Done");
+        
         quantidadeTextField.resignFirstResponder()
-        
         let quantidade = quantidadeTextField.text
-        //print("saldoAtual =====> \(saldoAtual)")
         
-        let saldoConvertido = (saldoAtual / valorCotacaoCompra)
-        //print("saldoConvertido =====> \(saldoConvertido) dólares")
+        //Calcula compra da Moeda Brita
+        if (moedaAtual == "Brita") {
+            
+            //Calcula Brita
+            let saldoFinalDesconvertido = calculaCompraBrita(Double(quantidade!)!, saldoAtual: saldoAtual, valorCotacaoCompra: valorCotacaoCompra)
+            
+            //Verifica se existe saldo suciciente para a compra
+            if (saldoFinalDesconvertido > 0) {
+                
+                //Atualiza saldo do Cliente
+                atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
+                
+                //Atualiza o saldo atual
+                saldoAtual = saldoFinalDesconvertido
+
+            } else {
+                print("Operação não pode ser executa por falta de saldo!")
+            }
+        }
         
-        //print("quantidadeTextField =====> \(quantidade ?? "")")
-        //print("valorCotacaoCompra =====> \(valorCotacaoCompra)")
-        
-        let calculoCompra = (Double(quantidade!)! * valorCotacaoCompra)
-        //print("calculo =====> \(calculoCompra) dólares")
-        
-        let calculoFinal = (saldoConvertido - calculoCompra)
-        //print("saldo final =====> \(calculoFinal) dólares")
-        
-        let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
-        //print("saldo final desconvertido =====> \(saldoFinalDesconvertido) reais")
-        
-        //print("paramClienteID =====> \(paramClienteID)")
-        
-        atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
-        
-        saldoAtual = saldoFinalDesconvertido
-        
+        //Calcula compra da Moeda Bitcoin BTC
+        if (moedaAtual == "BTC") {
+            
+            //Recupera a Cotação do Dólar
+            let cotacaoDolar = recuperaCotacoesDolar()
+            
+            //Converte o saldo de Reais para Dólares
+            let saldoConvertido = convertRealToDolar(cotacaoDolar.cotacaoCompra, valor: saldoAtual)
+            
+            //Calcula BTC
+            let saldoFinalDesconvertido = calculaCompraBtc(Double(quantidade!)!, saldoAtualDolar: saldoConvertido, valorCotacaoCompra: cotacaoDolar.cotacaoCompra)
+            
+            //Verifica se existe saldo suciciente para a compra
+            if (saldoFinalDesconvertido > 0) {
+                
+                //Atualiza saldo do Cliente
+                atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
+                
+                //Atualiza o saldo atual
+                saldoAtual = saldoFinalDesconvertido
+            } else {
+                print("Operação não pode ser executa por falta de saldo!")
+            }
+            
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method

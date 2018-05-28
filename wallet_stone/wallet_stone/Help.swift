@@ -19,6 +19,35 @@ func formatMoeda(_ codigo: String, valor: Double) -> String {
     
 }
 
-//func calculaCompraMoeda(_ saldo: Double, valorBruto: Double, conversao: String) {
-//    
-//}
+func calculaCompraBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCompra: Double) -> Double {
+    
+    let saldoConvertido = (saldoAtual / valorCotacaoCompra)
+    let calculoCompra = (quantidade * valorCotacaoCompra)
+    let calculoFinal = (saldoConvertido - calculoCompra)
+    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
+    
+    return saldoFinalDesconvertido
+}
+
+func calculaCompraBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoCompra: Double) -> Double {
+    let calculoCompra = (valorCotacaoCompra * (quantidade * saldoAtualDolar))
+    let calculoFinal = (saldoAtualDolar - calculoCompra)
+    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
+    
+    return saldoFinalDesconvertido
+}
+
+func getCotacaoDolar() -> Double {
+    return 3.5
+}
+
+func convertDolarToReal(_ cotacao: Double, valor: Double) -> Double {
+    let calculo = (cotacao * valor)
+    return calculo
+}
+
+func convertRealToDolar(_ cotacao:Double, valor: Double) -> Double {
+    let calculo = (valor / cotacao)
+    return calculo
+}
+

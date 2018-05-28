@@ -51,3 +51,12 @@ func listMoedas() -> [Moeda] {
     
     return moedas
 }
+
+//Recupera as cotações de compra e venda do dólar pela Moeda Brita
+func recuperaCotacoesDolar() -> Moeda {
+    let realm = try! Realm()
+    
+    let allMoedas = realm.objects(Moeda.self).filter("nome = %@", "Brita")
+    
+    return allMoedas[0]
+}
