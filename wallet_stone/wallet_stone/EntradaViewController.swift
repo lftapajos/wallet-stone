@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntradaViewController: UIViewController {
+class EntradaViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -21,42 +21,13 @@ class EntradaViewController: UIViewController {
         let cliente = listDetailCliente("jose@gmail.com")
         saldoLabel.text = "R$ \(cliente.saldo)"
         
+        //Carrega dados de cotação das Moedas
         dataSourceArray = listMoedas()
-//        print(dataSourceArray.count)
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
         self.tableView.reloadData()
-        
-//        let data = "2018/5/23"
-        
-//        //Carrega dados da cotação do Dólar
-//        let apiCall = APIManager.shared.fetchCotacaoDolarFromApi()
-//        apiCall.then {
-//            dolares -> Void in
-//            
-//            self.dataSourceArray = dolares
-//            self.tableView.reloadData()
-//            
-//        }.catch { error
-//            -> Void in
-//        }
-        
-//        //Carrega dados da cotação do Bitcoin pela data
-//        let apiCall2 = APIManager.shared.fetchCotacaoBtcFromApi(data)
-//        apiCall2.then {
-//            bitcoins -> Void in
-//            
-//            print(bitcoins[0].opening ?? 0)
-//            print(bitcoins[0].closing ?? 0)
-//            print(bitcoins[0].quantity ?? 0)
-//            print(bitcoins[0].avg_price ?? 0)
-//            print(bitcoins[0].date ?? "")
-//            
-//            }.catch { error
-//                -> Void in
-//        }
         
     }
 
@@ -71,6 +42,10 @@ class EntradaViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 extension EntradaViewController : UITableViewDelegate, UITableViewDataSource {
@@ -83,10 +58,9 @@ extension EntradaViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as! ListCriptoTableViewCell
         
         let row = indexPath.row
-        //let brita = dataSourceArray[row]
         let moeda = dataSourceArray[row]
         
-        cell.configuraCelulaMoeda(cripto: moeda) //dolar[row]
+        cell.configuraCelulaMoeda(cripto: moeda)
         
         return cell
     }

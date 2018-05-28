@@ -32,7 +32,6 @@
 		69791CE020B980050002DEAD /* AllRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CDF20B980050002DEAD /* AllRealmObjects.swift */; };
 		69791CE520B98D1B0002DEAD /* Cliente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE420B98D1B0002DEAD /* Cliente.swift */; };
 		69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */; };
-		69791CEA20BA611F0002DEAD /* Brita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE920BA611F0002DEAD /* Brita.swift */; };
 		69791CEC20BAE16C0002DEAD /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */; };
 		69791CEE20BAEC010002DEAD /* btn_comprar_moeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */; };
 		69791CF020BAED5F0002DEAD /* btn_vender_moeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CEF20BAED5F0002DEAD /* btn_vender_moeda.png */; };
@@ -70,7 +69,6 @@
 		69791CDF20B980050002DEAD /* AllRealmObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRealmObjects.swift; sourceTree = "<group>"; };
 		69791CE420B98D1B0002DEAD /* Cliente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cliente.swift; sourceTree = "<group>"; };
 		69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCriptoTableViewCell.swift; sourceTree = "<group>"; };
-		69791CE920BA611F0002DEAD /* Brita.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brita.swift; sourceTree = "<group>"; };
 		69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_comprar_moeda.png; sourceTree = "<group>"; };
 		69791CEF20BAED5F0002DEAD /* btn_vender_moeda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_vender_moeda.png; sourceTree = "<group>"; };
@@ -180,8 +178,8 @@
 				69791CA920B76A520002DEAD /* ViewController.swift */,
 				69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */,
 				69791CDA20B865450002DEAD /* LoginClienteViewController.swift */,
-				69791CDC20B901870002DEAD /* EntradaViewController.swift */,
 				69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */,
+				69791CDC20B901870002DEAD /* EntradaViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -199,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				69791CE420B98D1B0002DEAD /* Cliente.swift */,
-				69791CE920BA611F0002DEAD /* Brita.swift */,
 				69791CF520BAF6DF0002DEAD /* Moeda.swift */,
 			);
 			name = Models;
@@ -371,7 +368,6 @@
 				69791CBB20B76BA70002DEAD /* Constants.swift in Sources */,
 				69791CDB20B865450002DEAD /* LoginClienteViewController.swift in Sources */,
 				69791CE020B980050002DEAD /* AllRealmObjects.swift in Sources */,
-				69791CEA20BA611F0002DEAD /* Brita.swift in Sources */,
 				69791CEC20BAE16C0002DEAD /* PerfilViewController.swift in Sources */,
 				69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */,
 			);

@@ -14,7 +14,11 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
     @IBOutlet weak var cotacaoVendaLabel: UILabel!
     @IBOutlet weak var dataHoraCotacaoLabel: UILabel!
-    @IBOutlet weak var quantidadeTextField: UITextField!
+    @IBOutlet weak var quantidadeTextField: UITextField!{
+        didSet {
+            quantidadeTextField?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForMyNumericTextField)))
+        }
+    }
     
     func configuraCelulaMoeda(cripto: Moeda) { //index: Int, Dolar
         
@@ -29,6 +33,16 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         quantidadeTextField.delegate = self
         
+    }
+    
+    func doneButtonTappedForMyNumericTextField() {
+        print("Done");
+        quantidadeTextField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
     }
     
     override func awakeFromNib() {

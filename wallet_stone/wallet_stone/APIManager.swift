@@ -28,7 +28,6 @@ class APIManager {
     func fetchCotacaoDolarFromApi(_ data: String) -> Promise<[Dolar]> {
         
         let urlString = "\(API_COTACAO_DOLAR)dataCotacao='\(data)'&%24format=json"
-        //?id_profissional=\(id_profissional)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         return Promise<[Dolar]> {
@@ -39,7 +38,7 @@ class APIManager {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch (response.result) {
                 case .success(let responseString):
-                    print(responseString)
+                    //print(responseString)
                     let dolarResponse = ApiResponse(JSONString:"\(responseString)")!
                     fullfil(dolarResponse.dolares!)
                 case .failure(let error):
@@ -51,10 +50,9 @@ class APIManager {
     }
     
     //Carrega dados da Cotação do Bitcoin para o dia
-    func fetchCotacaoBtcFromApi() -> Promise<[Bitcoin]> { //_ data: String
+    func fetchCotacaoBtcFromApi() -> Promise<[Bitcoin]> {
         
-        let urlString = "\(API_COTACAO_BITCOIN)" //\(data)
-        //?id_profissional=\(id_profissional)
+        let urlString = "\(API_COTACAO_BITCOIN)"
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         return Promise<[Bitcoin]> {
@@ -65,7 +63,7 @@ class APIManager {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch (response.result) {
                 case .success(let responseString):
-                    print(responseString)
+                    //print(responseString)
                     
                     //Conversão necessária devido à formatação do JSON
                     //let json = "{\"data\": [\(responseString)]}"
@@ -73,7 +71,7 @@ class APIManager {
                     //let bitcoinResponse = ApiResponse(JSONString:"\(json)")!
                     
                     let bitcoinResponse = ApiResponse(JSONString:"\(responseString)")!
-                    fullfil(bitcoinResponse.bitcoins!)
+                    fullfil([bitcoinResponse.bitcoins!])
                 case .failure(let error):
                     print(error)
                     reject(error)

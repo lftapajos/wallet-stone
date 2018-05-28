@@ -19,46 +19,40 @@ class ViewController: UIViewController {
         //Remove Moedas
         deleteMoeda()
         
-        //Adiciona Moedas
-        //addMoeda("Brita", cotacaoCompra: <#T##Double#>, cotacaoVenda: <#T##Double#>, dataHoraCotacao: <#T##String#>)
+        let resultDate = "05-23-2018"
+//        let date = Date()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MM-dd-yyyy"
+//        let resultDate = formatter.string(from: date)
+//        print(resultDate)
         
-        //addMoeda("Brita", quantidade: 0)
-        //addMoeda("BTC", quantidade: 0)
-        
-        let data = "05-23-2018"
-        
-        let apiCall = APIManager.shared.fetchCotacaoDolarFromApi(data)
+        //BRITA
+        let apiCall = APIManager.shared.fetchCotacaoDolarFromApi(resultDate)
         apiCall.then {
             dolares -> Void in
             
-            //Adiciona nova Cotação de Brita
-            //addCotacaoBrita("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
-            
             //Adiciona cotação de Moeda
             addMoeda("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
-            
-//            let apiCall2 = APIManager.shared.fetchCotacaoBtcFromApi()
-//            apiCall2.then {
-//                bitcoins -> Void in
-//                
-//                //Adiciona nova Cotação de Brita
-//                //addCotacaoBrita("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
-//                
-//                //let cotacaoCompra = Double((bitcoins[0].buy! as NSString).doubleValue)
-//                //let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
-//                
-//                //Adiciona cotação de Moeda
-//                //addMoeda("BTC", cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
-//                
-//                }.catch { error
-//                    -> Void in
-//                }
             
             }.catch { error
                 -> Void in
         }
         
-        
+        //BTC
+        let apiCall2 = APIManager.shared.fetchCotacaoBtcFromApi()
+        apiCall2.then {
+            bitcoins -> Void in
+
+            let cotacaoCompra = Double((bitcoins[0].buy! as NSString).doubleValue)
+            let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
+            
+            //Adiciona cotação de Moeda
+            addMoeda("BTC", cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
+            
+            }.catch { error
+                -> Void in
+        }
+
     }
     
     @IBAction func registroCliente(_ sender: Any) {

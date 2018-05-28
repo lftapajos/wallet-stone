@@ -12,7 +12,7 @@ import ObjectMapper
 class ApiResponse : Mappable {
     
     var dolares : [Dolar]?
-    var bitcoins : [Bitcoin]?
+    var bitcoins : Bitcoin?
     
     required init?(map: Map) {
         
@@ -20,8 +20,7 @@ class ApiResponse : Mappable {
     
     func mapping(map: Map) {
         dolares <- map["value"] //"dolar"
-        //bitcoins <- map["data"] //"btc"
-        //bitcoins <- map["ticker"]
+        bitcoins <- map["ticker"]
     }
 }
 
@@ -66,7 +65,7 @@ class Dolar: Mappable {
 
 class Bitcoin: Mappable {
     
-    var nome : String?
+    var nome : String = ""
     var opening: String?
     var high: String?
     var low: String?
@@ -82,13 +81,13 @@ class Bitcoin: Mappable {
     
     func mapping(map: Map) {
         
-        opening <- map["ticker.opening"]
-        high <- map["ticker.high"]
-        low <- map["ticker.low"]
-        vol <- map["ticker.vol"]
-        last <- map["ticker.last"]
-        buy <- map["ticker.buy"]
-        sell <- map["ticker.sell"]
-        date <- map["ticker.date"]
+        opening <- map["opening"]
+        high <- map["high"]
+        low <- map["low"]
+        vol <- map["vol"]
+        last <- map["last"]
+        buy <- map["buy"]
+        sell <- map["sell"]
+        date <- map["date"]
     }
 }
