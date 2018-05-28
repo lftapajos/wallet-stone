@@ -247,22 +247,13 @@
                                     <constraint firstAttribute="height" constant="164" id="MC4-ab-G3M"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="b0M-qk-ATz" customClass="ListMoedasTableViewCell" customModule="wallet_stone" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="b0M-qk-ATz" customClass="ListMoedasTableViewCell" customModule="wallet_stone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b0M-qk-ATz" id="Az1-6T-M38">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SE-2f-8tn">
-                                                    <rect key="frame" x="8" y="49" width="327" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="XJ5-MJ-bYI"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Moeda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-Da-vCc">
                                                     <rect key="frame" x="8" y="23" width="327" height="24"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
@@ -271,17 +262,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0SE-2f-8tn" secondAttribute="trailing" id="Zuh-sT-Dgq"/>
-                                                <constraint firstItem="0SE-2f-8tn" firstAttribute="top" secondItem="kuN-Da-vCc" secondAttribute="bottom" constant="2" id="bfE-KC-Zs4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kuN-Da-vCc" secondAttribute="trailing" id="eeh-wo-Ean"/>
                                                 <constraint firstAttribute="topMargin" secondItem="kuN-Da-vCc" secondAttribute="top" constant="-15" id="kWo-LS-Z4c"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="kuN-Da-vCc" secondAttribute="leading" id="krr-mA-m9N"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="0SE-2f-8tn" secondAttribute="leading" id="rgO-Dm-W3p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="moedaLabel" destination="kuN-Da-vCc" id="dDM-WX-FtV"/>
-                                            <outlet property="quantidadeLabel" destination="0SE-2f-8tn" id="yiI-AH-NKh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -457,6 +444,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="j3O-ak-cTw" id="V0n-Ef-FDQ"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2q-na-KPc">
                                                     <rect key="frame" x="232" y="84" width="101" height="40"/>
@@ -490,6 +480,7 @@
                                             <outlet property="cotacaoVendaLabel" destination="YIX-zb-goe" id="mSc-Ta-SEz"/>
                                             <outlet property="dataHoraCotacaoLabel" destination="TWq-gO-hEj" id="IsO-Nd-9ha"/>
                                             <outlet property="moedaLabel" destination="ueq-yA-jH6" id="kEw-UW-vPd"/>
+                                            <outlet property="quantidadeTextField" destination="BTS-b3-B1Z" id="XBb-jT-03l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

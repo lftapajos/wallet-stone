@@ -25,9 +25,9 @@ class APIManager {
     }
     
     //Carrega dados da Cotação diária do Dólar
-    func fetchCotacaoDolarFromApi() -> Promise<[Dolar]> {
+    func fetchCotacaoDolarFromApi(_ data: String) -> Promise<[Dolar]> {
         
-        let urlString = "\(API_COTACAO_DOLAR)"
+        let urlString = "\(API_COTACAO_DOLAR)dataCotacao='\(data)'&%24format=json"
         //?id_profissional=\(id_profissional)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -51,9 +51,9 @@ class APIManager {
     }
     
     //Carrega dados da Cotação do Bitcoin para o dia
-    func fetchCotacaoBtcFromApi(_ data: String) -> Promise<[Bitcoin]> {
+    func fetchCotacaoBtcFromApi() -> Promise<[Bitcoin]> { //_ data: String
         
-        let urlString = "\(API_COTACAO_BITCOIN)\(data)"
+        let urlString = "\(API_COTACAO_BITCOIN)" //\(data)
         //?id_profissional=\(id_profissional)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -65,13 +65,14 @@ class APIManager {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch (response.result) {
                 case .success(let responseString):
-                    //print(responseString)
+                    print(responseString)
                     
                     //Conversão necessária devido à formatação do JSON
-                    let json = "{\"data\": [\(responseString)]}"
+                    //let json = "{\"data\": [\(responseString)]}"
                     //print(json)
+                    //let bitcoinResponse = ApiResponse(JSONString:"\(json)")!
                     
-                    let bitcoinResponse = ApiResponse(JSONString:"\(json)")!
+                    let bitcoinResponse = ApiResponse(JSONString:"\(responseString)")!
                     fullfil(bitcoinResponse.bitcoins!)
                 case .failure(let error):
                     print(error)

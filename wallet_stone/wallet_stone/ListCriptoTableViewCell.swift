@@ -8,14 +8,15 @@
 
 import UIKit
 
-class ListCriptoTableViewCell: UITableViewCell {
+class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
     @IBOutlet weak var cotacaoVendaLabel: UILabel!
     @IBOutlet weak var dataHoraCotacaoLabel: UILabel!
+    @IBOutlet weak var quantidadeTextField: UITextField!
     
-    func configuraCelulaBrita(cripto: Brita) { //index: Int, Dolar
+    func configuraCelulaMoeda(cripto: Moeda) { //index: Int, Dolar
         
         moedaLabel.text = cripto.nome
         cotacaoCompraLabel.text = "Cotação de Compra: \(String(describing: cripto.cotacaoCompra))"
@@ -25,6 +26,8 @@ class ListCriptoTableViewCell: UITableViewCell {
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor
         self.layer.cornerRadius = 8
+        
+        quantidadeTextField.delegate = self
         
     }
     

@@ -20,7 +20,8 @@ class ApiResponse : Mappable {
     
     func mapping(map: Map) {
         dolares <- map["value"] //"dolar"
-        bitcoins <- map["data"] //"btc"
+        //bitcoins <- map["data"] //"btc"
+        //bitcoins <- map["ticker"]
     }
 }
 
@@ -52,28 +53,28 @@ class Dolar: Mappable {
 }
 
 //{
-//    "date": "2018-05-23",
-//    "opening": 29703.0,
-//    "closing": 28500.00066,
-//    "lowest": 27501.0,
-//    "highest": 30200.0,
-//    "volume": 4819955.64147635,
-//    "quantity": 168.55281569,
-//    "amount": 2800,
-//    "avg_price": 28596.11464659
+//    "ticker": {
+//        "high": "27990.00000000",
+//        "low": "27260.00000000",
+//        "vol": "25.59424333",
+//        "last": "27555.19002000",
+//        "buy": "27555.19002000",
+//        "sell": "27614.12987000",
+//        "date": 1527466647
+//    }
 //}
 
 class Bitcoin: Mappable {
     
-    var date: String?
-    var opening: Double?
-    var closing: Double?
-    var lowest: Double?
-    var highest: Double?
-    var volume: Double?
-    var quantity: Double?
-    var amount: Double?
-    var avg_price: Double?
+    var nome : String?
+    var opening: String?
+    var high: String?
+    var low: String?
+    var vol: String?
+    var last: String?
+    var buy: String?
+    var sell: String?
+    var date: Int?
     
     required init?(map: Map) {
         
@@ -81,14 +82,13 @@ class Bitcoin: Mappable {
     
     func mapping(map: Map) {
         
-        date <- map["date"]
-        opening <- map["opening"]
-        closing <- map["closing"]
-        lowest <- map["lowest"]
-        highest <- map["highest"]
-        volume <- map["volume"]
-        quantity <- map["quantity"]
-        amount <- map["amount"]
-        avg_price <- map["avg_price"]
+        opening <- map["ticker.opening"]
+        high <- map["ticker.high"]
+        low <- map["ticker.low"]
+        vol <- map["ticker.vol"]
+        last <- map["ticker.last"]
+        buy <- map["ticker.buy"]
+        sell <- map["ticker.sell"]
+        date <- map["ticker.date"]
     }
 }

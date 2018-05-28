@@ -9,12 +9,14 @@
 import Foundation
 import RealmSwift
 
-func addMoeda(_ nome: String, quantidade: Int) {
+func addMoeda(_ nome: String, cotacaoCompra: Double, cotacaoVenda: Double, dataHoraCotacao: String) {
     
     let moeda = Moeda()
     
     moeda.nome = nome
-    moeda.quantidade = quantidade
+    moeda.cotacaoCompra = cotacaoCompra
+    moeda.cotacaoVenda = cotacaoVenda
+    moeda.dataHoraCotacao = dataHoraCotacao
     
     let realm = try! Realm()
     

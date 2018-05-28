@@ -8,7 +8,8 @@
 
 import Foundation
 
-let API_COTACAO_DOLAR = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?%40dataCotacao='05-23-2018'&%24format=json"
+let API_COTACAO_DOLAR = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?%40"
 
-let API_COTACAO_BITCOIN = "https://www.mercadobitcoin.net/api/BTC/day-summary/"
-//2018/5/23/
+let API_COTACAO_BITCOIN = "https://www.mercadobitcoin.net/api/BTC/ticker/"
+
+//https://www.mercadobitcoin.net/api/BTC/day-summary/2018/5/23/

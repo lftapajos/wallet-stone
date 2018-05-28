@@ -13,7 +13,7 @@ class EntradaViewController: UIViewController {
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSourceArray = [Brita]()
+    var dataSourceArray = [Moeda]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class EntradaViewController: UIViewController {
         let cliente = listDetailCliente("jose@gmail.com")
         saldoLabel.text = "R$ \(cliente.saldo)"
         
-        dataSourceArray = listCotacaoBrita()
+        dataSourceArray = listMoedas()
 //        print(dataSourceArray.count)
         
         self.tableView.delegate = self
@@ -83,9 +83,10 @@ extension EntradaViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as! ListCriptoTableViewCell
         
         let row = indexPath.row
-        let brita = dataSourceArray[row]
+        //let brita = dataSourceArray[row]
+        let moeda = dataSourceArray[row]
         
-        cell.configuraCelulaBrita(cripto: brita) //dolar[row]
+        cell.configuraCelulaMoeda(cripto: moeda) //dolar[row]
         
         return cell
     }

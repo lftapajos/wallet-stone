@@ -16,7 +16,7 @@ class ListMoedasTableViewCell: UITableViewCell {
     func configuraCelulaMoeda(moeda: Moeda) {
         
         moedaLabel.text = moeda.nome
-        quantidadeLabel.text = "\(String(describing: moeda.quantidade))"
+        //quantidadeLabel.text = "\(String(describing: moeda.quantidade))"
         
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor

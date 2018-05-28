@@ -20,7 +20,10 @@ class Cliente : Object {
 class Moeda : Object {
     
     dynamic var nome = ""
-    dynamic var quantidade = 0
+    //dynamic var quantidade = 0
+    dynamic var cotacaoCompra = 0.0
+    dynamic var cotacaoVenda = 0.0
+    dynamic var dataHoraCotacao = ""
 }
 
 class Brita : Object {

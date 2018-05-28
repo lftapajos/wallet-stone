@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "wallet_stone/APIManager.swift"
+            timestampString = "549161390.0579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "fetchCotacaoBtcFromApi()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "wallet_stone.APIManager.(fetchCotacaoBtcFromApi () -&gt; PromiseKit.Promise&lt;Swift.Array&lt;wallet_stone.Bitcoin&gt;&gt;).(closure #1).(closure #1)"
+                  moduleName = "wallet_stone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/APIManager.swift"
+                  timestampString = "549181358.907655"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "1224">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "wallet_stone.APIManager.(fetchCotacaoBtcFromApi () -&gt; PromiseKit.Promise&lt;Swift.Array&lt;wallet_stone.Bitcoin&gt;&gt;).(closure #1).(closure #1)"
+                  moduleName = "wallet_stone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/APIManager.swift"
+                  timestampString = "549181358.911922"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "1412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

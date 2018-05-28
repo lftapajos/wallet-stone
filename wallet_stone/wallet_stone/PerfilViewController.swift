@@ -12,8 +12,6 @@ class PerfilViewController: UIViewController {
 
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var nomeLabel: UILabel!
-    @IBOutlet weak var quantidadeBritaLabel: UILabel!
-    @IBOutlet weak var quantidadeBtcLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var dataSourceArray = [Moeda]()
