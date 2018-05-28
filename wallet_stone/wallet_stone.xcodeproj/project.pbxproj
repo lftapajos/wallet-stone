@@ -24,7 +24,6 @@
 		69791CCD20B83A940002DEAD /* button_finalizar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CC620B83A940002DEAD /* button_finalizar.png */; };
 		69791CCE20B83A940002DEAD /* button_lixeira.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CC720B83A940002DEAD /* button_lixeira.png */; };
 		69791CCF20B83A940002DEAD /* button_voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CC820B83A940002DEAD /* button_voltar.png */; };
-		69791CD220B83B2A0002DEAD /* Clientes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69791CD020B83B2A0002DEAD /* Clientes.xcdatamodeld */; };
 		69791CD420B83E330002DEAD /* entrar_button_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CD320B83E330002DEAD /* entrar_button_c.png */; };
 		69791CD620B83E430002DEAD /* registrar_button_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 69791CD520B83E430002DEAD /* registrar_button_c.png */; };
 		69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */; };
@@ -62,7 +61,6 @@
 		69791CC620B83A940002DEAD /* button_finalizar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_finalizar.png; sourceTree = "<group>"; };
 		69791CC720B83A940002DEAD /* button_lixeira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_lixeira.png; sourceTree = "<group>"; };
 		69791CC820B83A940002DEAD /* button_voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voltar.png; sourceTree = "<group>"; };
-		69791CD120B83B2A0002DEAD /* Clientes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Clientes.xcdatamodel; sourceTree = "<group>"; };
 		69791CD320B83E330002DEAD /* entrar_button_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrar_button_c.png; sourceTree = "<group>"; };
 		69791CD520B83E430002DEAD /* registrar_button_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registrar_button_c.png; sourceTree = "<group>"; };
 		69791CD820B8407F0002DEAD /* RegistrarClienteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrarClienteViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 		69791C9B20B76A520002DEAD = {
 			isa = PBXGroup;
 			children = (
-				69791CD020B83B2A0002DEAD /* Clientes.xcdatamodeld */,
 				69791CA620B76A520002DEAD /* wallet_stone */,
 				69791CA520B76A520002DEAD /* Products */,
 				5741A2267B4EEE7E2821E0F8 /* Pods */,
@@ -360,7 +357,6 @@
 			files = (
 				69791CF820BAF84E0002DEAD /* ListMoedasTableViewCell.swift in Sources */,
 				69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */,
-				69791CD220B83B2A0002DEAD /* Clientes.xcdatamodeld in Sources */,
 				69791CBD20B7AA500002DEAD /* APIManager.swift in Sources */,
 				69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */,
 				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
@@ -544,19 +540,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		69791CD020B83B2A0002DEAD /* Clientes.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				69791CD120B83B2A0002DEAD /* Clientes.xcdatamodel */,
-			);
-			currentVersion = 69791CD120B83B2A0002DEAD /* Clientes.xcdatamodel */;
-			path = Clientes.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 69791C9C20B76A520002DEAD /* Project object */;
 }
