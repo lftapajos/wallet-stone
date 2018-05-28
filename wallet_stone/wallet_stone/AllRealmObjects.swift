@@ -12,6 +12,7 @@ import RealmSwift
 //Realm de Cliente
 class Cliente : Object {
     
+    dynamic var clienteID = ""
     dynamic var nome = ""
     dynamic var email = ""
     dynamic var senha = ""
@@ -21,6 +22,7 @@ class Cliente : Object {
 //Realm de Moeda
 class Moeda : Object {
     
+    dynamic var moedaID = ""
     dynamic var nome = ""
     dynamic var cotacaoCompra = 0.0
     dynamic var cotacaoVenda = 0.0

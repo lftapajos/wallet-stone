@@ -14,6 +14,7 @@ func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
     
     let user = Cliente()
     
+    user.clienteID = UUID().uuidString
     user.nome = nome
     user.email = email
     user.senha = senha
@@ -26,6 +27,18 @@ func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
         print("Usuário \(user.nome) adicionado no Realm.")
     }
     
+}
+
+//Remove todos os clientes
+func deleteCliente() {
+    
+    let realm = try! Realm()
+    
+    let allClientes = realm.objects(Cliente.self)
+    
+    try! realm.write {
+        realm.delete(allClientes)
+    }
 }
 
 //Lista todos os nomes do clientes registrados
@@ -54,6 +67,7 @@ func listDetailCliente(_ email: String) -> Cliente {
     
     for user in filteredCliente {
         
+        cliente.clienteID = user.clienteID
         cliente.nome = user.nome
         cliente.email = user.email
         cliente.senha = user.senha
@@ -76,6 +90,7 @@ func verifyLoginCliente(_ email: String, senha: String) -> Bool {
     
     if (filteredCliente.count > 0) {
         print("Nome: \(String(describing: filteredCliente.first!.nome))")
+        print("clienteID: \(String(describing: filteredCliente.first!.clienteID))")
         return true
     } else {
         print("Usuário não encontrado!")

@@ -19,7 +19,9 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         let cliente = listDetailCliente("jose@gmail.com")
-        saldoLabel.text = "R$ \(cliente.saldo)"
+        
+        let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
+        saldoLabel.text = "\(saldoFomatado)"
         
         //Carrega dados de cotação das Moedas salvas no Realm
         dataSourceArray = listMoedas()

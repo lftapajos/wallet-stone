@@ -23,8 +23,12 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func configuraCelulaMoeda(cripto: Moeda) { //index: Int, Dolar
         
         moedaLabel.text = cripto.nome
-        cotacaoCompraLabel.text = "Cotação de Compra: \(String(describing: cripto.cotacaoCompra))"
-        cotacaoVendaLabel.text = "Cotação de Venda: \(String(describing: cripto.cotacaoVenda))"
+        
+        let cotacaoCompra = formatMoeda("en_US", valor: cripto.cotacaoCompra)
+        let cotacaoVenda = formatMoeda("en_US", valor: cripto.cotacaoVenda)
+        
+        cotacaoCompraLabel.text = "Cotação de Compra: U\(String(describing: cotacaoCompra))"
+        cotacaoVendaLabel.text = "Cotação de Venda: U\(String(describing: cotacaoVenda))"
         dataHoraCotacaoLabel.text = "Data: \(cripto.dataHoraCotacao)"
         
         self.layer.borderWidth = 0.5

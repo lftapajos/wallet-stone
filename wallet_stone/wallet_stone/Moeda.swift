@@ -14,6 +14,7 @@ func addMoeda(_ nome: String, cotacaoCompra: Double, cotacaoVenda: Double, dataH
     
     let moeda = Moeda()
     
+    moeda.moedaID = UUID().uuidString
     moeda.nome = nome
     moeda.cotacaoCompra = cotacaoCompra
     moeda.cotacaoVenda = cotacaoVenda

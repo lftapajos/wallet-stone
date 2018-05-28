@@ -13,8 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        print("App Path: \(dirPaths)")
+        //deleteCliente()
+        
+        //let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        //print("App Path: \(dirPaths)")
         
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
         deleteMoeda()

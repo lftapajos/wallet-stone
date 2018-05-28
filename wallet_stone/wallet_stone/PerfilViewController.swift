@@ -20,7 +20,10 @@ class PerfilViewController: UIViewController {
         super.viewDidLoad()
 
         let cliente = listDetailCliente("jose@gmail.com")
-        saldoLabel.text = "R$ \(cliente.saldo),00"
+        
+        let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
+        saldoLabel.text = "\(saldoFomatado)"
+        
         nomeLabel.text = cliente.nome
         
         //Carrega Moedas salvas no Realm
@@ -62,6 +65,8 @@ extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
         
         let row = indexPath.row
         let moeda = dataSourceArray[row]
+        
+        //print("moeda =====> \(moeda.moedaID)")
         
         cell.configuraCelulaMoeda(moeda: moeda)
         
