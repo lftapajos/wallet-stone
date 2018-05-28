@@ -28,9 +28,10 @@ class LoginClienteViewController: UIViewController {
     
     @IBAction func loginCliente(_ sender: Any) {
         
-        //Pesquisa se o Cliente existe no Realm
+        //Verifica se o Cliente existe no Realm
         let retorno = verifyLoginCliente(emailTextField.text!, senha: senhaTextField.text!)
         
+        //Se existir, loga o cliente e chama a View de Peerfil
         if (retorno) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "PerfilViewController") as! PerfilViewController

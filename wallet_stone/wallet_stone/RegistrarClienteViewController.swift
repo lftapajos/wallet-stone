@@ -30,7 +30,7 @@ class RegistrarClienteViewController: UIViewController {
     
     @IBAction func registrarCliente(_ sender: Any) {
         
-        //Salva Cliente no Realm
+        //Salva novo Cliente no Realm
         addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)
         
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)

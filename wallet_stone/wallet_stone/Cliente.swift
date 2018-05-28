@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+//Adiciona um novo cliente ao Realm
 func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
     
     let user = Cliente()
@@ -27,6 +28,7 @@ func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
     
 }
 
+//Lista todos os nomes do clientes registrados
 func listAllClientes() {
     
     let realm = try! Realm()
@@ -39,6 +41,7 @@ func listAllClientes() {
     
 }
 
+//Lista detalhes do usuário logado
 func listDetailCliente(_ email: String) -> Cliente {
     
     let realm = try! Realm()
@@ -61,6 +64,7 @@ func listDetailCliente(_ email: String) -> Cliente {
     return cliente
 }
 
+//Verifica se o usuário existe
 func verifyLoginCliente(_ email: String, senha: String) -> Bool {
     
     let realm = try! Realm()

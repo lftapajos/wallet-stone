@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+//Adiciona uma nova moedas ao Realm
 func addMoeda(_ nome: String, cotacaoCompra: Double, cotacaoVenda: Double, dataHoraCotacao: String) {
     
     let moeda = Moeda()
@@ -26,6 +27,7 @@ func addMoeda(_ nome: String, cotacaoCompra: Double, cotacaoVenda: Double, dataH
     }
 }
 
+//Remove todas as moedas
 func deleteMoeda() {
     
     let realm = try! Realm()
@@ -37,6 +39,7 @@ func deleteMoeda() {
     }
 }
 
+//Lista todas as moedas registradas
 func listMoedas() -> [Moeda] {
     
     let realm = try! Realm()

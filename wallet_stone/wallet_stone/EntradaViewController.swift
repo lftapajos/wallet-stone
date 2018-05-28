@@ -21,7 +21,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         let cliente = listDetailCliente("jose@gmail.com")
         saldoLabel.text = "R$ \(cliente.saldo)"
         
-        //Carrega dados de cotação das Moedas
+        //Carrega dados de cotação das Moedas salvas no Realm
         dataSourceArray = listMoedas()
 
         self.tableView.delegate = self

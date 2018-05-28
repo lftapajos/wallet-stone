@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+//Realm de Cliente
 class Cliente : Object {
     
     dynamic var nome = ""
@@ -17,6 +18,7 @@ class Cliente : Object {
     dynamic var saldo = 0
 }
 
+//Realm de Moeda
 class Moeda : Object {
     
     dynamic var nome = ""

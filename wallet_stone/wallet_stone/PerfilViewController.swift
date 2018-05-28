@@ -23,6 +23,7 @@ class PerfilViewController: UIViewController {
         saldoLabel.text = "R$ \(cliente.saldo),00"
         nomeLabel.text = cliente.nome
         
+        //Carrega Moedas salvas no Realm
         dataSourceArray = listMoedas()
         
         self.tableView.delegate = self
@@ -37,6 +38,7 @@ class PerfilViewController: UIViewController {
         }
     }
     
+    //Chama a View que lista dados das moedas para salvar compras do cliente
     @IBAction func comprarMoedas(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
