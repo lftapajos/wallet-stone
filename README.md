@@ -19,6 +19,8 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 ## Lançamentos Principais
 
+## Como usar
+
 ## Registo de Clientes
 
 Campos:
@@ -35,7 +37,23 @@ Campos:
 - Email: jose@gmail.com
 - Senha: j0$3
 
-<a href="https://imgflip.com/gif/2b8gqx"><img src="https://i.imgflip.com/2b8gqx.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2b8gzr"><img src="https://i.imgflip.com/2b8gzr.gif" title="made at imgflip.com"/></a>
+
+## Tela de Compra
+
+<a href="https://imgflip.com/gif/2b8h58"><img src="https://i.imgflip.com/2b8h58.gif" title="made at imgflip.com"/></a>
+
+## Comprando Brita
+
+<a href="https://imgflip.com/gif/2b8hb7"><img src="https://i.imgflip.com/2b8hb7.gif" title="made at imgflip.com"/></a>
+
+## Comprando BTC
+
+<a href="https://imgflip.com/gif/2b8hjc"><img src="https://i.imgflip.com/2b8hjc.gif" title="made at imgflip.com"/></a>
+
+## Transações de Compra
+
+<a href="https://imgflip.com/gif/2b8hp7"><img src="https://i.imgflip.com/2b8hp7.gif" title="made at imgflip.com"/></a>
 
 
 ## Status do Código
