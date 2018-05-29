@@ -23,7 +23,10 @@ class PerfilViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        let cliente = listDetailCliente("jose@gmail.com")
+        
+        let email = UserDefaults.standard.string(forKey: "emailCliente")
+        
+        let cliente = listDetailCliente(email!)
         
         clienteID = cliente.clienteID
         
@@ -45,6 +48,10 @@ class PerfilViewController: UIViewController {
     }
     
     @IBAction func retornar(_ sender: Any) {
+        
+        //Remove login do cliente
+        UserDefaults.standard.removeObject(forKey: "emailCliente")
+        
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
         }

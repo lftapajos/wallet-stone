@@ -10,9 +10,10 @@ import Foundation
 import RealmSwift
 
 //Adiciona um novo cliente ao Realm
-func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
+func addCliente(_ nome: String, email: String, senha: String, saldo: Int) -> Bool {
     
     let user = Cliente()
+    var retorno = false
     
     user.clienteID = UUID().uuidString
     user.nome = nome
@@ -22,11 +23,16 @@ func addCliente(_ nome: String, email: String, senha: String, saldo: Int) {
     
     let realm = try! Realm()
     
-    try! realm.write {
-        realm.add(user)
-        print("Usuário \(user.nome) adicionado no Realm.")
+    if (verifyEmailExistente(email)) {
+        retorno = false
+    } else {
+        try! realm.write {
+            realm.add(user)
+            print("Usuário \(user.nome) adicionado no Realm.")
+            retorno = true
+        }
     }
-    
+    return retorno
 }
 
 //Remove todos os clientes
@@ -95,7 +101,23 @@ func verifyLoginCliente(_ email: String, senha: String) -> Bool {
         print("Usuário não encontrado!")
         return false
     }
+}
+
+//Verifica se o usuário existe
+func verifyEmailExistente(_ email: String) -> Bool {
     
+    let realm = try! Realm()
+    
+    let cliente = realm.objects(Cliente.self)
+    
+    let predicate = NSPredicate(format: "email = %@", email)
+    let filteredCliente = cliente.filter(predicate)
+    
+    if (filteredCliente.count > 0) {
+        return true
+    } else {
+        return false
+    }
 }
 
 //Atualiza saldo do cliente
@@ -103,10 +125,7 @@ func atualizaSaldoCliente(_ clienteID: String, moedaNome: String, valor: Double,
     //print("clienteID: \(clienteID)")
     //print("novoSaldo: \(novoSaldo)")
     
-    
     let realm = try! Realm()
-    
-    
     
     let detailCliente = realm.objects(Cliente.self).filter("clienteID = %@", clienteID)
     

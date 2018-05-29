@@ -24,7 +24,11 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        let cliente = listDetailCliente("jose@gmail.com")
+        
+        let email = UserDefaults.standard.string(forKey: "emailCliente")
+        
+        let cliente = listDetailCliente(email!)
+        
         saldoAtual = Double(cliente.saldo)
         
         let saldoFomatado = formatMoeda("pt_BR", valor:  saldoAtual)
@@ -78,17 +82,4 @@ extension EntradaViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-//        
-//        let contatoAtual = dataSourceArray[indexPath.row]
-//        controller.contatoSelecionado = contatoAtual
-//        
-//        self.navigationController?.pushViewController(controller, animated: true)
-//        
-//    }
-    
 }

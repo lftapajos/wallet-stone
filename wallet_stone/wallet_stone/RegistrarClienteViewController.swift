@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrarClienteViewController: UIViewController {
+class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nomeTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,6 +20,10 @@ class RegistrarClienteViewController: UIViewController {
         nomeTextField.text = "Jose"
         emailTextField.text = "jose@gmail.com"
         senhaTextField.text = "j0$3"
+        
+        nomeTextField.delegate = self
+        emailTextField.delegate = self
+        senhaTextField.delegate = self
     }
 
     @IBAction func retornar(_ sender: Any) {
@@ -31,11 +35,42 @@ class RegistrarClienteViewController: UIViewController {
     @IBAction func registrarCliente(_ sender: Any) {
         
         //Salva novo Cliente no Realm
-        addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)
+        let confirma = addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)
         
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
-//        self.navigationController?.pushViewController(controller, animated: true)
+        //Confirma registro
+        if (confirma) {
+            let alertController = UIAlertController(title: "ATENÇÃO", message: "Cliente registrado com sucesso!", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        
+        } else {
+            //Cliente já existente
+            
+            let alertController = UIAlertController(title: "ATENÇÃO", message: "Cliente já existente!", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                
+                //self.navigationController?.popViewController(animated: true)
+            }
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
     }
     
     override func didReceiveMemoryWarning() {

@@ -50,7 +50,6 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func doneButtonTappedForMyNumericTextField() {
-        //print("Done");
         
         quantidadeTextField.resignFirstResponder()
         let quantidade = quantidadeTextField.text
@@ -75,7 +74,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
-
+                
             } else {
                 print("Operação não pode ser executa por falta de saldo!")
             }
@@ -112,6 +111,8 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             }
             
         }
+        
+        quantidadeTextField.text = ""
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method

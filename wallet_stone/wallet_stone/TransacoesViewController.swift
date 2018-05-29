@@ -20,7 +20,9 @@ class TransacoesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let cliente = listDetailCliente("jose@gmail.com")
+        let email = UserDefaults.standard.string(forKey: "emailCliente")
+        
+        let cliente = listDetailCliente(email!)
         
         let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"

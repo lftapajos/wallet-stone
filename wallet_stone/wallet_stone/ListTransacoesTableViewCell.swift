@@ -21,6 +21,7 @@ class ListTransacoesTableViewCell: UITableViewCell {
         
         let moeda = recuperaMoedaPorNome(transancao.moedaNome)
         
+        //Formato moedas por tipo
         var valorFomatado = ""
         if (transancao.moedaNome == "Brita") {
             valorFomatado = formatMoeda("pt_BR", valor: transancao.valorTransacao)
@@ -28,11 +29,13 @@ class ListTransacoesTableViewCell: UITableViewCell {
             valorFomatado = "U\(formatMoeda("en_US", valor: transancao.valorTransacao))"
         }
         
+        //Carrega valores
         moedaLabel.text = moeda.nome
         quantidadeLabel.text = "Quantidade: \(transancao.quantidade)"
         valorTransacaoLabel.text = "Valor: \(valorFomatado)"
         dataHoraTransacaoLabel.text = transancao.dataHoraTransacao
         
+        //Mostra imagem de operação compra ou venda
         if (transancao.tipo == "COMPRA") {
             tipoimageView.image = UIImage(named: "btn_transacao_compra")
         } else if (transancao.tipo == "VENDA") {

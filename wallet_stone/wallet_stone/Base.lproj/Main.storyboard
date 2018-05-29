@@ -241,10 +241,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="noR-3F-VPi">
-                                <rect key="frame" x="16" y="168" width="343" height="164"/>
+                                <rect key="frame" x="16" y="168" width="343" height="224"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="164" id="MC4-ab-G3M"/>
+                                    <constraint firstAttribute="height" constant="224" id="MC4-ab-G3M"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="b0M-qk-ATz" customClass="ListMoedasTableViewCell" customModule="wallet_stone" customModuleProvider="target">
@@ -300,7 +300,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-Fk-T6O">
-                                <rect key="frame" x="16" y="369" width="152" height="79"/>
+                                <rect key="frame" x="16" y="429" width="152" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="092-fP-cmx"/>
                                     <constraint firstAttribute="height" constant="79" id="zds-nH-BmL"/>
@@ -311,7 +311,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XeB-nq-Ftz">
-                                <rect key="frame" x="207" y="369" width="152" height="79"/>
+                                <rect key="frame" x="207" y="429" width="152" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="3fU-HF-9Wx"/>
                                     <constraint firstAttribute="width" constant="152" id="bbx-j0-SI3"/>
@@ -319,7 +319,7 @@
                                 <state key="normal" backgroundImage="btn_vender_moeda.png"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compre e venda moedas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-RF-YzO">
-                                <rect key="frame" x="16" y="340" width="343" height="21"/>
+                                <rect key="frame" x="16" y="400" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="OnC-0C-Fs2"/>
                                 </constraints>
