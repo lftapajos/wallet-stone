@@ -28,3 +28,14 @@ class Moeda : Object {
     dynamic var cotacaoVenda = 0.0
     dynamic var dataHoraCotacao = ""
 }
+
+//Realm de Relatório
+class Transacoes : Object {
+    
+    dynamic var transacaoID = ""
+    dynamic var clienteID = ""
+    dynamic var moedaID = ""
+    dynamic var tipo = ""
+    dynamic var valorTransacao = 0.0
+    dynamic var dataHoraTransacao = ""
+}

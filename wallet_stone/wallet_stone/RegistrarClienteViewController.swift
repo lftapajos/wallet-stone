@@ -17,9 +17,9 @@ class RegistrarClienteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nomeTextField.text = "Pedro"
-        emailTextField.text = "pedro@gmail.com"
-        senhaTextField.text = "p3dr0"
+        nomeTextField.text = "Jose"
+        emailTextField.text = "jose@gmail.com"
+        senhaTextField.text = "j0$3"
     }
 
     @IBAction func retornar(_ sender: Any) {

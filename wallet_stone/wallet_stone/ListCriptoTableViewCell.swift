@@ -64,8 +64,14 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             //Verifica se existe saldo suciciente para a compra
             if (saldoFinalDesconvertido > 0) {
                 
+                //Valor da Transação
+                let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+                
                 //Atualiza saldo do Cliente
-                atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
+                atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                
+                //Grava Transação de compra
+                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA")
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
@@ -90,8 +96,14 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             //Verifica se existe saldo suciciente para a compra
             if (saldoFinalDesconvertido > 0) {
                 
+                //Valor da Transação
+                let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+                
                 //Atualiza saldo do Cliente
-                atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
+                atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                
+                //Grava Transação de compra
+                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA")
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
