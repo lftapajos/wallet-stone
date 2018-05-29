@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wallet_stone/ListTransacoesTableViewCell.swift"
-            timestampString = "549286095.2421499"
+            timestampString = "549287430.923667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "configuraCelulaTransacao(transancao:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wallet_stone/ListTransacoesTableViewCell.swift"
-            timestampString = "549286095.2421499"
+            timestampString = "549287430.923667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "configuraCelulaTransacao(transancao:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wallet_stone/ListTransacoesTableViewCell.swift"
-            timestampString = "549286095.2421499"
+            timestampString = "549287430.923667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "configuraCelulaTransacao(transancao:)"
             landmarkType = "7">
          </BreakpointContent>

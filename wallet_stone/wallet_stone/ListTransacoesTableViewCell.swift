@@ -28,7 +28,6 @@ class ListTransacoesTableViewCell: UITableViewCell {
             valorFomatado = "U\(formatMoeda("en_US", valor: transancao.valorTransacao))"
         }
         
-        
         moedaLabel.text = moeda.nome
         quantidadeLabel.text = "Quantidade: \(transancao.quantidade)"
         valorTransacaoLabel.text = "Valor: \(valorFomatado)"
