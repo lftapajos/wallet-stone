@@ -8,8 +8,11 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 * [COCOAPODS](https://cocoapods.org) - The web framework used
 * [Alamofire](https://github.com/Alamofire/Alamofire) - Dependency Management
-* [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Dependency Management
-* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - Dependency Management
+* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) - Dependency Management
+* [PromisseKit](https://github.com/mxcl/PromiseKit) - Dependency Management
+* [Realm](https://github.com/realm) - Dependency Management
+* [Realm-Cocoa](https://github.com/realm/realm-cocoa) - Dependency Management
+* [RealmSwift](https://github.com/realm/realm-cocoa/tree/master/RealmSwift) - Dependency Management
 
 ## Como Começar
 
