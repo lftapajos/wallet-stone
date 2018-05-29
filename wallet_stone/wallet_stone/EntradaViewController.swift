@@ -21,6 +21,8 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Registra notificação para atualização do saldo
+        NotificationCenter.default.addObserver(self, selector: #selector(EntradaViewController.updateSaldoLabel), name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +45,17 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         self.tableView.dataSource = self
         
         self.tableView.reloadData()
+    }
+    
+    //Função para atualizar o saldo
+    func updateSaldoLabel(_ notification: NSNotification) {
+        print(notification.userInfo ?? "")
+        if let dict = notification.userInfo as NSDictionary? {
+            if let saldoNovo = dict["saldo"] as? Double {
+                saldoLabel.text = "\(formatMoeda("pt_BR", valor:  saldoNovo))"
+            }
+        }
+        
     }
     
     @IBAction func retornar(_ sender: Any) {

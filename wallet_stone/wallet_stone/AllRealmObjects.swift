@@ -16,7 +16,7 @@ class Cliente : Object {
     dynamic var nome = ""
     dynamic var email = ""
     dynamic var senha = ""
-    dynamic var saldo = 0
+    dynamic var saldo = 0.0
 }
 
 //Realm de Moeda

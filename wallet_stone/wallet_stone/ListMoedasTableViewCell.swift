@@ -27,7 +27,7 @@ class ListMoedasTableViewCell: UITableViewCell {
         }
         
         self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor
+        self.layer.borderColor = UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0).cgColor
         self.layer.cornerRadius = 8
         
     }

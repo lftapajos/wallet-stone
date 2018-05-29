@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 //Adiciona um novo cliente ao Realm
-func addCliente(_ nome: String, email: String, senha: String, saldo: Int) -> Bool {
+func addCliente(_ nome: String, email: String, senha: String, saldo: Double) -> Bool {
     
     let user = Cliente()
     var retorno = false
@@ -131,7 +131,7 @@ func atualizaSaldoCliente(_ clienteID: String, moedaNome: String, valor: Double,
     
     if let cliente = detailCliente.first {
         try! realm.write {
-            cliente.saldo = Int(novoSaldo)
+            cliente.saldo = novoSaldo
         }
     }
 }

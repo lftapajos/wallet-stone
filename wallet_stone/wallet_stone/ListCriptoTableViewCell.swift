@@ -42,7 +42,8 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         valorCotacaoCompra = cripto.cotacaoCompra
         
         self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor
+        self.layer.borderColor = UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0).cgColor
+        //UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor
         self.layer.cornerRadius = 8
         
         quantidadeTextField.delegate = self
@@ -75,6 +76,11 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
                 
+                //Envia notificação para atualizar o saldo
+                let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
+                
+                
             } else {
                 print("Operação não pode ser executa por falta de saldo!")
             }
@@ -106,6 +112,11 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
+                
+                //Envia notificação para atualizar o saldo
+                let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
+                
             } else {
                 print("Operação não pode ser executa por falta de saldo!")
             }

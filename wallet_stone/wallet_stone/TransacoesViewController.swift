@@ -24,6 +24,8 @@ class TransacoesViewController: UIViewController {
         
         let cliente = listDetailCliente(email!)
         
+        nomeLabel.text = cliente.nome
+        
         let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
         
