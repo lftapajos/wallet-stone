@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Formata Moedas
 func formatMoeda(_ codigo: String, valor: Double) -> String {
     
     let formatter = NumberFormatter()
@@ -19,6 +20,7 @@ func formatMoeda(_ codigo: String, valor: Double) -> String {
     
 }
 
+//Cálculo de compra da moeda Brita
 func calculaCompraBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCompra: Double) -> Double {
     
     let saldoConvertido = (saldoAtual / valorCotacaoCompra)
@@ -29,6 +31,7 @@ func calculaCompraBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCo
     return saldoFinalDesconvertido
 }
 
+//Cálculo de compra da moeda Bitcoin BTC
 func calculaCompraBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoCompra: Double) -> Double {
     let calculoCompra = (valorCotacaoCompra * (quantidade * saldoAtualDolar))
     let calculoFinal = (saldoAtualDolar - calculoCompra)
@@ -37,17 +40,14 @@ func calculaCompraBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotaca
     return saldoFinalDesconvertido
 }
 
-func getCotacaoDolar() -> Double {
-    return 3.5
-}
-
+//Converte Dólar para Real
 func convertDolarToReal(_ cotacao: Double, valor: Double) -> Double {
     let calculo = (cotacao * valor)
     return calculo
 }
 
+//Converte Real para Dólar
 func convertRealToDolar(_ cotacao:Double, valor: Double) -> Double {
     let calculo = (valor / cotacao)
     return calculo
 }
-

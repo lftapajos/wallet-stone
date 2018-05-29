@@ -15,6 +15,8 @@ class PerfilViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var dataSourceArray = [Moeda]()
+    var transacoes = [Transacoes]()
+    
     var clienteID = ""
     
     override func viewDidLoad() {
@@ -29,9 +31,6 @@ class PerfilViewController: UIViewController {
         let cliente = listDetailCliente(email!)
         
         clienteID = cliente.clienteID
-        
-        //Transações
-        //listAllTransacoes(cliente.clienteID)
         
         let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
@@ -89,10 +88,21 @@ extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
         
         let row = indexPath.row
         let moeda = dataSourceArray[row]
-        
         //print("moeda =====> \(moeda.moedaID)")
         
-        cell.configuraCelulaMoeda(moeda: moeda)
+        var quantidade = 0.0
+        
+        if (moeda.nome == "Brita") {
+            
+            //Carrega as transacoes dos Clientes
+            quantidade = listAllTransacoesPorClienteMoeda(clienteID, moedaNome: moeda.nome)
+            
+        } else if (moeda.nome == "BTC") {
+            //Carrega as transacoes dos Clientes
+            quantidade = listAllTransacoesPorClienteMoeda(clienteID, moedaNome: moeda.nome)
+        }
+        
+        cell.configuraCelulaMoeda(quantidade: quantidade, moeda: moeda)
         
         return cell
     }

@@ -255,13 +255,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Moeda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-Da-vCc">
-                                                    <rect key="frame" x="8" y="23" width="358" height="24"/>
+                                                    <rect key="frame" x="8" y="23" width="327" height="24"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade de moedas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI0-7b-Syo">
+                                                    <rect key="frame" x="8" y="55" width="327" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="VGC-cm-z4r"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="SI0-7b-Syo" firstAttribute="top" secondItem="kuN-Da-vCc" secondAttribute="bottom" constant="8" id="1q1-Nf-xM0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SI0-7b-Syo" secondAttribute="trailing" id="Hur-vE-njh"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="SI0-7b-Syo" secondAttribute="leading" id="NfU-xn-faC"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kuN-Da-vCc" secondAttribute="trailing" id="eeh-wo-Ean"/>
                                                 <constraint firstAttribute="topMargin" secondItem="kuN-Da-vCc" secondAttribute="top" constant="-15" id="kWo-LS-Z4c"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="kuN-Da-vCc" secondAttribute="leading" id="krr-mA-m9N"/>
@@ -269,6 +281,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="moedaLabel" destination="kuN-Da-vCc" id="dDM-WX-FtV"/>
+                                            <outlet property="quantidadeLabel" destination="SI0-7b-Syo" id="Hyu-jR-a31"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

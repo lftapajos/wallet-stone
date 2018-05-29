@@ -11,11 +11,14 @@ import UIKit
 class ListMoedasTableViewCell: UITableViewCell {
 
     @IBOutlet weak var moedaLabel: UILabel!
+    @IBOutlet weak var quantidadeLabel: UILabel!
     
     //Confihura a célula de Moedas
-    func configuraCelulaMoeda(moeda: Moeda) {
+    func configuraCelulaMoeda(quantidade: Double, moeda: Moeda) {
         
         moedaLabel.text = moeda.nome
+        quantidadeLabel.text = "Quantidade: \(quantidade)"
+        
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor
         self.layer.cornerRadius = 8

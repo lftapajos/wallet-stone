@@ -45,3 +45,22 @@ func listAllTransacoes(_ clienteID: String) -> [Transacoes] {
     
     return transacoes
 }
+
+//Lista quantidate das transações por cliente e moeda
+func listAllTransacoesPorClienteMoeda(_ clienteID: String, moedaNome: String) -> Double {
+    
+    let realm = try! Realm()
+    
+    let allTransacoes = realm.objects(Transacoes.self).filter("clienteID = %@ AND moedaNome = %@", clienteID, moedaNome)
+    
+    var quantidade = 0.0
+    for transacao in allTransacoes {
+        quantidade = (quantidade + transacao.quantidade)
+    }
+    
+    return quantidade
+    
+    //let transacoes = Array(allTransacoes)
+    
+    //return transacoes
+}
