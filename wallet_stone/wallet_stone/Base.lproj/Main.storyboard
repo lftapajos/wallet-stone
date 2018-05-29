@@ -440,11 +440,11 @@
                                     <constraint firstItem="gk6-q5-ZeQ" firstAttribute="top" secondItem="Sae-Oz-cKq" secondAttribute="top" constant="8" id="zKA-tE-iJ3"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-Wu-yED">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-Wu-yED">
                                 <rect key="frame" x="16" y="168" width="343" height="479"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="140" id="tZU-p0-L3s" customClass="ListTransacoesTableViewCell" customModule="wallet_stone" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="140" id="tZU-p0-L3s" customClass="ListTransacoesTableViewCell" customModule="wallet_stone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZU-p0-L3s" id="ACt-xI-XWv">
@@ -521,7 +521,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.59607843137254901" green="0.88235294117647056" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.59607843137254901" green="0.8817004182" blue="0.95529812569999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="yrR-Wu-yED" secondAttribute="trailing" id="4QC-Vc-gXS"/>
                             <constraint firstItem="yrR-Wu-yED" firstAttribute="top" secondItem="Sae-Oz-cKq" secondAttribute="bottom" constant="8" id="7SY-Mw-d2S"/>
@@ -578,10 +578,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JfF-cT-YwG">
-                                <rect key="frame" x="16" y="64" width="343" height="331"/>
+                                <rect key="frame" x="16" y="64" width="343" height="583"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="331" id="A7L-FG-dB8"/>
+                                    <constraint firstAttribute="height" constant="583" id="A7L-FG-dB8"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="140" id="G6F-VF-teC" customClass="ListCriptoTableViewCell" customModule="wallet_stone" customModuleProvider="target">
@@ -636,28 +636,17 @@
                                                         <outlet property="delegate" destination="j3O-ak-cTw" id="V0n-Ef-FDQ"/>
                                                     </connections>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2q-na-KPc">
-                                                    <rect key="frame" x="232" y="84" width="101" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Obg-Dl-Gar"/>
-                                                        <constraint firstAttribute="width" constant="101" id="bmb-6v-jRO"/>
-                                                    </constraints>
-                                                    <state key="normal" image="button_adicionar.png"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ueq-yA-jH6" secondAttribute="trailing" id="2dU-si-IFD"/>
                                                 <constraint firstItem="xcm-up-cu9" firstAttribute="top" secondItem="ueq-yA-jH6" secondAttribute="bottom" constant="1" id="3d4-FJ-PWo"/>
                                                 <constraint firstItem="BTS-b3-B1Z" firstAttribute="leading" secondItem="xcm-up-cu9" secondAttribute="trailing" constant="18" id="8ba-XQ-ym4"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="y2q-na-KPc" secondAttribute="bottom" constant="8" id="Fca-ub-ZgQ"/>
                                                 <constraint firstItem="YIX-zb-goe" firstAttribute="top" secondItem="xcm-up-cu9" secondAttribute="bottom" constant="11" id="MYp-os-l6K"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="ueq-yA-jH6" secondAttribute="leading" id="Pq8-Ia-8Xe"/>
-                                                <constraint firstItem="y2q-na-KPc" firstAttribute="leading" secondItem="TWq-gO-hEj" secondAttribute="trailing" constant="16" id="Twt-bo-hZK"/>
                                                 <constraint firstItem="BTS-b3-B1Z" firstAttribute="top" secondItem="ueq-yA-jH6" secondAttribute="bottom" constant="-5" id="UnA-XC-lUU"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="TWq-gO-hEj" secondAttribute="leading" id="VYi-bT-Hms"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="xcm-up-cu9" secondAttribute="leading" id="ZqR-e2-fE9"/>
                                                 <constraint firstItem="TWq-gO-hEj" firstAttribute="top" secondItem="YIX-zb-goe" secondAttribute="bottom" constant="11" id="bRc-T4-CBl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="y2q-na-KPc" secondAttribute="trailing" constant="2" id="hVL-sX-tGk"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="YIX-zb-goe" secondAttribute="leading" id="jzb-6D-Poa"/>
                                                 <constraint firstAttribute="topMargin" secondItem="ueq-yA-jH6" secondAttribute="top" id="ykL-U0-3OL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BTS-b3-B1Z" secondAttribute="trailing" constant="2" id="zBs-h1-pcA"/>
@@ -677,18 +666,10 @@
                                     <outlet property="delegate" destination="iaD-7A-7Zr" id="dRq-t9-FgM"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-ZT-I3o">
-                                <rect key="frame" x="111.5" y="403" width="152" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="tSn-MV-N62"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="button_finalizar.png"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59661535899999996" green="0.8817004182" blue="0.95529812569999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JfF-cT-YwG" firstAttribute="top" secondItem="hJk-H6-JFt" secondAttribute="bottom" constant="7.5" id="6Mc-yR-OGD"/>
-                            <constraint firstItem="hAw-ZT-I3o" firstAttribute="top" secondItem="JfF-cT-YwG" secondAttribute="bottom" constant="8" id="8mK-eu-0l3"/>
                             <constraint firstItem="9VN-Zb-CE1" firstAttribute="leading" secondItem="hJk-H6-JFt" secondAttribute="trailing" constant="-109" id="RX7-Fz-Bj9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JfF-cT-YwG" secondAttribute="trailing" id="TZp-QO-m0a"/>
                             <constraint firstItem="9VN-Zb-CE1" firstAttribute="top" secondItem="jaP-yc-MSD" secondAttribute="bottom" constant="11" id="V08-yc-6tN"/>
@@ -699,7 +680,6 @@
                             <constraint firstAttribute="leadingMargin" secondItem="vrl-FP-of4" secondAttribute="leading" id="lMJ-E9-zxe"/>
                             <constraint firstItem="vrl-FP-of4" firstAttribute="top" secondItem="jaP-yc-MSD" secondAttribute="bottom" id="sH3-Wt-GbY"/>
                             <constraint firstItem="hJk-H6-JFt" firstAttribute="top" secondItem="jaP-yc-MSD" secondAttribute="bottom" constant="8" id="sT1-ip-zGD"/>
-                            <constraint firstItem="hAw-ZT-I3o" firstAttribute="centerX" secondItem="iaD-7A-7Zr" secondAttribute="centerX" id="u0T-9H-rmQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -709,7 +689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY1-89-F2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3487" y="484"/>
+            <point key="canvasLocation" x="3485.5999999999999" y="483.50824587706148"/>
         </scene>
         <!--Login Cliente View Controller-->
         <scene sceneID="zaO-2v-7vO">
@@ -829,8 +809,6 @@
         <image name="btn_comprar_moeda.png" width="312" height="168"/>
         <image name="btn_transacoes.png" width="571" height="383"/>
         <image name="btn_vender_moeda.png" width="312" height="168"/>
-        <image name="button_adicionar.png" width="152" height="60"/>
-        <image name="button_finalizar.png" width="152" height="60"/>
         <image name="button_voltar.png" width="37" height="28"/>
         <image name="entrar_button_c.png" width="294" height="75"/>
         <image name="registrar_button_c.png" width="294" height="75"/>
