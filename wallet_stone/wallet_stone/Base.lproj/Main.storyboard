@@ -448,7 +448,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZU-p0-L3s" id="ACt-xI-XWv">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Moeda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZj-d1-gi1">
