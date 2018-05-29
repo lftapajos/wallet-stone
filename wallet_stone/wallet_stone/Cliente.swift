@@ -51,7 +51,6 @@ func listAllClientes() {
     for cliente in allClientes {
         print("Nome: \(cliente.nome)")
     }
-    
 }
 
 //Lista detalhes do usuário logado

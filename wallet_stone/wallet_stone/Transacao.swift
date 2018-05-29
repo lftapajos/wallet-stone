@@ -31,3 +31,15 @@ func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tip
         print("Transação \(transacao.transacaoID) adicionado no Realm.")
     }
 }
+
+//Lista todas as transacoes de um cliente
+func listAllTransacoes(_ clienteID: String) {
+    
+    let realm = try! Realm()
+    
+    let allTransacoes = realm.objects(Transacoes.self).filter("clienteID = %@", clienteID)
+    
+    for transacao in allTransacoes {
+        print("transacao: \(transacao.transacaoID) - \(transacao.valorTransacao) - \(transacao.tipo)")
+    }
+}

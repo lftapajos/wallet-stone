@@ -24,6 +24,9 @@ class PerfilViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let cliente = listDetailCliente("jose@gmail.com")
         
+        //Transações
+        listAllTransacoes(cliente.clienteID)
+        
         let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
         
