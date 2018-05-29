@@ -21,7 +21,13 @@ class ListTransacoesTableViewCell: UITableViewCell {
         
         let moeda = recuperaMoedaPorNome(transancao.moedaNome)
         
-        let valorFomatado = formatMoeda("pt_BR", valor: transancao.valorTransacao)
+        var valorFomatado = ""
+        if (transancao.moedaNome == "Brita") {
+            valorFomatado = formatMoeda("pt_BR", valor: transancao.valorTransacao)
+        } else if (transancao.moedaNome == "BTC") {
+            valorFomatado = "U\(formatMoeda("en_US", valor: transancao.valorTransacao))"
+        }
+        
         
         moedaLabel.text = moeda.nome
         quantidadeLabel.text = "Quantidade: \(transancao.quantidade)"
