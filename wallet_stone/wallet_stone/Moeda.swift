@@ -60,3 +60,23 @@ func recuperaCotacoesDolar() -> Moeda {
     
     return allMoedas[0]
 }
+
+//Recupera dados da moeda pela moedaID
+func recuperaMoedaPorNome(_ nome: String) -> Moeda {
+    
+    let realm = try! Realm()
+    let moeda = Moeda()
+    
+    let detailMoeda = realm.objects(Moeda.self).filter("nome = %@", nome) //moedaID
+    
+    for m in detailMoeda {
+        
+        moeda.moedaID = m.moedaID
+        moeda.nome = m.nome
+        moeda.cotacaoCompra = m.cotacaoCompra
+        moeda.cotacaoVenda = m.cotacaoVenda
+        moeda.dataHoraCotacao = m.dataHoraCotacao
+    }
+    
+    return moeda
+}

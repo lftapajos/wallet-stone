@@ -15,6 +15,7 @@ class PerfilViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var dataSourceArray = [Moeda]()
+    var clienteID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,10 @@ class PerfilViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let cliente = listDetailCliente("jose@gmail.com")
         
+        clienteID = cliente.clienteID
+        
         //Transações
-        listAllTransacoes(cliente.clienteID)
+        //listAllTransacoes(cliente.clienteID)
         
         let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
@@ -45,6 +48,14 @@ class PerfilViewController: UIViewController {
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
         }
+    }
+    
+    //Chama a View que lista as Transações do cliente
+    @IBAction func carregarTransacoes(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TransacoesViewController") as! TransacoesViewController
+        controller.clienteID = clienteID
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     //Chama a View que lista dados das moedas para salvar compras do cliente

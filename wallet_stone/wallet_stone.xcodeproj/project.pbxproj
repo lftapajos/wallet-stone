@@ -10,6 +10,10 @@
 		50DF3E150CA9456DF40E85EA /* Pods_wallet_stone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDF7ED92A26AE790F6B0490 /* Pods_wallet_stone.framework */; };
 		6952FF0120BC522B00D6FDC7 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6952FF0020BC522B00D6FDC7 /* Help.swift */; };
 		6952FF0320BD025C00D6FDC7 /* Transacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6952FF0220BD025C00D6FDC7 /* Transacao.swift */; };
+		6952FF0620BD52BB00D6FDC7 /* btn_transacao_venda.png in Resources */ = {isa = PBXBuildFile; fileRef = 6952FF0420BD52BB00D6FDC7 /* btn_transacao_venda.png */; };
+		6952FF0720BD52BB00D6FDC7 /* btn_transacao_compra.png in Resources */ = {isa = PBXBuildFile; fileRef = 6952FF0520BD52BB00D6FDC7 /* btn_transacao_compra.png */; };
+		6952FF0920BD52F200D6FDC7 /* ListTransacoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6952FF0820BD52F200D6FDC7 /* ListTransacoesTableViewCell.swift */; };
+		6952FF0B20BD55B900D6FDC7 /* TransacoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6952FF0A20BD55B900D6FDC7 /* TransacoesViewController.swift */; };
 		69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CA720B76A520002DEAD /* AppDelegate.swift */; };
 		69791CAA20B76A520002DEAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CA920B76A520002DEAD /* ViewController.swift */; };
 		69791CAD20B76A520002DEAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69791CAB20B76A520002DEAD /* Main.storyboard */; };
@@ -46,6 +50,10 @@
 		6706CD44EF552FB0AC33C779 /* Pods-wallet_stone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.debug.xcconfig"; sourceTree = "<group>"; };
 		6952FF0020BC522B00D6FDC7 /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		6952FF0220BD025C00D6FDC7 /* Transacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transacao.swift; sourceTree = "<group>"; };
+		6952FF0420BD52BB00D6FDC7 /* btn_transacao_venda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_transacao_venda.png; sourceTree = "<group>"; };
+		6952FF0520BD52BB00D6FDC7 /* btn_transacao_compra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_transacao_compra.png; sourceTree = "<group>"; };
+		6952FF0820BD52F200D6FDC7 /* ListTransacoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransacoesTableViewCell.swift; sourceTree = "<group>"; };
+		6952FF0A20BD55B900D6FDC7 /* TransacoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransacoesViewController.swift; sourceTree = "<group>"; };
 		69791CA420B76A520002DEAD /* wallet_stone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wallet_stone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69791CA720B76A520002DEAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69791CA920B76A520002DEAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +166,8 @@
 		69791CC120B83A600002DEAD /* Assests */ = {
 			isa = PBXGroup;
 			children = (
+				6952FF0420BD52BB00D6FDC7 /* btn_transacao_venda.png */,
+				6952FF0520BD52BB00D6FDC7 /* btn_transacao_compra.png */,
 				69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */,
 				69791CEF20BAED5F0002DEAD /* btn_vender_moeda.png */,
 				69791CF320BAF48F0002DEAD /* btn_transacoes.png */,
@@ -182,6 +192,7 @@
 				69791CDA20B865450002DEAD /* LoginClienteViewController.swift */,
 				69791CEB20BAE16C0002DEAD /* PerfilViewController.swift */,
 				69791CDC20B901870002DEAD /* EntradaViewController.swift */,
+				6952FF0A20BD55B900D6FDC7 /* TransacoesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +221,7 @@
 			children = (
 				69791CE720B9E7520002DEAD /* ListCriptoTableViewCell.swift */,
 				69791CF720BAF84E0002DEAD /* ListMoedasTableViewCell.swift */,
+				6952FF0820BD52F200D6FDC7 /* ListTransacoesTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -291,8 +303,10 @@
 				69791CC920B83A940002DEAD /* button_adicionar.png in Resources */,
 				69791CCD20B83A940002DEAD /* button_finalizar.png in Resources */,
 				69791CCE20B83A940002DEAD /* button_lixeira.png in Resources */,
+				6952FF0620BD52BB00D6FDC7 /* btn_transacao_venda.png in Resources */,
 				69791CD620B83E430002DEAD /* registrar_button_c.png in Resources */,
 				69791CCA20B83A940002DEAD /* button_banco.png in Resources */,
+				6952FF0720BD52BB00D6FDC7 /* btn_transacao_compra.png in Resources */,
 				69791CB220B76A520002DEAD /* LaunchScreen.storyboard in Resources */,
 				69791CD420B83E330002DEAD /* entrar_button_c.png in Resources */,
 				69791CF020BAED5F0002DEAD /* btn_vender_moeda.png in Resources */,
@@ -359,12 +373,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				69791CF820BAF84E0002DEAD /* ListMoedasTableViewCell.swift in Sources */,
+				6952FF0B20BD55B900D6FDC7 /* TransacoesViewController.swift in Sources */,
 				69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */,
 				69791CBD20B7AA500002DEAD /* APIManager.swift in Sources */,
 				69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */,
 				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
 				69791CE520B98D1B0002DEAD /* Cliente.swift in Sources */,
 				6952FF0320BD025C00D6FDC7 /* Transacao.swift in Sources */,
+				6952FF0920BD52F200D6FDC7 /* ListTransacoesTableViewCell.swift in Sources */,
 				69791CA820B76A520002DEAD /* AppDelegate.swift in Sources */,
 				69791CF620BAF6DF0002DEAD /* Moeda.swift in Sources */,
 				69791CC020B7AAA70002DEAD /* ApiResponse.swift in Sources */,

@@ -22,6 +22,7 @@ func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tip
     transacao.transacaoID = UUID().uuidString
     transacao.clienteID = clienteID
     transacao.moedaID = (detailMoeda.first?.moedaID)!
+    transacao.moedaNome = moedaNome
     transacao.tipo = tipo
     transacao.quantidade = quantidade
     transacao.valorTransacao = valor
@@ -34,13 +35,13 @@ func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tip
 }
 
 //Lista todas as transacoes de um cliente
-func listAllTransacoes(_ clienteID: String) {
+func listAllTransacoes(_ clienteID: String) -> [Transacoes] {
     
     let realm = try! Realm()
     
     let allTransacoes = realm.objects(Transacoes.self).filter("clienteID = %@", clienteID)
     
-    for transacao in allTransacoes {
-        print("transacao: \(transacao.transacaoID) - \(transacao.valorTransacao) - \(transacao.tipo) - \(transacao.quantidade)")
-    }
+    let transacoes = Array(allTransacoes)
+    
+    return transacoes
 }
