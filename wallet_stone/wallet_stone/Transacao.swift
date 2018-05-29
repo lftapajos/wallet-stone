@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 //_ clienteID: String, moedaNome: String, valor: Double, novoSaldo: Double
-func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tipo: String) {
+func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tipo: String, quantidade: Double) {
     
     let realm = try! Realm()
     
@@ -23,6 +23,7 @@ func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tip
     transacao.clienteID = clienteID
     transacao.moedaID = (detailMoeda.first?.moedaID)!
     transacao.tipo = tipo
+    transacao.quantidade = quantidade
     transacao.valorTransacao = valor
     transacao.dataHoraTransacao = ""
     
@@ -40,6 +41,6 @@ func listAllTransacoes(_ clienteID: String) {
     let allTransacoes = realm.objects(Transacoes.self).filter("clienteID = %@", clienteID)
     
     for transacao in allTransacoes {
-        print("transacao: \(transacao.transacaoID) - \(transacao.valorTransacao) - \(transacao.tipo)")
+        print("transacao: \(transacao.transacaoID) - \(transacao.valorTransacao) - \(transacao.tipo) - \(transacao.quantidade)")
     }
 }

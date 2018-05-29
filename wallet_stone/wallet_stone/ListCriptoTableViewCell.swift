@@ -71,7 +71,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA")
+                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
@@ -103,7 +103,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA")
+                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido

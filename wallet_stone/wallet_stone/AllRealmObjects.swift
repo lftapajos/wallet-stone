@@ -36,6 +36,7 @@ class Transacoes : Object {
     dynamic var clienteID = ""
     dynamic var moedaID = ""
     dynamic var tipo = ""
+    dynamic var quantidade = 0.0
     dynamic var valorTransacao = 0.0
     dynamic var dataHoraTransacao = ""
 }
