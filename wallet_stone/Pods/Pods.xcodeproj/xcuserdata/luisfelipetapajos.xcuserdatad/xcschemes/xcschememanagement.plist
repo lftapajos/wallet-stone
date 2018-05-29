@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AlamofireImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,30 +34,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>333E47F1004946B94926B19979768D18</key>
+		<key>01825DA87C3BAE3A36598B6ED2CF9628</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41B8AF537933C476F7FE2CADD1AEDF70</key>
+		<key>2857E98067FEF9CFE8DB7CCE6EDD69EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6939D5A8B20C8BDDF369A5889378ED11</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>758A1C83898BD4D19F99491AD0221359</key>
+		<key>6C0312E5DED882BA58B92A2BB96FA70A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +57,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B542DE81C80F7FE85BA748010BED5746</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B6578CB6D8F6CCB9A0CF9C883125DAEF</key>
+		<key>A124BC2C0ADA638192B56DE8629BE949</key>
 		<dict>
 			<key>primary</key>
 			<true/>

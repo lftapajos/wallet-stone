@@ -7,8 +7,8 @@ target 'wallet_stone' do
 
   # Pods for wallet_stone
   pod 'Alamofire', '~> 4.0'
-  pod 'SwiftyJSON'
-  pod 'AlamofireImage'
+  #pod 'SwiftyJSON'
+  #pod 'AlamofireImage'
   pod 'ObjectMapper', '~> 2.2'
   pod 'PromiseKit'
   pod 'RealmSwift'
