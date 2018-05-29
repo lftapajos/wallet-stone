@@ -21,8 +21,21 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 ## Registo de Clientes
 
+Campos:
+- Nome: Jose
+- Email: jose@gmail.com
+- Senha: j0$3
+
 <a href="https://imgflip.com/gif/2b8g6v"><img src="https://i.imgflip.com/2b8g6v.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2b8gdo"><img src="https://i.imgflip.com/2b8gdo.gif" title="made at imgflip.com"/></a>
+
+## Login de Clientes
+
+Campos:
+- Email: jose@gmail.com
+- Senha: j0$3
+
+<a href="https://imgflip.com/gif/2b8gqx"><img src="https://i.imgflip.com/2b8gqx.gif" title="made at imgflip.com"/></a>
 
 
 ## Status do Código
