@@ -12,12 +12,19 @@ class ListMoedasTableViewCell: UITableViewCell {
 
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var quantidadeLabel: UILabel!
+    @IBOutlet weak var valorLabel: UILabel!
     
     //Confihura a célula de Moedas
-    func configuraCelulaMoeda(quantidade: Double, moeda: Moeda) {
+    func configuraCelulaMoeda(quantidade: Double, valor: Double, moeda: Moeda) {
         
         moedaLabel.text = moeda.nome
         quantidadeLabel.text = "Quantidade: \(quantidade)"
+        
+        if (moeda.nome == "Brita") {
+            valorLabel.text = "Valores: \(formatMoeda("pt_BR", valor: valor))"
+        } else if (moeda.nome == "BTC") {
+            valorLabel.text = "Valores: U\(formatMoeda("en_US", valor: valor))"
+        }
         
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.26, green:0.62, blue:0.00, alpha:1.0).cgColor

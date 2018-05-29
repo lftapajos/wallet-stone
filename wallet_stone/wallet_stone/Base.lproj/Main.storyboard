@@ -241,17 +241,17 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="noR-3F-VPi">
-                                <rect key="frame" x="16" y="168" width="343" height="224"/>
+                                <rect key="frame" x="16" y="168" width="343" height="294"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="224" id="MC4-ab-G3M"/>
+                                    <constraint firstAttribute="height" constant="294" id="MC4-ab-G3M"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="b0M-qk-ATz" customClass="ListMoedasTableViewCell" customModule="wallet_stone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="140" id="b0M-qk-ATz" customClass="ListMoedasTableViewCell" customModule="wallet_stone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b0M-qk-ATz" id="Az1-6T-M38">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Moeda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-Da-vCc">
@@ -269,12 +269,24 @@
                                                     <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soma de Valores:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qf5-Mb-Ybt">
+                                                    <rect key="frame" x="8" y="87" width="327" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="5qP-aS-bJk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="SI0-7b-Syo" firstAttribute="top" secondItem="kuN-Da-vCc" secondAttribute="bottom" constant="8" id="1q1-Nf-xM0"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="SI0-7b-Syo" secondAttribute="trailing" id="Hur-vE-njh"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="SI0-7b-Syo" secondAttribute="leading" id="NfU-xn-faC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qf5-Mb-Ybt" secondAttribute="trailing" id="UE9-wI-Fvp"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="qf5-Mb-Ybt" secondAttribute="leading" id="cJB-hm-cAt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kuN-Da-vCc" secondAttribute="trailing" id="eeh-wo-Ean"/>
+                                                <constraint firstItem="qf5-Mb-Ybt" firstAttribute="top" secondItem="SI0-7b-Syo" secondAttribute="bottom" constant="8" id="hbi-M6-Bsm"/>
                                                 <constraint firstAttribute="topMargin" secondItem="kuN-Da-vCc" secondAttribute="top" constant="-15" id="kWo-LS-Z4c"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="kuN-Da-vCc" secondAttribute="leading" id="krr-mA-m9N"/>
                                             </constraints>
@@ -282,6 +294,7 @@
                                         <connections>
                                             <outlet property="moedaLabel" destination="kuN-Da-vCc" id="dDM-WX-FtV"/>
                                             <outlet property="quantidadeLabel" destination="SI0-7b-Syo" id="Hyu-jR-a31"/>
+                                            <outlet property="valorLabel" destination="qf5-Mb-Ybt" id="e3c-y2-Jj0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -313,7 +326,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-Fk-T6O">
-                                <rect key="frame" x="16" y="429" width="152" height="79"/>
+                                <rect key="frame" x="16" y="499" width="152" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="092-fP-cmx"/>
                                     <constraint firstAttribute="height" constant="79" id="zds-nH-BmL"/>
@@ -324,7 +337,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XeB-nq-Ftz">
-                                <rect key="frame" x="207" y="429" width="152" height="79"/>
+                                <rect key="frame" x="207" y="499" width="152" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="3fU-HF-9Wx"/>
                                     <constraint firstAttribute="width" constant="152" id="bbx-j0-SI3"/>
@@ -332,7 +345,7 @@
                                 <state key="normal" backgroundImage="btn_vender_moeda.png"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compre e venda moedas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-RF-YzO">
-                                <rect key="frame" x="16" y="400" width="343" height="21"/>
+                                <rect key="frame" x="16" y="470" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="OnC-0C-Fs2"/>
                                 </constraints>

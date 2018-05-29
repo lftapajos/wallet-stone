@@ -91,23 +91,21 @@ extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
         //print("moeda =====> \(moeda.moedaID)")
         
         var quantidade = 0.0
+        var valor = 0.0
         
-        if (moeda.nome == "Brita") {
-            
-            //Carrega as transacoes dos Clientes
-            quantidade = listAllTransacoesPorClienteMoeda(clienteID, moedaNome: moeda.nome)
-            
-        } else if (moeda.nome == "BTC") {
-            //Carrega as transacoes dos Clientes
-            quantidade = listAllTransacoesPorClienteMoeda(clienteID, moedaNome: moeda.nome)
-        }
+        //Carrega a soma de moedas do Cliente
+        quantidade = listAllQuantidadePorClienteMoeda(clienteID, moedaNome: moeda.nome)
         
-        cell.configuraCelulaMoeda(quantidade: quantidade, moeda: moeda)
+        //Carrega a soma de valores de moedas do Cliente
+        valor = listAllValorPorClienteMoeda(clienteID, moedaNome: moeda.nome)
+        
+        //Configura a célula
+        cell.configuraCelulaMoeda(quantidade: quantidade, valor: valor, moeda: moeda)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 140
     }
 }
