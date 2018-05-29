@@ -8,8 +8,11 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 * [COCOAPODS](https://cocoapods.org) - The web framework used
 * [Alamofire](https://github.com/Alamofire/Alamofire) - Dependency Management
-* [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Dependency Management
-* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - Dependency Management
+* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) - Dependency Management
+* [PromisseKit](https://github.com/mxcl/PromiseKit) - Dependency Management
+* [Realm](https://github.com/realm) - Dependency Management
+* [Realm-Cocoa](https://github.com/realm/realm-cocoa) - Dependency Management
+* [RealmSwift](https://github.com/realm/realm-cocoa/tree/master/RealmSwift) - Dependency Management
 
 ## Como Começar
 
@@ -18,6 +21,42 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 - Dados armazenados em um Banco de Dados local.
 
 ## Lançamentos Principais
+
+## Como usar
+
+## Registo de Clientes
+
+Campos:
+- Nome: Jose
+- Email: jose@gmail.com
+- Senha: j0$3
+
+<a href="https://imgflip.com/gif/2b8g6v"><img src="https://i.imgflip.com/2b8g6v.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2b8gdo"><img src="https://i.imgflip.com/2b8gdo.gif" title="made at imgflip.com"/></a>
+
+## Login de Clientes
+
+Campos:
+- Email: jose@gmail.com
+- Senha: j0$3
+
+<a href="https://imgflip.com/gif/2b8gzr"><img src="https://i.imgflip.com/2b8gzr.gif" title="made at imgflip.com"/></a>
+
+## Tela de Compra
+
+<a href="https://imgflip.com/gif/2b8h58"><img src="https://i.imgflip.com/2b8h58.gif" title="made at imgflip.com"/></a>
+
+## Comprando Brita
+
+<a href="https://imgflip.com/gif/2b8hb7"><img src="https://i.imgflip.com/2b8hb7.gif" title="made at imgflip.com"/></a>
+
+## Comprando BTC
+
+<a href="https://imgflip.com/gif/2b8hjc"><img src="https://i.imgflip.com/2b8hjc.gif" title="made at imgflip.com"/></a>
+
+## Transações de Compra
+
+<a href="https://imgflip.com/gif/2b8hp7"><img src="https://i.imgflip.com/2b8hp7.gif" title="made at imgflip.com"/></a>
 
 
 ## Status do Código
