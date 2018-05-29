@@ -19,7 +19,11 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 ## Lançamentos Principais
 
+## Registo de Clientes
+
 <a href="https://imgflip.com/gif/2b8g6v"><img src="https://i.imgflip.com/2b8g6v.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2b8gdo"><img src="https://i.imgflip.com/2b8gdo.gif" title="made at imgflip.com"/></a>
+
 
 ## Status do Código
 
