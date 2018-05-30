@@ -51,6 +51,16 @@ func calculaVendaBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoVen
     return saldoFinalDesconvertido
 }
 
+//Cálculo de venda da moeda Bitcoin BTC
+func calculaVendaBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoVenda: Double) -> Double {
+    
+    let calculoVenda = (valorCotacaoVenda * (quantidade * saldoAtualDolar))
+    let calculoFinal = (saldoAtualDolar + calculoVenda)
+    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoVenda)
+    
+    return saldoFinalDesconvertido
+}
+
 //Converte Dólar para Real
 func convertDolarToReal(_ cotacao: Double, valor: Double) -> Double {
     let calculo = (cotacao * valor)
