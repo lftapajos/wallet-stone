@@ -26,7 +26,7 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 ## Registo de Clientes
 
-Campos:
+Campos para teste de registro:
 - Nome: Jose
 - Email: jose@gmail.com
 - Senha: j0$3
@@ -36,7 +36,7 @@ Campos:
 
 ## Login de Clientes
 
-Campos:
+Campos para teste de login:
 - Email: jose@gmail.com
 - Senha: j0$3
 
@@ -44,19 +44,51 @@ Campos:
 
 ## Tela de Compra
 
-<a href="https://imgflip.com/gif/2b8h58"><img src="https://i.imgflip.com/2b8h58.gif" title="made at imgflip.com"/></a>
+Chamada para a tela de compra de Moedas:
+
+<a href="https://imgflip.com/gif/2ba2g1"><img src="https://i.imgflip.com/2ba2g1.gif" title="made at imgflip.com"/></a>
 
 ## Comprando Brita
 
-<a href="https://imgflip.com/gif/2b8hb7"><img src="https://i.imgflip.com/2b8hb7.gif" title="made at imgflip.com"/></a>
+Comprando moedas do tipo Brita:
+
+<a href="https://imgflip.com/gif/2ba2mr"><img src="https://i.imgflip.com/2ba2mr.gif" title="made at imgflip.com"/></a>
 
 ## Comprando BTC
 
-<a href="https://imgflip.com/gif/2b8hjc"><img src="https://i.imgflip.com/2b8hjc.gif" title="made at imgflip.com"/></a>
+Comprando moedas do tipo Bitcoin (BTC):
+
+<a href="https://imgflip.com/gif/2ba2tl"><img src="https://i.imgflip.com/2ba2tl.gif" title="made at imgflip.com"/></a>
 
 ## Transações de Compra
 
-<a href="https://imgflip.com/gif/2b8hp7"><img src="https://i.imgflip.com/2b8hp7.gif" title="made at imgflip.com"/></a>
+Transações de compra efetuadas:
+
+<a href="https://imgflip.com/gif/2ba2yc"><img src="https://i.imgflip.com/2ba2yc.gif" title="made at imgflip.com"/></a>
+
+## Tela de Venda
+
+Chamada para a tela de venda de Moedas:
+
+<a href="https://imgflip.com/gif/2ba331"><img src="https://i.imgflip.com/2ba331.gif" title="made at imgflip.com"/></a>
+
+## Vendendo Brita
+
+Vendendo moedas do tipo Brita. É necessário ter saldo suficiente para a operação.
+
+<a href="https://imgflip.com/gif/2ba39m"><img src="https://i.imgflip.com/2ba39m.gif" title="made at imgflip.com"/></a>
+
+## Vendendo BTC
+
+Vendendo moedas do tipo Bitcoin (BTC). É necessário ter saldo suficiente para a operação.
+
+<a href="https://imgflip.com/gif/2ba3fn"><img src="https://i.imgflip.com/2ba3fn.gif" title="made at imgflip.com"/></a>
+
+## Transações de Venda
+
+Transações de venda efetuadas:
+
+<a href="https://imgflip.com/gif/2ba3km"><img src="https://i.imgflip.com/2ba3km.gif" title="made at imgflip.com"/></a>
 
 
 ## Status do Código
