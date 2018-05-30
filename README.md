@@ -90,6 +90,11 @@ Transações de venda efetuadas:
 
 <a href="https://imgflip.com/gif/2ba3km"><img src="https://i.imgflip.com/2ba3km.gif" title="made at imgflip.com"/></a>
 
+## Tela de Troca
+
+Chama a tela para troca de Moedas:
+
+<a href="https://imgflip.com/gif/2bb9ra"><img src="https://i.imgflip.com/2bb9ra.gif" title="made at imgflip.com"/></a>
 
 ## Status do Código
 
