@@ -1,16 +1,16 @@
 //
-//  ListCriptoTableViewCell.swift
+//  ListSellCriptoTableViewCell.swift
 //  wallet_stone
 //
-//  Created by Luis Felipe Tapajos on 26/05/18.
+//  Created by Luis Felipe Tapajos on 29/05/18.
 //  Copyright © 2018 Luis Felipe Tapajos. All rights reserved.
 //
 
 import UIKit
 
-class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
+class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
 
-    var valorCotacaoCompra = 0.0
+    var valorCotacaoVenda = 0.0
     var saldoAtual = 0.0
     var moedaAtual = ""
     var paramClienteID = ""
@@ -39,7 +39,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         cotacaoVendaLabel.text = "Cotação de Venda: U\(String(describing: cotacaoVenda))"
         dataHoraCotacaoLabel.text = "Data: \(cripto.dataHoraCotacao)"
         
-        valorCotacaoCompra = cripto.cotacaoCompra
+        valorCotacaoVenda = cripto.cotacaoVenda
         
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0).cgColor
@@ -47,6 +47,25 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.layer.cornerRadius = 8
         
         quantidadeTextField.delegate = self
+        
+        //Carrega a soma de moedas do Cliente
+        let verificaQuantidade = listAllQuantidadePorClienteMoeda(clienteID, moedaNome: cripto.nome)
+        if (verificaQuantidade <= 0) {
+            
+            let label = UILabel()
+            label.text = "0"
+            label.numberOfLines = 0 // 0 = as many lines as the label needs
+            label.frame.origin.x = quantidadeTextField.frame.origin.x
+            label.frame.origin.y = quantidadeTextField.frame.origin.y
+            label.frame.size.width = quantidadeTextField.bounds.width
+            label.font = UIFont(name: "Avenir-Medium", size: 13)
+            label.textColor = UIColor(red:0.15, green:0.65, blue:0.74, alpha:1.0)
+            label.textAlignment = .center
+            label.sizeToFit()
+            self.addSubview(label)
+            
+            quantidadeTextField.removeFromSuperview()
+        }
     }
     
     func doneButtonTappedForMyNumericTextField() {
@@ -58,19 +77,20 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         if (moedaAtual == "Brita") {
             
             //Calcula Brita
-            let saldoFinalDesconvertido = calculaCompraBrita(Double(quantidade!)!, saldoAtual: saldoAtual, valorCotacaoCompra: valorCotacaoCompra)
+            let saldoFinalDesconvertido = calculaVendaBrita(Double(quantidade!)!, saldoAtual: saldoAtual, valorCotacaoVenda: valorCotacaoVenda)
             
             //Verifica se existe saldo suciciente para a compra
             if (saldoFinalDesconvertido > 0) {
                 
                 //Valor da Transação
-                let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+                let valorTransacao = (saldoFinalDesconvertido - saldoAtual)
                 
+                print(valorTransacao)
                 //Atualiza saldo do Cliente
                 atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
+                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: Double(quantidade!)!)
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
@@ -134,7 +154,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

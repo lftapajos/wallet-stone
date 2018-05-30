@@ -44,6 +44,7 @@ class PerfilViewController: UIViewController {
         self.tableView.dataSource = self
         
         self.tableView.reloadData()
+        
     }
     
     @IBAction func retornar(_ sender: Any) {
@@ -68,6 +69,13 @@ class PerfilViewController: UIViewController {
     @IBAction func comprarMoedas(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EntradaViewController") as! EntradaViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    //Chama a View que lista dados das moedas para salvar vendas do cliente
+    @IBAction func venderMoedas(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SaidaViewController") as! SaidaViewController
         self.navigationController?.pushViewController(controller, animated: true)
     }
 

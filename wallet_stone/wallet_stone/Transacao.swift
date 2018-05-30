@@ -55,7 +55,13 @@ func listAllQuantidadePorClienteMoeda(_ clienteID: String, moedaNome: String) ->
     
     var quantidade = 0.0
     for transacao in allTransacoes {
-        quantidade = (quantidade + transacao.quantidade)
+        
+        if (transacao.tipo == "COMPRA") {
+            quantidade = (quantidade + transacao.quantidade)
+        } else if (transacao.tipo == "VENDA") {
+            quantidade = (quantidade - transacao.quantidade)
+        }
+        
     }
     
     return quantidade
