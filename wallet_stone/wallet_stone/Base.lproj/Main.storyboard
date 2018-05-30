@@ -278,6 +278,17 @@
                                                     <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLQ-2c-uV4">
+                                                    <rect key="frame" x="257" y="8" width="78" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="78" id="VpC-Cl-P4D"/>
+                                                        <constraint firstAttribute="height" constant="45" id="cHJ-aH-OO3"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="btn_transacao_troca.png"/>
+                                                    <connections>
+                                                        <action selector="trocarMoedas:" destination="b0M-qk-ATz" eventType="touchUpInside" id="s76-Tt-S3g"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="SI0-7b-Syo" firstAttribute="top" secondItem="kuN-Da-vCc" secondAttribute="bottom" constant="8" id="1q1-Nf-xM0"/>
@@ -286,14 +297,17 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="qf5-Mb-Ybt" secondAttribute="trailing" id="UE9-wI-Fvp"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="qf5-Mb-Ybt" secondAttribute="leading" id="cJB-hm-cAt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kuN-Da-vCc" secondAttribute="trailing" id="eeh-wo-Ean"/>
+                                                <constraint firstItem="HLQ-2c-uV4" firstAttribute="top" secondItem="kuN-Da-vCc" secondAttribute="bottom" constant="-39" id="hHZ-JP-oqa"/>
                                                 <constraint firstItem="qf5-Mb-Ybt" firstAttribute="top" secondItem="SI0-7b-Syo" secondAttribute="bottom" constant="8" id="hbi-M6-Bsm"/>
                                                 <constraint firstAttribute="topMargin" secondItem="kuN-Da-vCc" secondAttribute="top" constant="-15" id="kWo-LS-Z4c"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="kuN-Da-vCc" secondAttribute="leading" id="krr-mA-m9N"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HLQ-2c-uV4" secondAttribute="trailing" id="seX-zR-HgQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="moedaLabel" destination="kuN-Da-vCc" id="dDM-WX-FtV"/>
                                             <outlet property="quantidadeLabel" destination="SI0-7b-Syo" id="Hyu-jR-a31"/>
+                                            <outlet property="trocaButton" destination="HLQ-2c-uV4" id="bnE-mj-2kK"/>
                                             <outlet property="valorLabel" destination="qf5-Mb-Ybt" id="e3c-y2-Jj0"/>
                                         </connections>
                                     </tableViewCell>
@@ -983,6 +997,7 @@
     </scenes>
     <resources>
         <image name="btn_comprar_moeda.png" width="312" height="168"/>
+        <image name="btn_transacao_troca.png" width="129" height="76"/>
         <image name="btn_transacoes.png" width="571" height="383"/>
         <image name="btn_vender_moeda.png" width="312" height="168"/>
         <image name="button_voltar.png" width="37" height="28"/>

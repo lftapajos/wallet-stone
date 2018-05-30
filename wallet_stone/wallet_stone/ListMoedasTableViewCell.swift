@@ -13,6 +13,7 @@ class ListMoedasTableViewCell: UITableViewCell {
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var quantidadeLabel: UILabel!
     @IBOutlet weak var valorLabel: UILabel!
+    @IBOutlet weak var trocaButton: UIButton!
     
     //Confihura a célula de Moedas
     func configuraCelulaMoeda(quantidade: Double, valor: Double, moeda: Moeda) {
@@ -29,6 +30,23 @@ class ListMoedasTableViewCell: UITableViewCell {
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0).cgColor
         self.layer.cornerRadius = 8
+        
+        //Verifca o saldo do cliente para a moeda selecionada
+        //let email = UserDefaults.standard.string(forKey: "emailCliente")
+        //let cliente = listDetailCliente(email!)
+        if (quantidade <= 0) {
+            trocaButton.removeFromSuperview()
+        }
+        
+    }
+    
+    @IBAction func trocarMoedas(_ sender: Any) {
+        
+        let moedaNome = moedaLabel.text
+        
+        //Envia notificação de mensagem
+        let mensagemDict:[String: String] = ["moedaNome": moedaNome!]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "trocaMoedaButton"), object: nil, userInfo: mensagemDict)
         
     }
     

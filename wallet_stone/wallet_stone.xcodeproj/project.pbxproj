@@ -45,6 +45,7 @@
 		69791CF820BAF84E0002DEAD /* ListMoedasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CF720BAF84E0002DEAD /* ListMoedasTableViewCell.swift */; };
 		698C283420BE44A000662C54 /* SaidaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C283320BE44A000662C54 /* SaidaViewController.swift */; };
 		698C283620BE49ED00662C54 /* ListSellCriptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C283520BE49ED00662C54 /* ListSellCriptoTableViewCell.swift */; };
+		698C283820BF1EDD00662C54 /* btn_transacao_troca.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C283720BF1EDD00662C54 /* btn_transacao_troca.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		69791CF720BAF84E0002DEAD /* ListMoedasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMoedasTableViewCell.swift; sourceTree = "<group>"; };
 		698C283320BE44A000662C54 /* SaidaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaidaViewController.swift; sourceTree = "<group>"; };
 		698C283520BE49ED00662C54 /* ListSellCriptoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSellCriptoTableViewCell.swift; sourceTree = "<group>"; };
+		698C283720BF1EDD00662C54 /* btn_transacao_troca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_transacao_troca.png; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 		69791CC120B83A600002DEAD /* Assests */ = {
 			isa = PBXGroup;
 			children = (
+				698C283720BF1EDD00662C54 /* btn_transacao_troca.png */,
 				6952FF0420BD52BB00D6FDC7 /* btn_transacao_venda.png */,
 				6952FF0520BD52BB00D6FDC7 /* btn_transacao_compra.png */,
 				69791CED20BAEC010002DEAD /* btn_comprar_moeda.png */,
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69791CF420BAF48F0002DEAD /* btn_transacoes.png in Resources */,
+				698C283820BF1EDD00662C54 /* btn_transacao_troca.png in Resources */,
 				69791CCC20B83A940002DEAD /* button_detalhes.png in Resources */,
 				69791CCF20B83A940002DEAD /* button_voltar.png in Resources */,
 				69791CC920B83A940002DEAD /* button_adicionar.png in Resources */,

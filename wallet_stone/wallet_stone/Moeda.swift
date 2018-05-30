@@ -80,3 +80,23 @@ func recuperaMoedaPorNome(_ nome: String) -> Moeda {
     
     return moeda
 }
+
+//Recupera dados da moeda para troca
+func recuperaTrocaMoedaPorNome(_ nome: String) -> Moeda {
+    
+    let realm = try! Realm()
+    let moeda = Moeda()
+    
+    let detailMoeda = realm.objects(Moeda.self).filter("nome != %@", nome)
+    
+    for m in detailMoeda {
+        
+        moeda.moedaID = m.moedaID
+        moeda.nome = m.nome
+        moeda.cotacaoCompra = m.cotacaoCompra
+        moeda.cotacaoVenda = m.cotacaoVenda
+        moeda.dataHoraCotacao = m.dataHoraCotacao
+    }
+    
+    return moeda
+}

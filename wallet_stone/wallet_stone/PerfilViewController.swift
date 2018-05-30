@@ -21,7 +21,10 @@ class PerfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Registra notificação de Mensagens
+        NotificationCenter.default.addObserver(self, selector: #selector(PerfilViewController.trocaMoedaButton), name: NSNotification.Name(rawValue: "trocaMoedaButton"), object: nil)
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +48,45 @@ class PerfilViewController: UIViewController {
         
         self.tableView.reloadData()
         
+    }
+    
+    //Função para carregar troca de Moedas
+    func trocaMoedaButton(_ notification: NSNotification) {
+        print(notification.userInfo ?? "")
+        if let dict = notification.userInfo as NSDictionary? {
+            if let moedaAtual = dict["moedaNome"] as? String {
+                
+                //Busca moeda diferente da moeda selecionada
+                let moedaTrocada = recuperaTrocaMoedaPorNome(moedaAtual)
+                //moedaAtual
+                
+                let alertController = UIAlertController(title: "ATENÇÃO", message: "Deseja efetuar uma troca da moeda \(moedaAtual) pela moeda \(moedaTrocada.nome)?", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "SIM", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    
+                    print("OK")
+                    
+                    //Carrega Tela de troca de moedas
+                    self.navigationController?.popViewController(animated: true)
+                    
+                    //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    //let controller = storyboard.instantiateViewController(withIdentifier: "TransacoesViewController") as! TransacoesViewController
+                    //controller.clienteID = clienteID
+                    //self.navigationController?.pushViewController(controller, animated: true)
+                    
+                    //self.navigationController?.popViewController(animated: true)
+                }
+                let cancelAction = UIAlertAction(title: "NÃO", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    //print("CANCEL")
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                alertController.addAction(okAction)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func retornar(_ sender: Any) {
