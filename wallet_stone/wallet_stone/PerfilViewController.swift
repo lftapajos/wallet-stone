@@ -52,7 +52,7 @@ class PerfilViewController: UIViewController {
     
     //Função para carregar troca de Moedas
     func trocaMoedaButton(_ notification: NSNotification) {
-        print(notification.userInfo ?? "")
+        //print(notification.userInfo ?? "")
         if let dict = notification.userInfo as NSDictionary? {
             if let moedaAtual = dict["moedaNome"] as? String {
                 
@@ -64,21 +64,19 @@ class PerfilViewController: UIViewController {
                 let okAction = UIAlertAction(title: "SIM", style: UIAlertActionStyle.default) {
                     UIAlertAction in
                     
-                    print("OK")
-                    
                     //Carrega Tela de troca de moedas
-                    self.navigationController?.popViewController(animated: true)
-                    
-                    //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    //let controller = storyboard.instantiateViewController(withIdentifier: "TransacoesViewController") as! TransacoesViewController
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: "TrocaViewController") as! TrocaViewController
                     //controller.clienteID = clienteID
-                    //self.navigationController?.pushViewController(controller, animated: true)
                     
-                    //self.navigationController?.popViewController(animated: true)
+                    controller.moedaOrigem = moedaAtual
+                    controller.moedaTroca = moedaTrocada.nome
+                    
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    
                 }
                 let cancelAction = UIAlertAction(title: "NÃO", style: UIAlertActionStyle.default) {
                     UIAlertAction in
-                    //print("CANCEL")
                     self.dismiss(animated: true, completion: nil)
                 }
                 
