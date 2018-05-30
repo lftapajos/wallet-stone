@@ -23,6 +23,9 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         
         //Registra notificação para atualização do saldo
         NotificationCenter.default.addObserver(self, selector: #selector(EntradaViewController.updateSaldoLabel), name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil)
+        
+        //Registra notificação de Mensagens
+        NotificationCenter.default.addObserver(self, selector: #selector(EntradaViewController.showMensagem), name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,9 +56,36 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         if let dict = notification.userInfo as NSDictionary? {
             if let saldoNovo = dict["saldo"] as? Double {
                 saldoLabel.text = "\(formatMoeda("pt_BR", valor:  saldoNovo))"
+                
+                let alertController = UIAlertController(title: "ATENÇÃO", message: "Compra efetuada com sucesso!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
-        
+    }
+    
+    //Função para criar alerta de mensagens
+    func showMensagem(_ notification: NSNotification) {
+        print(notification.userInfo ?? "")
+        if let dict = notification.userInfo as NSDictionary? {
+            if let mensagemNova = dict["mensagem"] as? String {
+                
+                let alertController = UIAlertController(title: "ATENÇÃO", message: mensagemNova, preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    
+                    //self.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            }
+        }
     }
     
     @IBAction func retornar(_ sender: Any) {

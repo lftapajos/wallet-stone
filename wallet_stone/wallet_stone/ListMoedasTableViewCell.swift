@@ -18,7 +18,7 @@ class ListMoedasTableViewCell: UITableViewCell {
     func configuraCelulaMoeda(quantidade: Double, valor: Double, moeda: Moeda) {
         
         moedaLabel.text = moeda.nome
-        quantidadeLabel.text = "Quantidade: \(quantidade)"
+        quantidadeLabel.text = "Quantidade de moedas: \(quantidade)"
         
         if (moeda.nome == "Brita") {
             valorLabel.text = "Valores: \(formatMoeda("pt_BR", valor: valor))"

@@ -54,72 +54,88 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         quantidadeTextField.resignFirstResponder()
         let quantidade = quantidadeTextField.text
         
-        //Calcula compra da Moeda Brita
-        if (moedaAtual == "Brita") {
+        if (quantidade == "") {
+            print("Favor preencher uma quantidade válida!")
             
-            //Calcula Brita
-            let saldoFinalDesconvertido = calculaCompraBrita(Double(quantidade!)!, saldoAtual: saldoAtual, valorCotacaoCompra: valorCotacaoCompra)
+            //Envia notificação de mensagem
+            let mensagemDict:[String: String] = ["mensagem": "Favor preencher uma quantidade válida!"]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
             
-            //Verifica se existe saldo suciciente para a compra
-            if (saldoFinalDesconvertido > 0) {
-                
-                //Valor da Transação
-                let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
-                
-                //Atualiza saldo do Cliente
-                atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
-                
-                //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
-                
-                //Atualiza o saldo atual
-                saldoAtual = saldoFinalDesconvertido
-                
-                //Envia notificação para atualizar o saldo
-                let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
-                
-                
-            } else {
-                print("Operação não pode ser executa por falta de saldo!")
-            }
-        }
-        
-        //Calcula compra da Moeda Bitcoin BTC
-        if (moedaAtual == "BTC") {
+        } else {
             
-            //Recupera a Cotação do Dólar
-            let cotacaoDolar = recuperaCotacoesDolar()
-            
-            //Converte o saldo de Reais para Dólares
-            let saldoConvertido = convertRealToDolar(cotacaoDolar.cotacaoCompra, valor: saldoAtual)
-            
-            //Calcula BTC
-            let saldoFinalDesconvertido = calculaCompraBtc(Double(quantidade!)!, saldoAtualDolar: saldoConvertido, valorCotacaoCompra: cotacaoDolar.cotacaoCompra)
-            
-            //Verifica se existe saldo suciciente para a compra
-            if (saldoFinalDesconvertido > 0) {
+            //Calcula compra da Moeda Brita
+            if (moedaAtual == "Brita") {
                 
-                //Valor da Transação
-                let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+                //Calcula Brita
+                let saldoFinalDesconvertido = calculaCompraBrita(Double(quantidade!)!, saldoAtual: saldoAtual, valorCotacaoCompra: valorCotacaoCompra)
                 
-                //Atualiza saldo do Cliente
-                atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
-                
-                //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
-                
-                //Atualiza o saldo atual
-                saldoAtual = saldoFinalDesconvertido
-                
-                //Envia notificação para atualizar o saldo
-                let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
-                
-            } else {
-                print("Operação não pode ser executa por falta de saldo!")
+                //Verifica se existe saldo suciciente para a compra
+                if (saldoFinalDesconvertido > 0) {
+                    
+                    //Valor da Transação
+                    let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+                    
+                    //Atualiza saldo do Cliente
+                    atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                    
+                    //Grava Transação de compra
+                    saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
+                    
+                    //Atualiza o saldo atual
+                    saldoAtual = saldoFinalDesconvertido
+                    
+                    //Envia notificação para atualizar o saldo
+                    let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
+                    
+                } else {
+                    //print("Operação não pode ser executa por falta de saldo!")
+                    
+                    //Envia notificação de mensagem
+                    let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
+                }
             }
             
+            //Calcula compra da Moeda Bitcoin BTC
+            if (moedaAtual == "BTC") {
+                
+                //Recupera a Cotação do Dólar
+                let cotacaoDolar = recuperaCotacoesDolar()
+                
+                //Converte o saldo de Reais para Dólares
+                let saldoConvertido = convertRealToDolar(cotacaoDolar.cotacaoCompra, valor: saldoAtual)
+                
+                //Calcula BTC
+                let saldoFinalDesconvertido = calculaCompraBtc(Double(quantidade!)!, saldoAtualDolar: saldoConvertido, valorCotacaoCompra: cotacaoDolar.cotacaoCompra)
+                
+                //Verifica se existe saldo suciciente para a compra
+                if (saldoFinalDesconvertido > 0) {
+                    
+                    //Valor da Transação
+                    let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+                    
+                    //Atualiza saldo do Cliente
+                    atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                    
+                    //Grava Transação de compra
+                    saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: Double(quantidade!)!)
+                    
+                    //Atualiza o saldo atual
+                    saldoAtual = saldoFinalDesconvertido
+                    
+                    //Envia notificação para atualizar o saldo
+                    let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
+                    
+                } else {
+                    //print("Operação não pode ser executa por falta de saldo!")
+                    
+                    //Envia notificação de mensagem
+                    let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
+                }
+            }
         }
         
         quantidadeTextField.text = ""
