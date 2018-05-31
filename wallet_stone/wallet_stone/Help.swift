@@ -9,7 +9,7 @@
 import Foundation
 
 //Formata Moedas
-func formatMoeda(_ codigo: String, valor: Double) -> String {
+func formatCoin(_ codigo: String, valor: Double) -> String {
     
     let formatter = NumberFormatter()
     let locale = Locale(identifier: codigo)
@@ -21,7 +21,7 @@ func formatMoeda(_ codigo: String, valor: Double) -> String {
 }
 
 //Cálculo de compra da moeda Brita
-func calculaCompraBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCompra: Double) -> Double {
+func calculateBuyBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCompra: Double) -> Double {
     
     let saldoConvertido = (saldoAtual / valorCotacaoCompra)
     let calculoCompra = (quantidade * valorCotacaoCompra)
@@ -32,27 +32,26 @@ func calculaCompraBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCo
 }
 
 //Cálculo de compra da moeda Bitcoin BTC
-func calculaCompraBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoCompra: Double) -> Double {
-    let calculoCompra = (valorCotacaoCompra * (quantidade * saldoAtualDolar))
-    let calculoFinal = (saldoAtualDolar - calculoCompra)
-    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
+func calculateBuyBtc(_ saldoAtualDolar: Double, saldoConvercao: Double, valorCotacaoCompra: Double) -> Double {
     
-    return saldoFinalDesconvertido
+    let calculoCompra = (saldoAtualDolar - saldoConvercao)
+    let calculoFinal = (calculoCompra * valorCotacaoCompra)
+    return calculoFinal
 }
 
 //Cálculo de venda da moeda Brita
-func calculaVendaBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoVenda: Double) -> Double {
+func calculateSellBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoVenda: Double) -> Double {
     
     let saldoConvertido = (saldoAtual / valorCotacaoVenda)
-    let calculoVenda = (quantidade * valorCotacaoVenda)
-    let calculoFinal = (saldoConvertido + calculoVenda)
-    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoVenda)
+    //let calculoVenda = (quantidade * valorCotacaoVenda)
+    let saldoFinalDesconvertido = (saldoConvertido * valorCotacaoVenda)
+    //let saldoFinalDesconvertido = (calculoFinal * valorCotacaoVenda)
     
     return saldoFinalDesconvertido
 }
 
 //Cálculo de venda da moeda Bitcoin BTC
-func calculaVendaBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoVenda: Double) -> Double {
+func calculateSellBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoVenda: Double) -> Double {
     
     let calculoVenda = (valorCotacaoVenda * (quantidade * saldoAtualDolar))
     let calculoFinal = (saldoAtualDolar + calculoVenda)
@@ -62,13 +61,16 @@ func calculaVendaBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacao
 }
 
 //Converte Dólar para Real
-func convertDolarToReal(_ cotacao: Double, valor: Double) -> Double {
+func convertDollarToReal(_ cotacao: Double, valor: Double) -> Double {
     let calculo = (cotacao * valor)
     return calculo
 }
 
 //Converte Real para Dólar
-func convertRealToDolar(_ cotacao:Double, valor: Double) -> Double {
-    let calculo = (valor / cotacao)
+func convertRealToDollar(_ cotacao:Double, valor: Double) -> Double {
+    
+    let valorCalculo = Double(round(valor * 10000000) / 10000000)
+    
+    let calculo = (valorCalculo / cotacao)
     return calculo
 }

@@ -35,7 +35,7 @@ class PerfilViewController: UIViewController {
         
         clienteID = cliente.clienteID
         
-        let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
+        let saldoFomatado = formatCoin("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
         
         nomeLabel.text = cliente.nome
@@ -57,7 +57,7 @@ class PerfilViewController: UIViewController {
             if let moedaAtual = dict["moedaNome"] as? String {
                 
                 //Busca moeda diferente da moeda selecionada
-                let moedaTrocada = recuperaTrocaMoedaPorNome(moedaAtual)
+                let moedaTrocada = loadChangeCoinByName(moedaAtual)
                 //moedaAtual
                 
                 let alertController = UIAlertController(title: "ATENÇÃO", message: "Deseja efetuar uma troca da moeda \(moedaAtual) pela moeda \(moedaTrocada.nome)?", preferredStyle: .alert)
@@ -67,7 +67,6 @@ class PerfilViewController: UIViewController {
                     //Carrega Tela de troca de moedas
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "TrocaViewController") as! TrocaViewController
-                    //controller.clienteID = clienteID
                     
                     controller.moedaOrigem = moedaAtual
                     controller.moedaTroca = moedaTrocada.nome
@@ -136,16 +135,15 @@ extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
         
         let row = indexPath.row
         let moeda = dataSourceArray[row]
-        //print("moeda =====> \(moeda.moedaID)")
         
         var quantidade = 0.0
         var valor = 0.0
         
         //Carrega a soma de moedas do Cliente
-        quantidade = listAllQuantidadePorClienteMoeda(clienteID, moedaNome: moeda.nome)
+        quantidade = listAllQuantityByClienteCoin(clienteID, moedaNome: moeda.nome)
         
         //Carrega a soma de valores de moedas do Cliente
-        valor = listAllValorPorClienteMoeda(clienteID, moedaNome: moeda.nome)
+        valor = listAllValueByClienteCoin(clienteID, moedaNome: moeda.nome)
         
         //Configura a célula
         cell.configuraCelulaMoeda(quantidade: quantidade, valor: valor, moeda: moeda)

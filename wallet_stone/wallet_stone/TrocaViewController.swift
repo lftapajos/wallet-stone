@@ -54,12 +54,10 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         let email = UserDefaults.standard.string(forKey: "emailCliente")
-        
         let cliente = listDetailCliente(email!)
-        
         clienteID = cliente.clienteID
         
-        let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
+        let saldoFomatado = formatCoin("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
         
         nomeLabel.text = cliente.nome
@@ -67,34 +65,43 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         moedaOrigemLabel.text = "De: \(moedaOrigem)"
         moedaTrocaLabel.text = "Por: \(moedaTroca)"
         
-        moeda1 = recuperaMoedaPorNome(moedaOrigem)
-        moeda2 = recuperaMoedaPorNome(moedaTroca)
+        //Recupera os dados das moedas de troca
+        moeda1 = loadCoinByName(moedaOrigem)
+        moeda2 = loadCoinByName(moedaTroca)
         
-        quantidadeOrigem = listAllQuantidadePorClienteMoeda(clienteID, moedaNome: moedaOrigem)
-        quantidadeTroca = listAllQuantidadePorClienteMoeda(clienteID, moedaNome: moedaTroca)
+        //Recupera a quantidade de cada moeda para efetuar a troca
+        quantidadeOrigem = listAllQuantityByClienteCoin(clienteID, moedaNome: moedaOrigem)
+        quantidadeTroca = listAllQuantityByClienteCoin(clienteID, moedaNome: moedaTroca)
 
-        valorOrigem = listAllValorPorClienteMoeda(clienteID, moedaNome: moedaOrigem)
-        valorTroca = listAllValorPorClienteMoeda(clienteID, moedaNome: moedaTroca)
+        //Recupera o valor de cada moeda para efetuar a troca
+        valorOrigem = listAllValueByClienteCoin(clienteID, moedaNome: moedaOrigem)
+        valorTroca = listAllValueByClienteCoin(clienteID, moedaNome: moedaTroca)
+        
+        //Formata campos para início dos cálculos
+        formatInitialFields()
+    }
+    
+    func formatInitialFields() {
         
         //Origem
         if (moedaOrigem == "Brita") {
-            let valorOrigemFormatado = formatMoeda("pt_BR", valor: valorOrigem)
+            let valorOrigemFormatado = formatCoin("pt_BR", valor: valorOrigem)
             moedaOrigemValorLabel.text = "\(valorOrigemFormatado)"
             
         } else if (moedaOrigem == "BTC") {
-            //let valorOrigemConvertido = convertDolarToReal(moeda1.cotacaoCompra, valor: valorOrigem)
-            let valorOrigemFormatado = formatMoeda("en_US", valor: valorOrigem)
-             moedaOrigemValorLabel.text = "U\(valorOrigemFormatado)"
+            //let valorOrigemConvertido = convertDollarToReal(moeda1.cotacaoCompra, valor: valorOrigem)
+            let valorOrigemFormatado = formatCoin("en_US", valor: valorOrigem)
+            moedaOrigemValorLabel.text = "U\(valorOrigemFormatado)"
         }
         
         //Troca
         if (moedaTroca == "Brita") {
-            let valorTrocaFormatado = formatMoeda("pt_BR", valor: valorTroca)
+            let valorTrocaFormatado = formatCoin("pt_BR", valor: valorTroca)
             moedaTrocaValorLabel.text = "\(valorTrocaFormatado)"
             valorLabel.text = "\(valorTrocaFormatado)"
             
         } else if (moedaTroca == "BTC") {
-            let valorTrocaFormatado = formatMoeda("en_US", valor: valorTroca)
+            let valorTrocaFormatado = formatCoin("en_US", valor: valorTroca)
             moedaTrocaValorLabel.text = "U\(valorTrocaFormatado)"
             valorLabel.text = "U\(valorTrocaFormatado)"
         }
@@ -108,11 +115,11 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         confirmaTrocaButton.isHidden = habilita
     }
     
-    func calculaBritaPorBtc() {
+    func calculateBritaByBtc() {
         
         let quantidade = quantidadeTextField.text
         
-        if ((quantidade! == "") || (Double(quantidade!) == 0.0)) {
+        if ((quantidade! == "") || (Double(quantidade!)! == 0.0)) {
             
             //Desabilita botão de confirmação
             trataConfirmacaoButton(true)
@@ -160,7 +167,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
                     let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
                     let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
                     
-                    let novoValorOrigemConvertido = convertDolarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+                    let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
                     let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
                     
                     //Atualiza campos
@@ -173,11 +180,11 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func calculaBtcPorBrita() {
+    func calculateBtcByBrita() {
         
         let quantidade = quantidadeTextField.text
         
-        if ((quantidade! == "") || (Double(quantidade!) == 0.0)) {
+        if ((quantidade! == "") || (Double(quantidade!)! == 0.0)) {
             
             //Desabilita botão de confirmação
             trataConfirmacaoButton(true)
@@ -213,7 +220,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
                 let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
                 let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
                 
-                let novoValorOrigemConvertido = convertDolarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+                let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
                 let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
                 
                 //Atualiza campos
@@ -228,33 +235,33 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     
     func updateFieldsBritaByBtc(_ qtdeOrigem: Double, valueOrigem: Double, qtdeChange: Double, valueChange: Double, valueTemp: Double) {
         
-        valorLabel.text = "U\(formatMoeda("en_US", valor: valueTemp))"
+        valorLabel.text = "U\(formatCoin("en_US", valor: valueTemp))"
         
         moedaOrigemQuantidadeLabel.text = "\(qtdeOrigem)"
-        moedaOrigemValorLabel.text = "\(formatMoeda("pt_BR", valor: valueOrigem))"
+        moedaOrigemValorLabel.text = "\(formatCoin("pt_BR", valor: valueOrigem))"
         
         moedaTrocaQuantidadeLabel.text = "\(qtdeChange)"
-        moedaTrocaValorLabel.text = "U\(formatMoeda("en_US", valor: valueTemp))"
+        moedaTrocaValorLabel.text = "U\(formatCoin("en_US", valor: valueTemp))"
     }
     
     func updateFieldsBtcByBrita(_ qtdeOrigem: Double, valueOrigem: Double, qtdeChange: Double, valueChange: Double, valueTemp: Double) {
         
-        valorLabel.text = "\(formatMoeda("pt_BR", valor: valueTemp))"
+        valorLabel.text = "\(formatCoin("pt_BR", valor: valueTemp))"
         
         moedaOrigemQuantidadeLabel.text = "\(qtdeOrigem)"
-        moedaOrigemValorLabel.text = "\(formatMoeda("en_US", valor: valueOrigem))"
+        moedaOrigemValorLabel.text = "\(formatCoin("en_US", valor: valueOrigem))"
         
         moedaTrocaQuantidadeLabel.text = "\(qtdeChange)"
-        moedaTrocaValorLabel.text = "\(formatMoeda("pt_BR", valor: valueTemp))"
+        moedaTrocaValorLabel.text = "\(formatCoin("pt_BR", valor: valueTemp))"
     }
     
     func doneButtonTappedForMyNumericTextField() {
         quantidadeTextField.resignFirstResponder()
         
         if (moedaOrigem == "Brita") {
-            calculaBritaPorBtc()
+            calculateBritaByBtc()
         } else if (moedaOrigem == "BTC") {
-            calculaBtcPorBrita()
+            calculateBtcByBrita()
         }
         
     }

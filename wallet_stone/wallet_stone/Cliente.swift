@@ -122,8 +122,6 @@ func verifyEmailExistente(_ email: String) -> Bool {
 
 //Atualiza saldo do cliente
 func atualizaSaldoCliente(_ clienteID: String, moedaNome: String, valor: Double, novoSaldo: Double) {
-    //print("clienteID: \(clienteID)")
-    //print("novoSaldo: \(novoSaldo)")
     
     let realm = try! Realm()
     

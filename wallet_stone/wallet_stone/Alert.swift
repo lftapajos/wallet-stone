@@ -20,13 +20,6 @@ class Alert: NSObject {
     
     // MARK: Methods
     //Alerta de Erro
-    func show(_ title: String = "Desculpe", message: String = "Ocorreu um erro!") {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-        alert.addAction(ok)
-        controller.present(alert, animated: true, completion: nil)
-    }
-    
     func showError(_ title: String = "ATENÇÃO", message: String = "Error", handler: @escaping (UIAlertAction) -> Void) {
         let details = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         let cancel = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: handler)

@@ -9,7 +9,6 @@
 import Foundation
 import RealmSwift
 
-//_ clienteID: String, moedaNome: String, valor: Double, novoSaldo: Double
 func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tipo: String, quantidade: Double) {
     
     let realm = try! Realm()
@@ -35,19 +34,19 @@ func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tip
 }
 
 //Lista todas as transacoes de um cliente
-func listAllTransacoes(_ clienteID: String) -> [Transacoes] {
+func listAllTransactions(_ clienteID: String) -> [Transacoes] {
     
     let realm = try! Realm()
     
-    let allTransacoes = realm.objects(Transacoes.self).filter("clienteID = %@", clienteID)
+    let allTransactions = realm.objects(Transacoes.self).filter("clienteID = %@", clienteID)
     
-    let transacoes = Array(allTransacoes)
+    let transactions = Array(allTransactions)
     
-    return transacoes
+    return transactions
 }
 
 //Lista quantidate das transações por cliente e moeda
-func listAllQuantidadePorClienteMoeda(_ clienteID: String, moedaNome: String) -> Double {
+func listAllQuantityByClienteCoin(_ clienteID: String, moedaNome: String) -> Double {
     
     let realm = try! Realm()
     
@@ -68,7 +67,7 @@ func listAllQuantidadePorClienteMoeda(_ clienteID: String, moedaNome: String) ->
 }
 
 //Lista quantidate das transações por cliente e moeda
-func listAllValorPorClienteMoeda(_ clienteID: String, moedaNome: String) -> Double {
+func listAllValueByClienteCoin(_ clienteID: String, moedaNome: String) -> Double {
     
     let realm = try! Realm()
     

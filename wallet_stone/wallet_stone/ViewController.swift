@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 //        print(resultDate)
         
         //Carrega a API com a moeda BRITA ao modelo de Moeda do Realm
-        let apiCall = APIManager.shared.fetchCotacaoDolarFromApi(resultDate)
+        let apiCall = APIManager.shared.fetchDollarQuotationFromApi(resultDate)
         apiCall.then {
             dolares -> Void in
             
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         }
         
         //Carrega a API com a moeda BTC
-        let apiCall2 = APIManager.shared.fetchCotacaoBtcFromApi()
+        let apiCall2 = APIManager.shared.fetchBtcQuotationFromApi()
         apiCall2.then {
             bitcoins -> Void in
 

@@ -19,14 +19,14 @@ class ListTransacoesTableViewCell: UITableViewCell {
     //Configura a célula de Transação
     func configuraCelulaTransacao(transancao: Transacoes) {
         
-        let moeda = recuperaMoedaPorNome(transancao.moedaNome)
+        let moeda = loadCoinByName(transancao.moedaNome)
         
         //Formato moedas por tipo
         var valorFomatado = ""
         if (transancao.moedaNome == "Brita") {
-            valorFomatado = formatMoeda("pt_BR", valor: transancao.valorTransacao)
+            valorFomatado = formatCoin("pt_BR", valor: transancao.valorTransacao)
         } else if (transancao.moedaNome == "BTC") {
-            valorFomatado = "U\(formatMoeda("en_US", valor: transancao.valorTransacao))"
+            valorFomatado = "U\(formatCoin("en_US", valor: transancao.valorTransacao))"
         }
         
         //Carrega valores

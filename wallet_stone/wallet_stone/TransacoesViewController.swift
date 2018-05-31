@@ -26,16 +26,27 @@ class TransacoesViewController: UIViewController {
         
         nomeLabel.text = cliente.nome
         
-        let saldoFomatado = formatMoeda("pt_BR", valor:  Double(cliente.saldo))
+        let saldoFomatado = formatCoin("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
-        
-        //Carrega dados das Transações do Cliente salvas no Realm
-        dataSourceArray = listAllTransacoes(clienteID)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.reloadData()
+        //Carrega dados das Transações do Cliente salvas no Realm
+        dataSourceArray = listAllTransactions(clienteID)
+        
+        if (dataSourceArray.count > 0) {
+            self.tableView.reloadData()
+            
+            
+        } else {
+            
+            //Mostra alerta de mensagem
+            Alert(controller: self).showError(message: "Você ainda não possui transações.", handler : { action in
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+        
         
     }
 

@@ -22,9 +22,9 @@ class ListMoedasTableViewCell: UITableViewCell {
         quantidadeLabel.text = "Quantidade de moedas: \(quantidade)"
         
         if (moeda.nome == "Brita") {
-            valorLabel.text = "Valores: \(formatMoeda("pt_BR", valor: valor))"
+            valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: valor))"
         } else if (moeda.nome == "BTC") {
-            valorLabel.text = "Valores: U\(formatMoeda("en_US", valor: valor))"
+            valorLabel.text = "Valores: U\(formatCoin("en_US", valor: valor))"
         }
         
         self.layer.borderWidth = 0.5
@@ -32,11 +32,9 @@ class ListMoedasTableViewCell: UITableViewCell {
         self.layer.cornerRadius = 8
         
         //Verifca o saldo do cliente para a moeda selecionada
-        //let email = UserDefaults.standard.string(forKey: "emailCliente")
-        //let cliente = listDetailCliente(email!)
-        if (quantidade <= 0) {
-            trocaButton.removeFromSuperview()
-        }
+//        if (quantidade <= 0) {
+//            trocaButton.removeFromSuperview()
+//        }
         
     }
     

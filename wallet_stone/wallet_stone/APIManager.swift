@@ -24,7 +24,7 @@ class APIManager {
     }
     
     //Carrega dados da Cotação diária do Dólar
-    func fetchCotacaoDolarFromApi(_ data: String) -> Promise<[Dolar]> {
+    func fetchDollarQuotationFromApi(_ data: String) -> Promise<[Dolar]> {
         
         let urlString = "\(API_COTACAO_DOLAR)dataCotacao='\(data)'&%24format=json"
         
@@ -49,7 +49,7 @@ class APIManager {
     }
     
     //Carrega dados da Cotação do Bitcoin para o dia
-    func fetchCotacaoBtcFromApi() -> Promise<[Bitcoin]> {
+    func fetchBtcQuotationFromApi() -> Promise<[Bitcoin]> {
         
         let urlString = "\(API_COTACAO_BITCOIN)"
         

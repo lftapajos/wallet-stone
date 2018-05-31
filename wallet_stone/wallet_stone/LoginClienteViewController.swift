@@ -45,15 +45,11 @@ class LoginClienteViewController: UIViewController, UITextFieldDelegate {
             self.navigationController?.pushViewController(controller, animated: true)
             
         } else {
-            //Cliente não encontrado
-            let alertController = UIAlertController(title: "ATENÇÃO", message: "Cliente não encontrado!", preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                UIAlertAction in
-            }
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+            //Mostra alerta de mensagem
+            Alert(controller: self).showError(message: "Cliente não encontrado!", handler : { action in
+                self.dismiss(animated: false)
+            })
         }
         
     }

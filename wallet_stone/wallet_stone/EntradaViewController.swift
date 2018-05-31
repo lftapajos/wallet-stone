@@ -36,7 +36,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         
         saldoAtual = Double(cliente.saldo)
         
-        let saldoFomatado = formatMoeda("pt_BR", valor:  saldoAtual)
+        let saldoFomatado = formatCoin("pt_BR", valor:  saldoAtual)
         saldoLabel.text = "\(saldoFomatado)"
         
         clienteID = cliente.clienteID
@@ -55,14 +55,12 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         print(notification.userInfo ?? "")
         if let dict = notification.userInfo as NSDictionary? {
             if let saldoNovo = dict["saldo"] as? Double {
-                saldoLabel.text = "\(formatMoeda("pt_BR", valor:  saldoNovo))"
+                saldoLabel.text = "\(formatCoin("pt_BR", valor:  saldoNovo))"
                 
-                let alertController = UIAlertController(title: "ATENÇÃO", message: "Compra efetuada com sucesso!", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                    UIAlertAction in
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
+                //Mostra alerta de mensagem
+                Alert(controller: self).showError(message: "Compra efetuada com sucesso!", handler : { action in
+                    self.dismiss(animated: false)
+                })
             }
         }
     }
@@ -73,17 +71,10 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         if let dict = notification.userInfo as NSDictionary? {
             if let mensagemNova = dict["mensagem"] as? String {
                 
-                let alertController = UIAlertController(title: "ATENÇÃO", message: mensagemNova, preferredStyle: .alert)
-                
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                    UIAlertAction in
-                    
-                    //self.navigationController?.popViewController(animated: true)
-                }
-                alertController.addAction(okAction)
-                
-                self.present(alertController, animated: true, completion: nil)
-                
+                //Mostra alerta de mensagem
+                Alert(controller: self).showError(message: mensagemNova, handler : { action in
+                    self.dismiss(animated: false)
+                })
             }
         }
     }

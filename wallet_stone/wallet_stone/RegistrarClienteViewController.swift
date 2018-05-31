@@ -34,36 +34,24 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func registrarCliente(_ sender: Any) {
         
-        //Salva novo Cliente no Realm
+        //Salva novo Cliente no Realm com saldo inicial de 100 mil reais
         let confirma = addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)
         
         //Confirma registro
         if (confirma) {
-            let alertController = UIAlertController(title: "ATENÇÃO", message: "Cliente registrado com sucesso!", preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                UIAlertAction in
-                
+            //Mostra alerta de mensagem
+            Alert(controller: self).showError(message: "Cliente registrado com sucesso!", handler : { action in
                 self.navigationController?.popViewController(animated: true)
-            }
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+            })
         
         } else {
+            
             //Cliente já existente
-            
-            let alertController = UIAlertController(title: "ATENÇÃO", message: "Cliente já existente!", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                UIAlertAction in
-                
-                //self.navigationController?.popViewController(animated: true)
-            }
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true, completion: nil)
-            
+            //Mostra alerta de mensagem
+            Alert(controller: self).showError(message: "Cliente já existente!", handler : { action in
+                self.dismiss(animated: false)
+            })
         }
         
     }
