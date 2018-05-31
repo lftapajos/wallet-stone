@@ -54,7 +54,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         quantidadeTextField.resignFirstResponder()
         let quantidade = quantidadeTextField.text
         
-        if (quantidade == "") {
+        if ((quantidade! == "") || (Double(quantidade!) == 0.0) || (Int(quantidade!)! == 0)) {
             print("Favor preencher uma quantidade válida!")
             
             //Envia notificação de mensagem
