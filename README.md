@@ -26,6 +26,8 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 ## Registo de Clientes
 
+É necessário criar um Cliente novo para executar as operações do aplicativo.
+
 Campos para teste de registro:
 - Nome: Jose
 - Email: jose@gmail.com
@@ -36,6 +38,8 @@ Campos para teste de registro:
 
 ## Login de Clientes
 
+Efetuando o login o cliente poderá executar as operações do aplicativo.
+
 Campos para teste de login:
 - Email: jose@gmail.com
 - Senha: j0$3
@@ -43,6 +47,8 @@ Campos para teste de login:
 <a href="https://imgflip.com/gif/2b8gzr"><img src="https://i.imgflip.com/2b8gzr.gif" title="made at imgflip.com"/></a>
 
 ## Tela de Compra
+
+Aqui o cliente poderá compras moedas dos 2 tipos.: Brita e Bitcoin (BTC).
 
 Chamada para a tela de compra de Moedas:
 
@@ -95,6 +101,46 @@ Transações de venda efetuadas:
 Chama a tela para troca de Moedas:
 
 <a href="https://imgflip.com/gif/2bb9ra"><img src="https://i.imgflip.com/2bb9ra.gif" title="made at imgflip.com"/></a>
+
+## Troca de moedas com valor inválido
+
+Ao tentar efetuar uma troca de moedas, alguns avisos podem ocorrer.
+
+- Aviso de valor inválido.
+
+<a href="https://imgflip.com/gif/2bele6"><img src="https://i.imgflip.com/2bele6.gif" title="made at imgflip.com"/></a>
+
+## Troca de moedas com valor baixo
+
+- Aviso de valor muito baixo para a transação.
+
+Isso ocorre caso o valor escolhido para troca seja muito baixo tendendo a zero.
+
+<a href="https://imgflip.com/gif/2belky"><img src="https://i.imgflip.com/2belky.gif" title="made at imgflip.com"/></a>
+
+## Troca de moedas com saldo insuficiente
+
+- Aviso de saldo insuficiente para a troca.
+
+Isso ocorre quando o cliente desejar trocar uma quantidade de moedas superior a quantidade disponível por ele. 
+
+<a href="https://imgflip.com/gif/2belqu"><img src="https://i.imgflip.com/2belqu.gif" title="made at imgflip.com"/></a>
+
+## Confirmação de Troca de moedas
+
+- Aviso de confirmação de troca de moedas.
+
+Se tudo ocorrer bem, esse aviso deverá aparecer e uma nova transação será criada.
+
+<a href="https://imgflip.com/gif/2belva"><img src="https://i.imgflip.com/2belva.gif" title="made at imgflip.com"/></a>
+
+## Transações de Troca
+
+- Confirmação de troca de uma moeda por outra.
+
+Transações de troca efetuadas:
+
+<a href="https://imgflip.com/gif/2belz4"><img src="https://i.imgflip.com/2belz4.gif" title="made at imgflip.com"/></a>
 
 ## Status do Código
 
