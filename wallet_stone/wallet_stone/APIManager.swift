@@ -78,4 +78,38 @@ class APIManager {
             }
         }
     }
+    
+    //Função para carregar dados da API
+    func loadAPIdata(_ resultDate: String, completion: @escaping (Bool)->(), failureBlock: @escaping ()->Void) {
+        
+        //Carrega a API com a moeda BRITA ao modelo de Moeda do Realm
+        let apiCall = self.fetchDollarQuotationFromApi(resultDate)
+        apiCall.then {
+            dolares -> Void in
+            
+            //Adiciona cotação de Brita ao Realm
+            addMoeda("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
+            
+            //Carrega a API com a moeda BTC
+            let apiCall2 = self.fetchBtcQuotationFromApi()
+            apiCall2.then {
+                bitcoins -> Void in
+                
+                let cotacaoCompra = Double((bitcoins[0].buy! as NSString).doubleValue)
+                let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
+                
+                //Adiciona cotação de BTC ao modelo de Moeda do Realm
+                addMoeda("BTC", cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
+                
+                //Efetua retorno
+                completion(true)
+                
+                }.catch { error
+                    -> Void in
+            }
+            
+        }.catch { error
+            -> Void in
+        }
+    }
 }

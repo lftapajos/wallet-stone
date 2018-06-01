@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var overlayView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Função para excluir o cliente (teste)
         //deleteCliente()
         
         //let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -21,41 +24,35 @@ class ViewController: UIViewController {
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
         deleteMoeda()
         
-        //https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?%40dataCotacao='05-31-2017'&%24format=json
-        let resultDate = "05-31-2017"
-//        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "MM-dd-yyyy"
-//        let resultDate = formatter.string(from: date)
-//        print(resultDate)
+//        let resultDate = "05-31-2017"
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let resultDate = formatter.string(from: date)
+        print(resultDate)
         
-        //Carrega a API com a moeda BRITA ao modelo de Moeda do Realm
-        let apiCall = APIManager.shared.fetchDollarQuotationFromApi(resultDate)
-        apiCall.then {
-            dolares -> Void in
-            
-            //Adiciona cotação de Brita ao Realm
-            addMoeda("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
-            
-            }.catch { error
-                -> Void in
-        }
+        //Carrega Loading enquanto os dados não são carregados pela chamada da API
+        self.overlayView = OverlayView().loadView(self.view)
+        self.view.addSubview(self.overlayView)
         
-        //Carrega a API com a moeda BTC
-        let apiCall2 = APIManager.shared.fetchBtcQuotationFromApi()
-        apiCall2.then {
-            bitcoins -> Void in
-
-            let cotacaoCompra = Double((bitcoins[0].buy! as NSString).doubleValue)
-            let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
+        //Chama a API que salva novasbas cotações diárias das Moedas
+        APIManager.shared.loadAPIdata(resultDate, completion: { (loaded) in
             
-            //Adiciona cotação de BTC ao modelo de Moeda do Realm
-            addMoeda("BTC", cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
+            //Se carregou, mostra os dados
+            if (loaded) {
+                
+                //Remove overlayView
+                self.overlayView.removeFromSuperview()
+            }
             
-            }.catch { error
-                -> Void in
-        }
-
+        }, failureBlock: {
+            //Erro ao carregar dados da API
+            
+            //Mostra alerta de mensagem
+            Alert(controller: self).showError(message: "Erro ao carregar os dados!", handler : { action in
+                self.dismiss(animated: false)
+            })
+        })
     }
     
     //Chama a View de registro de cliente

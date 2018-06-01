@@ -150,7 +150,8 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: false)
         })
         
-        //Atualiza valores de BTC
+        //Desabilita botão de confirmação
+        trataConfirmacaoButton(true)
         
     }
     

@@ -48,6 +48,7 @@
 		698C283820BF1EDD00662C54 /* btn_transacao_troca.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C283720BF1EDD00662C54 /* btn_transacao_troca.png */; };
 		698C283A20BF413500662C54 /* TrocaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C283920BF413500662C54 /* TrocaViewController.swift */; };
 		698C283C20C03A3000662C54 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C283B20C03A2F00662C54 /* Alert.swift */; };
+		698C283E20C1A0D700662C54 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C283D20C1A0D700662C54 /* OverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		698C283720BF1EDD00662C54 /* btn_transacao_troca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_transacao_troca.png; sourceTree = "<group>"; };
 		698C283920BF413500662C54 /* TrocaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrocaViewController.swift; sourceTree = "<group>"; };
 		698C283B20C03A2F00662C54 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		698C283D20C1A0D700662C54 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				69791CBC20B7AA500002DEAD /* APIManager.swift */,
 				6952FF0020BC522B00D6FDC7 /* Help.swift */,
 				698C283B20C03A2F00662C54 /* Alert.swift */,
+				698C283D20C1A0D700662C54 /* OverlayView.swift */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				69791CE020B980050002DEAD /* AllRealmObjects.swift in Sources */,
 				69791CEC20BAE16C0002DEAD /* PerfilViewController.swift in Sources */,
 				6952FF0120BC522B00D6FDC7 /* Help.swift in Sources */,
+				698C283E20C1A0D700662C54 /* OverlayView.swift in Sources */,
 				698C283A20BF413500662C54 /* TrocaViewController.swift in Sources */,
 				698C283420BE44A000662C54 /* SaidaViewController.swift in Sources */,
 				69791CD920B8407F0002DEAD /* RegistrarClienteViewController.swift in Sources */,
