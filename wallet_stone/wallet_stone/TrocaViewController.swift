@@ -44,6 +44,10 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     var moeda1 = Moeda()
     var moeda2 = Moeda()
     
+    let clienteModel = ClienteModel()
+    let moedaModel = MoedaModel()
+    let transacaoModel = TransacaoModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +58,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         let email = UserDefaults.standard.string(forKey: "emailCliente")
-        let cliente = listDetailCliente(email!)
+        let cliente = clienteModel.listDetailCliente(email!)
         clienteID = cliente.clienteID
         
         let saldoFomatado = formatCoin("pt_BR", valor:  Double(cliente.saldo))
@@ -66,16 +70,16 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         moedaTrocaLabel.text = "Por: \(moedaTroca)"
         
         //Recupera os dados das moedas de troca
-        moeda1 = loadCoinByName(moedaOrigem)
-        moeda2 = loadCoinByName(moedaTroca)
+        moeda1 = moedaModel.loadCoinByName(moedaOrigem)
+        moeda2 = moedaModel.loadCoinByName(moedaTroca)
         
         //Recupera a quantidade de cada moeda para efetuar a troca
-        quantidadeOrigem = listAllQuantityByClienteCoin(clienteID, moedaNome: moedaOrigem)
-        quantidadeTroca = listAllQuantityByClienteCoin(clienteID, moedaNome: moedaTroca)
+        quantidadeOrigem = transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: moedaOrigem)
+        quantidadeTroca = transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: moedaTroca)
 
         //Recupera o valor de cada moeda para efetuar a troca
-        valorOrigem = listAllValueByClienteCoin(clienteID, moedaNome: moedaOrigem)
-        valorTroca = listAllValueByClienteCoin(clienteID, moedaNome: moedaTroca)
+        valorOrigem = transacaoModel.listAllValueByClienteCoin(clienteID, moedaNome: moedaOrigem)
+        valorTroca = transacaoModel.listAllValueByClienteCoin(clienteID, moedaNome: moedaTroca)
         
         //Formata campos para início dos cálculos
         formatInitialFields()
@@ -142,8 +146,8 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
       
         
         //Grava Transação de troca
-        saveTransacation(clienteID, moedaNome: "Brita", valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
-        saveTransacation(clienteID, moedaNome: "BTC", valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
+        transacaoModel.saveTransacation(clienteID, moedaNome: "Brita", valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
+        transacaoModel.saveTransacation(clienteID, moedaNome: "BTC", valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
         
         //Mostra mensagem
         Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in

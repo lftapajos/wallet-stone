@@ -15,6 +15,10 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     var moedaAtual = ""
     var paramClienteID = ""
     
+    let clienteModel = ClienteModel()
+    let moedaModel = MoedaModel()
+    let transacaoModel = TransacaoModel()
+    
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
     @IBOutlet weak var cotacaoVendaLabel: UILabel!
@@ -94,10 +98,10 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
             
             //Atualiza saldo do Cliente
-            atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+            clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
             
             //Grava Transação de compra
-            saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: quantidade)
+            transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: quantidade)
             
             //Atualiza o saldo atual
             saldoAtual = saldoFinalDesconvertido
@@ -118,10 +122,10 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func calculateBtc(_ quantidade: Double) {
         
         //Recupera a Cotação do Dólar
-        let cotacaoDolar = loadDollarQuotes("Brita")
+        let cotacaoDolar = moedaModel.loadDollarQuotes("Brita")
         
         //Recupera a Cotação de BTC
-        let cotacaoBtc = loadDollarQuotes("BTC")
+        let cotacaoBtc = moedaModel.loadDollarQuotes("BTC")
         
         //Saldo atual conevertido para dólar
         let saldoAtualConvertidoDolar = (saldoAtual / cotacaoDolar.cotacaoCompra)
@@ -139,10 +143,10 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
             
             //Atualiza saldo do Cliente
-            atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+            clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
             
             //Grava Transação de compra
-            saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: quantidade)
+            transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: quantidade)
             
             //Atualiza o saldo atual
             saldoAtual = saldoFinalDesconvertido

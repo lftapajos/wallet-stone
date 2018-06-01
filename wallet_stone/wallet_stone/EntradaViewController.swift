@@ -17,6 +17,8 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
     var clienteID = ""
     
     var dataSourceArray = [Moeda]()
+    let clienteModel = ClienteModel()
+    let moedaModel = MoedaModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         
         let email = UserDefaults.standard.string(forKey: "emailCliente")
         
-        let cliente = listDetailCliente(email!)
+        let cliente = clienteModel.listDetailCliente(email!)
         
         saldoAtual = Double(cliente.saldo)
         
@@ -42,7 +44,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         clienteID = cliente.clienteID
         
         //Carrega dados de cotação das Moedas salvas no Realm
-        dataSourceArray = listMoedas()
+        dataSourceArray = moedaModel.listMoedas()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self

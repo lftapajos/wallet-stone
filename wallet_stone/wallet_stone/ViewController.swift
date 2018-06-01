@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     var overlayView = UIView()
     
+    let moedaModel = MoedaModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
         //print("App Path: \(dirPaths)")
         
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
-        deleteMoeda()
+        moedaModel.deleteMoeda()
         
 //        let resultDate = "05-31-2017"
         let date = Date()

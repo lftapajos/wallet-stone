@@ -17,6 +17,10 @@ class PerfilViewController: UIViewController {
     var dataSourceArray = [Moeda]()
     var transacoes = [Transacoes]()
     
+    let clienteModel = ClienteModel()
+    let moedaModel = MoedaModel()
+    let transacaoModel = TransacaoModel()
+    
     var clienteID = ""
     
     override func viewDidLoad() {
@@ -31,7 +35,7 @@ class PerfilViewController: UIViewController {
         
         let email = UserDefaults.standard.string(forKey: "emailCliente")
         
-        let cliente = listDetailCliente(email!)
+        let cliente = clienteModel.listDetailCliente(email!)
         
         clienteID = cliente.clienteID
         
@@ -41,7 +45,7 @@ class PerfilViewController: UIViewController {
         nomeLabel.text = cliente.nome
         
         //Carrega Moedas salvas no Realm
-        dataSourceArray = listMoedas()
+        dataSourceArray = moedaModel.listMoedas()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -57,7 +61,7 @@ class PerfilViewController: UIViewController {
             if let moedaAtual = dict["moedaNome"] as? String {
                 
                 //Busca moeda diferente da moeda selecionada
-                let moedaTrocada = loadChangeCoinByName(moedaAtual)
+                let moedaTrocada = moedaModel.loadChangeCoinByName(moedaAtual)
                 //moedaAtual
                 
                 let alertController = UIAlertController(title: "ATENÇÃO", message: "Deseja efetuar uma troca da moeda \(moedaAtual) pela moeda \(moedaTrocada.nome)?", preferredStyle: .alert)
@@ -140,10 +144,10 @@ extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
         var valor = 0.0
         
         //Carrega a soma de moedas do Cliente
-        quantidade = listAllQuantityByClienteCoin(clienteID, moedaNome: moeda.nome)
+        quantidade = transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: moeda.nome)
         
         //Carrega a soma de valores de moedas do Cliente
-        valor = listAllValueByClienteCoin(clienteID, moedaNome: moeda.nome)
+        valor = transacaoModel.listAllValueByClienteCoin(clienteID, moedaNome: moeda.nome)
         
         if (moeda.nome == "BTC") {
             valor = (valor / moeda.cotacaoVenda)

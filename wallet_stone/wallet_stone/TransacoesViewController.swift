@@ -17,12 +17,15 @@ class TransacoesViewController: UIViewController {
     var clienteID = ""
     var dataSourceArray = [Transacoes]()
     
+    let clienteModel = ClienteModel()
+    let transacaoModel = TransacaoModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let email = UserDefaults.standard.string(forKey: "emailCliente")
         
-        let cliente = listDetailCliente(email!)
+        let cliente = clienteModel.listDetailCliente(email!)
         
         nomeLabel.text = cliente.nome
         
@@ -33,7 +36,7 @@ class TransacoesViewController: UIViewController {
         self.tableView.dataSource = self
         
         //Carrega dados das Transações do Cliente salvas no Realm
-        dataSourceArray = listAllTransactions(clienteID)
+        dataSourceArray = transacaoModel.listAllTransactions(clienteID)
         
         if (dataSourceArray.count > 0) {
             self.tableView.reloadData()

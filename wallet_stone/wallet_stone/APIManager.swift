@@ -88,7 +88,7 @@ class APIManager {
             dolares -> Void in
             
             //Adiciona cotação de Brita ao Realm
-            addMoeda("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
+            MoedaModel().addMoeda("Brita", cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
             
             //Carrega a API com a moeda BTC
             let apiCall2 = self.fetchBtcQuotationFromApi()
@@ -99,7 +99,7 @@ class APIManager {
                 let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
                 
                 //Adiciona cotação de BTC ao modelo de Moeda do Realm
-                addMoeda("BTC", cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
+                MoedaModel().addMoeda("BTC", cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
                 
                 //Efetua retorno
                 completion(true)

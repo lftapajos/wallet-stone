@@ -16,6 +16,9 @@ class SaidaViewController: UIViewController {
     var saldoAtual = 0.0
     var clienteID = ""
     
+    let clienteModel = ClienteModel()
+    let moedaModel = MoedaModel()
+    
     var dataSourceArray = [Moeda]()
     
     override func viewDidLoad() {
@@ -32,7 +35,7 @@ class SaidaViewController: UIViewController {
         
         let email = UserDefaults.standard.string(forKey: "emailCliente")
         
-        let cliente = listDetailCliente(email!)
+        let cliente = clienteModel.listDetailCliente(email!)
         
         saldoAtual = Double(cliente.saldo)
         
@@ -42,7 +45,7 @@ class SaidaViewController: UIViewController {
         clienteID = cliente.clienteID
         
         //Carrega dados de cotação das Moedas salvas no Realm
-        dataSourceArray = listMoedas()
+        dataSourceArray = moedaModel.listMoedas()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self

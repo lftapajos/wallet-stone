@@ -14,6 +14,8 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var senhaTextField: UITextField!
     
+    let clienteModel = ClienteModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +37,7 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
     @IBAction func registrarCliente(_ sender: Any) {
         
         //Salva novo Cliente no Realm com saldo inicial de 100 mil reais
-        let confirma = addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)
+        let confirma = clienteModel.addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)
         
         //Confirma registro
         if (confirma) {

@@ -15,6 +15,10 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     var moedaAtual = ""
     var paramClienteID = ""
     
+    let clienteModel = ClienteModel()
+    let moedaModel = MoedaModel()
+    let transacaoModel = TransacaoModel()
+    
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
     @IBOutlet weak var cotacaoVendaLabel: UILabel!
@@ -49,7 +53,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         quantidadeTextField.delegate = self
         
         //Verifica a soma de moedas do Cliente
-        let verificaQuantidade = listAllQuantityByClienteCoin(clienteID, moedaNome: cripto.nome)
+        let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: cripto.nome)
         if (verificaQuantidade <= 0) {
             
             removeQuantity()
@@ -107,7 +111,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func calculateBrita(_ quantidade: Double) {
         
         //Verifica a soma de moedas do Cliente
-        let verificaQuantidade = listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
+        let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
         
         //Somente executa a operação se a quantidade em saldo é maior ou igual a zero
         if (verificaQuantidade >= quantidade) {
@@ -123,16 +127,16 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 print(valorTransacao)
                 //Atualiza saldo do Cliente
-                atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)
+                transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
                 
                 //Verifica a soma de moedas do Cliente
-                let verificaQuantidade = listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
+                let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
                 //Remove campo de quantidade
                 if (verificaQuantidade <= 0) {
                     removeQuantity()
@@ -163,16 +167,16 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func calculateBtc(_ quantidade: Double) {
         
         //Recupera a Cotação do Dólar
-        let cotacaoDolar = loadDollarQuotes("Brita")
+        let cotacaoDolar = moedaModel.loadDollarQuotes("Brita")
         
         //Recupera a Cotação do Dólar
-        let cotacaoBtc = loadDollarQuotes("BTC")
+        let cotacaoBtc = moedaModel.loadDollarQuotes("BTC")
         
         //Converte o saldo de Reais para Dólares
         let saldoConvertido = convertRealToDollar(cotacaoBtc.cotacaoVenda, valor: saldoAtual)
         
         //Verifica a soma de moedas do Cliente
-        let verificaQuantidade = listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
+        let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
         
         //Somente executa a operação se a quantidade em saldo é maior ou igual a zero
         if (verificaQuantidade >= quantidade) {
@@ -191,16 +195,16 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 
                 //Atualiza saldo do Cliente
-                atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
-                saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)
+                transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)
                 
                 //Atualiza o saldo atual
                 saldoAtual = saldoFinalDesconvertido
                 
                 //Verifica a soma de moedas do Cliente
-                let verificaQuantidade = listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
+                let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
                 if (verificaQuantidade <= 0) {
                     removeQuantity()
                 }

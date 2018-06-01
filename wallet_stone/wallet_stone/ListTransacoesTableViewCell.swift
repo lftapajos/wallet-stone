@@ -16,10 +16,12 @@ class ListTransacoesTableViewCell: UITableViewCell {
     @IBOutlet weak var dataHoraTransacaoLabel: UILabel!
     @IBOutlet weak var tipoimageView: UIImageView!
     
+    let moedaModel = MoedaModel()
+    
     //Configura a célula de Transação
     func configuraCelulaTransacao(transancao: Transacoes) {
         
-        let moeda = loadCoinByName(transancao.moedaNome)
+        let moeda = moedaModel.loadCoinByName(transancao.moedaNome)
 
         //Formato moedas por tipo
         var valorFomatado = ""
@@ -43,7 +45,7 @@ class ListTransacoesTableViewCell: UITableViewCell {
         } else if (transancao.tipo == "TROCA") {
             
             //Busca moeda diferente da moeda selecionada
-            let moedaTrocada = loadChangeCoinByName(transancao.moedaNome)
+            let moedaTrocada = moedaModel.loadChangeCoinByName(transancao.moedaNome)
             
             moedaLabel.text = "\(moeda.nome) por \(moedaTrocada.nome)"
             

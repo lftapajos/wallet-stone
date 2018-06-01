@@ -13,6 +13,8 @@ class LoginClienteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var senhaTextField: UITextField!
     
+    let clienteModel = ClienteModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +34,7 @@ class LoginClienteViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginCliente(_ sender: Any) {
         
         //Verifica se o Cliente existe no Realm
-        let retorno = verifyLoginCliente(emailTextField.text!, senha: senhaTextField.text!)
+        let retorno = clienteModel.verifyLoginCliente(emailTextField.text!, senha: senhaTextField.text!)
         
         //Se existir, loga o cliente e chama a View de Perfil
         if (retorno) {
