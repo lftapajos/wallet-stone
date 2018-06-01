@@ -145,6 +145,11 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         saveTransacation(clienteID, moedaNome: "Brita", valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
         saveTransacation(clienteID, moedaNome: "BTC", valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
         
+        //Mostra mensagem
+        Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in
+            self.dismiss(animated: false)
+        })
+        
         //Atualiza valores de BTC
         
     }
@@ -266,8 +271,6 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
-    
     
     func updateFieldsBritaByBtc(_ qtdeOrigem: Double, valueOrigem: Double, qtdeChange: Double, valueChange: Double, valueTemp: Double) {
         
