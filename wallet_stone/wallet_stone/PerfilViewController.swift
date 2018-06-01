@@ -145,6 +145,10 @@ extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
         //Carrega a soma de valores de moedas do Cliente
         valor = listAllValueByClienteCoin(clienteID, moedaNome: moeda.nome)
         
+        if (moeda.nome == "BTC") {
+            valor = (valor / moeda.cotacaoVenda)
+        }
+        
         //Configura a célula
         cell.configuraCelulaMoeda(quantidade: quantidade, valor: valor, moeda: moeda)
         

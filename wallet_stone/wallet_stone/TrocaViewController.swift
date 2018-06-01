@@ -115,6 +115,40 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         confirmaTrocaButton.isHidden = habilita
     }
     
+    @IBAction func confirmarTroca(_ sender: Any) {
+        
+        print("Confirmar a troca de moedas.")
+        confirmBritaByBtc()
+        
+    }
+    
+    func confirmBritaByBtc() {
+        
+        let quantidade = quantidadeTextField.text
+        let quantidadeDouble = Double(quantidade!)!
+        
+        //Calcula valor da operação
+        let valor = (quantidadeDouble / moeda2.cotacaoVenda)
+        
+        //Operações de cálculo para conversão de Brita para BTC
+        let novaQuantidadeOrigem = (quantidadeOrigem - quantidadeDouble)
+        let novaQuantidadeTroca = (quantidadeTroca + valor)
+        
+        let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
+        let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
+        
+        let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+        let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
+      
+        
+        //Grava Transação de troca
+        saveTransacation(clienteID, moedaNome: "Brita", valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
+        saveTransacation(clienteID, moedaNome: "BTC", valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
+        
+        //Atualiza valores de BTC
+        
+    }
+    
     func calculateBritaByBtc() {
         
         let quantidade = quantidadeTextField.text
@@ -232,6 +266,8 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    
     
     func updateFieldsBritaByBtc(_ qtdeOrigem: Double, valueOrigem: Double, qtdeChange: Double, valueChange: Double, valueTemp: Double) {
         

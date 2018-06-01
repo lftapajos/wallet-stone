@@ -75,7 +75,11 @@ func listAllValueByClienteCoin(_ clienteID: String, moedaNome: String) -> Double
     
     var valor = 0.0
     for transacao in allTransacoes {
-        valor = (valor + transacao.valorTransacao)
+        if (transacao.tipo == "COMPRA") {
+            valor = (valor + transacao.valorTransacao)
+        } else if (transacao.tipo == "VENDA") {
+            valor = (valor - transacao.valorTransacao)
+        }
     }
     
     return valor

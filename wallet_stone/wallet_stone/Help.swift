@@ -23,12 +23,15 @@ func formatCoin(_ codigo: String, valor: Double) -> String {
 //Cálculo de compra da moeda Brita
 func calculateBuyBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoCompra: Double) -> Double {
     
-    let saldoConvertido = (saldoAtual / valorCotacaoCompra)
     let calculoCompra = (quantidade * valorCotacaoCompra)
-    let calculoFinal = (saldoConvertido - calculoCompra)
-    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
+    let calculoFinal = (saldoAtual - calculoCompra)
     
-    return saldoFinalDesconvertido
+    //let saldoConvertido = (saldoAtual / valorCotacaoCompra)
+    //let calculoCompra = (quantidade * valorCotacaoCompra)
+    //let calculoFinal = (saldoConvertido - calculoCompra)
+    //let saldoFinalDesconvertido = (calculoFinal * valorCotacaoCompra)
+    
+    return calculoFinal
 }
 
 //Cálculo de compra da moeda Bitcoin BTC
@@ -42,9 +45,9 @@ func calculateBuyBtc(_ saldoAtualDolar: Double, saldoConvercao: Double, valorCot
 //Cálculo de venda da moeda Brita
 func calculateSellBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoVenda: Double) -> Double {
     
-    let saldoConvertido = (saldoAtual / valorCotacaoVenda)
-    //let calculoVenda = (quantidade * valorCotacaoVenda)
-    let saldoFinalDesconvertido = (saldoConvertido * valorCotacaoVenda)
+    //let saldoConvertido = (saldoAtual / valorCotacaoVenda)
+    let calculoVenda = (quantidade * valorCotacaoVenda)
+    let saldoFinalDesconvertido = (saldoAtual + calculoVenda)
     //let saldoFinalDesconvertido = (calculoFinal * valorCotacaoVenda)
     
     return saldoFinalDesconvertido
@@ -53,9 +56,9 @@ func calculateSellBrita(_ quantidade: Double, saldoAtual: Double, valorCotacaoVe
 //Cálculo de venda da moeda Bitcoin BTC
 func calculateSellBtc(_ quantidade: Double, saldoAtualDolar: Double, valorCotacaoVenda: Double) -> Double {
     
-    let calculoVenda = (valorCotacaoVenda * (quantidade * saldoAtualDolar))
-    let calculoFinal = (saldoAtualDolar + calculoVenda)
-    let saldoFinalDesconvertido = (calculoFinal * valorCotacaoVenda)
+    let calculoVenda = (quantidade * saldoAtualDolar) //valorCotacaoVenda * (
+    //let calculoFinal = (saldoAtualDolar + calculoVenda)
+    let saldoFinalDesconvertido = (calculoVenda / valorCotacaoVenda)
     
     return saldoFinalDesconvertido
 }

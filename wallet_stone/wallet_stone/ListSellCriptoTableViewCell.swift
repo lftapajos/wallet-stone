@@ -163,10 +163,13 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func calculateBtc(_ quantidade: Double) {
         
         //Recupera a Cotação do Dólar
-        let cotacaoDolar = loadDollarQuotes("BTC")
+        let cotacaoDolar = loadDollarQuotes("Brita")
+        
+        //Recupera a Cotação do Dólar
+        let cotacaoBtc = loadDollarQuotes("BTC")
         
         //Converte o saldo de Reais para Dólares
-        let saldoConvertido = convertRealToDollar(cotacaoDolar.cotacaoVenda, valor: saldoAtual)
+        let saldoConvertido = convertRealToDollar(cotacaoBtc.cotacaoVenda, valor: saldoAtual)
         
         //Verifica a soma de moedas do Cliente
         let verificaQuantidade = listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
@@ -175,13 +178,17 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         if (verificaQuantidade >= quantidade) {
             
             //Calcula BTC
-            let saldoFinalDesconvertido = calculateSellBtc(quantidade, saldoAtualDolar: saldoConvertido, valorCotacaoVenda: cotacaoDolar.cotacaoVenda)
+            let saldoFinalDesconvertido = calculateSellBtc(quantidade, saldoAtualDolar: saldoConvertido, valorCotacaoVenda: cotacaoBtc.cotacaoVenda)
             
             //Verifica se existe saldo suciciente para a compra
             if (saldoFinalDesconvertido > 0) {
                 
                 //Valor da Transação
-                let valorTransacao = (saldoFinalDesconvertido - saldoAtual)
+                //let valorTransacao = (saldoConvertido + saldoFinalDesconvertido)
+                //saldoFinalDesconvertido = ((valorTransacao * cotacaoDolar.cotacaoVenda) * )
+                
+                let valorTransacao = ((quantidade * cotacaoBtc.cotacaoVenda) * cotacaoDolar.cotacaoVenda)
+                
                 
                 //Atualiza saldo do Cliente
                 atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)

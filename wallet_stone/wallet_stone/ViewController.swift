@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
         deleteMoeda()
         
-        let resultDate = "05-23-2018"
+        //https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?%40dataCotacao='05-31-2017'&%24format=json
+        let resultDate = "05-31-2017"
 //        let date = Date()
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "MM-dd-yyyy"

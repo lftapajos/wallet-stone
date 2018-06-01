@@ -38,7 +38,6 @@ class TransacoesViewController: UIViewController {
         if (dataSourceArray.count > 0) {
             self.tableView.reloadData()
             
-            
         } else {
             
             //Mostra alerta de mensagem

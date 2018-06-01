@@ -980,6 +980,9 @@
                                             <constraint firstAttribute="height" constant="45" id="liv-FD-NDp"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="btn_transacao_troca.png"/>
+                                        <connections>
+                                            <action selector="confirmarTroca:" destination="z9M-ur-lek" eventType="touchUpInside" id="HGp-2a-XQT"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valor atualizado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3H-oQ-0ae">
                                         <rect key="frame" x="188" y="9" width="147" height="24"/>

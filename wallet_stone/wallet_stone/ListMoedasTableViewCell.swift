@@ -24,7 +24,7 @@ class ListMoedasTableViewCell: UITableViewCell {
         if (moeda.nome == "Brita") {
             valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: valor))"
         } else if (moeda.nome == "BTC") {
-            valorLabel.text = "Valores: U\(formatCoin("en_US", valor: valor))"
+            valorLabel.text = "Valores: \(valor)" //U\(formatCoin("en_US", valor: valor))
         }
         
         self.layer.borderWidth = 0.5

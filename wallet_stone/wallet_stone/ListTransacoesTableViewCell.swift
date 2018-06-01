@@ -20,13 +20,13 @@ class ListTransacoesTableViewCell: UITableViewCell {
     func configuraCelulaTransacao(transancao: Transacoes) {
         
         let moeda = loadCoinByName(transancao.moedaNome)
-        
+
         //Formato moedas por tipo
         var valorFomatado = ""
         if (transancao.moedaNome == "Brita") {
             valorFomatado = formatCoin("pt_BR", valor: transancao.valorTransacao)
         } else if (transancao.moedaNome == "BTC") {
-            valorFomatado = "U\(formatCoin("en_US", valor: transancao.valorTransacao))"
+            valorFomatado = "\(transancao.valorTransacao)"
         }
         
         //Carrega valores
@@ -40,6 +40,14 @@ class ListTransacoesTableViewCell: UITableViewCell {
             tipoimageView.image = UIImage(named: "btn_transacao_compra")
         } else if (transancao.tipo == "VENDA") {
             tipoimageView.image = UIImage(named: "btn_transacao_venda")
+        } else if (transancao.tipo == "TROCA") {
+            
+            //Busca moeda diferente da moeda selecionada
+            let moedaTrocada = loadChangeCoinByName(transancao.moedaNome)
+            
+            moedaLabel.text = "\(moeda.nome) por \(moedaTrocada.nome)"
+            
+            tipoimageView.image = UIImage(named: "btn_transacao_troca")
         }
         
         self.layer.borderWidth = 0.5

@@ -26,7 +26,7 @@ class APIManager {
     //Carrega dados da Cotação diária do Dólar
     func fetchDollarQuotationFromApi(_ data: String) -> Promise<[Dolar]> {
         
-        let urlString = "\(API_COTACAO_DOLAR)dataCotacao='\(data)'&%24format=json"
+        let urlString = "\(API_COTACAO_DOLAR)?%40dataCotacao='\(data)'&%24format=json"
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         return Promise<[Dolar]> {
