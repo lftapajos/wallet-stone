@@ -11,6 +11,7 @@ import RealmSwift
 
 class TransacaoModel {
     
+    //Salva as transações de compra e venda
     func saveTransaction(_ clienteID: String, moedaNome: String, valor: Double, tipo: String, quantidade: Double) {
         
         let realm = try! Realm()
@@ -20,6 +21,7 @@ class TransacaoModel {
         
         //Cria dados da Transação de compra
         let transacao = Transacoes()
+        
         transacao.transacaoID = UUID().uuidString
         transacao.clienteID = clienteID
         transacao.moedaID = (detailMoeda.first?.moedaID)!
@@ -33,6 +35,36 @@ class TransacaoModel {
             realm.add(transacao)
             print("Transação \(transacao.transacaoID) adicionado no Realm.")
         }
+    }
+    
+    //Salva as transações de troca
+    func saveTransactionChange(_ clienteID: String, moedaNomeOrigem: String, moedaNomeTroca: String, novoValorOrigem: Double, novoValorTroca: Double, quantidadeOrigem: Double, quantidadeTroca: Double, tipo: String) {
+        
+        let realm = try! Realm()
+        
+        //Cria dados da Transação de compra
+        let transacao = Transacoes()
+        
+        transacao.transacaoID = UUID().uuidString
+        transacao.clienteID = clienteID
+        
+        transacao.moedaNomeOrigem = moedaNomeOrigem
+        transacao.novoValorOrigem = novoValorOrigem
+        transacao.quantidadeOrigem = quantidadeOrigem
+        
+        transacao.moedaNomeTroca = moedaNomeTroca
+        transacao.novoValorTroca = novoValorTroca
+        transacao.quantidadeTroca = quantidadeTroca
+        
+        transacao.tipo = tipo
+        
+        transacao.dataHoraTransacao = getDateTimeToday()
+        
+        try! realm.write {
+            realm.add(transacao)
+            print("Transação de troca \(transacao.transacaoID) adicionada no Realm.")
+        }
+        
     }
     
     //Lista todas as transacoes de um cliente

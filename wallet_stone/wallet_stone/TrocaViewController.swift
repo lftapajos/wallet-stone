@@ -47,6 +47,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     let clienteModel = ClienteModel()
     let moedaModel = MoedaModel()
     let transacaoModel = TransacaoModel()
+    let estoqueModel = EstoqueModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,12 +75,12 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         moeda2 = moedaModel.loadCoinByName(moedaTroca)
         
         //Recupera a quantidade de cada moeda para efetuar a troca
-        quantidadeOrigem = transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: moedaOrigem)
-        quantidadeTroca = transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: moedaTroca)
+        quantidadeOrigem = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaOrigem).quantidade
+        quantidadeTroca = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaTroca).quantidade
 
         //Recupera o valor de cada moeda para efetuar a troca
-        valorOrigem = transacaoModel.listAllValueByClienteCoin(clienteID, moedaNome: moedaOrigem)
-        valorTroca = transacaoModel.listAllValueByClienteCoin(clienteID, moedaNome: moedaTroca)
+        valorOrigem = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaOrigem).saldo
+        valorTroca = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaTroca).saldo
         
         //Formata campos para início dos cálculos
         formatInitialFields()
@@ -104,10 +105,11 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
             moedaTrocaValorLabel.text = "\(valorTrocaFormatado)"
             valorLabel.text = "\(valorTrocaFormatado)"
             
-        } else if (moedaTroca == MOEDA_BRITA) {
+        } else if (moedaTroca == MOEDA_BTC) {
             let valorTrocaFormatado = formatCoin("en_US", valor: valorTroca)
             moedaTrocaValorLabel.text = "U\(valorTrocaFormatado)"
             valorLabel.text = "U\(valorTrocaFormatado)"
+            
         }
         
         moedaOrigemQuantidadeLabel.text = "\(quantidadeOrigem)"
@@ -145,9 +147,18 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
       
         
+        //Subtrai o saldo do estoque de Brita
+        estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BRITA, novaQuantidade: -quantidadeDouble, novoSaldo: -(quantidadeDouble  * moeda1.cotacaoVenda))
+        
+        //Zera saldo de BTC
+        estoqueModel.zeraSaldoClienteByCoin(clienteID, moedaNome: MOEDA_BTC)
+        
+        //Atualiza o novo saldo do estoque de BTC
+        estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BTC, novaQuantidade: novaQuantidadeTroca, novoSaldo: novoValorTrocaConvertido)
+        
         //Grava Transação de troca
-        transacaoModel.saveTransaction(clienteID, moedaNome: MOEDA_BRITA, valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
-        transacaoModel.saveTransaction(clienteID, moedaNome: MOEDA_BTC, valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
+        transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BTC, novoValorOrigem: novoValorOrigemConvertido, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidadeDouble, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
+        
         
         //Mostra mensagem
         Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in

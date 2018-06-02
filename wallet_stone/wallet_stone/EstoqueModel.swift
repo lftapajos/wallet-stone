@@ -42,6 +42,19 @@ class EstoqueModel {
                 estoque.quantidade = estoque.quantidade + novaQuantidade
                 estoque.saldo = estoque.saldo + novoSaldo
             }
+        } else {
+            let estoque = Estoque()
+            
+            estoque.estoqueID = UUID().uuidString
+            estoque.clienteID = clienteID
+            estoque.moedaNome = moedaNome
+            estoque.quantidade = novaQuantidade
+            estoque.saldo = novoSaldo
+            
+            try! realm.write {
+                realm.add(estoque)
+                print("Novo estoque \(estoque.estoqueID) adicionado no Realm.")
+            }
         }
     }
     

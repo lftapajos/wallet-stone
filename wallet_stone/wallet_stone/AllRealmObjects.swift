@@ -40,6 +40,14 @@ class Transacoes : Object {
     dynamic var quantidade = 0.0
     dynamic var valorTransacao = 0.0
     dynamic var dataHoraTransacao = ""
+    
+    //Troca
+    dynamic var moedaNomeOrigem = ""
+    dynamic var novoValorOrigem = 0.0
+    dynamic var quantidadeOrigem = 0.0
+    dynamic var moedaNomeTroca = ""
+    dynamic var novoValorTroca = 0.0
+    dynamic var quantidadeTroca = 0.0
 }
 
 //Realm de Estoque
