@@ -88,23 +88,23 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     func formatInitialFields() {
         
         //Origem
-        if (moedaOrigem == "Brita") {
+        if (moedaOrigem == MOEDA_BRITA) {
             let valorOrigemFormatado = formatCoin("pt_BR", valor: valorOrigem)
             moedaOrigemValorLabel.text = "\(valorOrigemFormatado)"
             
-        } else if (moedaOrigem == "BTC") {
+        } else if (moedaOrigem == MOEDA_BTC) {
             //let valorOrigemConvertido = convertDollarToReal(moeda1.cotacaoCompra, valor: valorOrigem)
             let valorOrigemFormatado = formatCoin("en_US", valor: valorOrigem)
             moedaOrigemValorLabel.text = "U\(valorOrigemFormatado)"
         }
         
         //Troca
-        if (moedaTroca == "Brita") {
+        if (moedaTroca == MOEDA_BRITA) {
             let valorTrocaFormatado = formatCoin("pt_BR", valor: valorTroca)
             moedaTrocaValorLabel.text = "\(valorTrocaFormatado)"
             valorLabel.text = "\(valorTrocaFormatado)"
             
-        } else if (moedaTroca == "BTC") {
+        } else if (moedaTroca == MOEDA_BRITA) {
             let valorTrocaFormatado = formatCoin("en_US", valor: valorTroca)
             moedaTrocaValorLabel.text = "U\(valorTrocaFormatado)"
             valorLabel.text = "U\(valorTrocaFormatado)"
@@ -146,8 +146,8 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
       
         
         //Grava Transação de troca
-        transacaoModel.saveTransacation(clienteID, moedaNome: "Brita", valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
-        transacaoModel.saveTransacation(clienteID, moedaNome: "BTC", valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
+        transacaoModel.saveTransacation(clienteID, moedaNome: MOEDA_BRITA, valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
+        transacaoModel.saveTransacation(clienteID, moedaNome: MOEDA_BTC, valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
         
         //Mostra mensagem
         Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in
@@ -302,9 +302,9 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     func doneButtonTappedForMyNumericTextField() {
         quantidadeTextField.resignFirstResponder()
         
-        if (moedaOrigem == "Brita") {
+        if (moedaOrigem == MOEDA_BRITA) {
             calculateBritaByBtc()
-        } else if (moedaOrigem == "BTC") {
+        } else if (moedaOrigem == MOEDA_BTC) {
             calculateBtcByBrita()
         }
         

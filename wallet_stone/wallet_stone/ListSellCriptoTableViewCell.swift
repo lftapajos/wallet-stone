@@ -18,6 +18,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     let clienteModel = ClienteModel()
     let moedaModel = MoedaModel()
     let transacaoModel = TransacaoModel()
+    let estoqueModel = EstoqueModel()
     
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
@@ -91,14 +92,14 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         } else {
             
             //Calcula compra da Moeda Brita
-            if (moedaAtual == "Brita") {
+            if (moedaAtual == MOEDA_BRITA) {
                 
                 //Calculo Brita
                 calculateBrita(Double(quantidade!)!)
             }
             
             //Calcula compra da Moeda Bitcoin BTC
-            if (moedaAtual == "BTC") {
+            if (moedaAtual == MOEDA_BTC) {
                 
                 //Calculo BTC
                 calculateBtc(Double(quantidade!)!)
@@ -140,6 +141,9 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             //Verifica se existe saldo suciciente para a compra
             if (novo_saldo > 0) {
                 
+                //Atualiza saldo do Estoque
+                estoqueModel.updateSaldoCliente(paramClienteID, moedaNome: MOEDA_BRITA, novaQuantidade: -quantidade, novoSaldo: -valor_venda)
+                
                 //Atualiza saldo do Cliente
                 clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
                 
@@ -179,10 +183,10 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         //calculateBuyBtc
         
         //Recupera a Cotação do Dólar
-        let cotacaoDolar = moedaModel.loadDollarQuotes("Brita")
+        let cotacaoDolar = moedaModel.loadDollarQuotes(MOEDA_BRITA)
         
         //Recupera a Cotação de BTC
-        let cotacaoBtc = moedaModel.loadDollarQuotes("BTC")
+        let cotacaoBtc = moedaModel.loadDollarQuotes(MOEDA_BTC)
         
         //Converte a cotação para Real
         let cotacao_formatada = (formatCurrency(cotacaoBtc.cotacaoVenda) * formatCurrency(cotacaoDolar.cotacaoVenda))
@@ -201,7 +205,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         //print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica a soma de moedas do Cliente
-        let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
+        let verificaQuantidade = formatCurrency(transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual))
         //print("verificaQuantidade =====> \(verificaQuantidade)")
         
         //Verifica se existe saldo suciciente para a compra
@@ -209,6 +213,9 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             
             //Verifica se existe saldo suciciente para a compra
             if (novo_saldo > 0) {
+                
+                //Atualiza saldo do Estoque
+                estoqueModel.updateSaldoCliente(paramClienteID, moedaNome: MOEDA_BTC, novaQuantidade: -quantidade, novoSaldo: -valor_venda)
                 
                 //Atualiza saldo do Cliente
                 clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)

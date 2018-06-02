@@ -18,6 +18,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     let clienteModel = ClienteModel()
     let moedaModel = MoedaModel()
     let transacaoModel = TransacaoModel()
+    let estoqueModel = EstoqueModel()
     
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var cotacaoCompraLabel: UILabel!
@@ -35,8 +36,6 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         moedaAtual = cripto.nome
         saldoAtual = saldo
         paramClienteID = clienteID
-        
-        
         
         let cotacaoCompra = formatCoin("en_US", valor: cripto.cotacaoCompra)
         let cotacaoVenda = formatCoin("en_US", valor: cripto.cotacaoVenda)
@@ -69,14 +68,14 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         } else {
             
             //Calcula compra da Moeda Brita
-            if (moedaAtual == "Brita") {
+            if (moedaAtual == MOEDA_BRITA) {
                 
                 //Calcula Brita
                 calculateBrita(Double(quantidade!)!)
             }
             
             //Calcula compra da Moeda Bitcoin BTC
-            if (moedaAtual == "BTC") {
+            if (moedaAtual == MOEDA_BTC) {
                 
                 //Calcula BTC
                 calculateBtc(Double(quantidade!)!)
@@ -111,6 +110,18 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         //Verifica se existe saldo suciciente para a compra
         if (novo_saldo > 0) {
             
+            //Verifica se o Cliente já possui saldo para a moeda Brita
+            if (estoqueModel.getSaldoClienteByCoin(paramClienteID, moedaNome: MOEDA_BRITA)) {
+                
+                //Se tiver, atualiza o saldo
+                estoqueModel.updateSaldoCliente(paramClienteID, moedaNome: MOEDA_BRITA, novaQuantidade: quantidade, novoSaldo: valor_compra)
+                
+            } else {
+                
+                //Senão cria um novo saldo
+                estoqueModel.addEstoque(paramClienteID, moedaNome: MOEDA_BRITA, quantidade: quantidade, saldo: valor_compra)
+            }
+            
             //Atualiza saldo do Cliente
             clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
             
@@ -129,10 +140,10 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         //calculateBuyBtc
         
         //Recupera a Cotação do Dólar
-        let cotacaoDolar = moedaModel.loadDollarQuotes("Brita")
+        let cotacaoDolar = moedaModel.loadDollarQuotes(MOEDA_BRITA)
         
         //Recupera a Cotação de BTC
-        let cotacaoBtc = moedaModel.loadDollarQuotes("BTC")
+        let cotacaoBtc = moedaModel.loadDollarQuotes(MOEDA_BTC)
         
         let cotacao_formatada = (formatCurrency(cotacaoBtc.cotacaoCompra) * formatCurrency(cotacaoDolar.cotacaoCompra))
         //print("cotacao_formatada =====> \(cotacao_formatada)")
@@ -148,6 +159,18 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         //Verifica se existe saldo suciciente para a compra
         if (novo_saldo > 0) {
+            
+            //Verifica se o Cliente já possui saldo para a moeda Brita
+            if (estoqueModel.getSaldoClienteByCoin(paramClienteID, moedaNome: MOEDA_BTC)) {
+                
+                //Se tiver, atualiza o saldo
+                estoqueModel.updateSaldoCliente(paramClienteID, moedaNome: MOEDA_BTC, novaQuantidade: quantidade, novoSaldo: valor_compra)
+                
+            } else {
+                
+                //Senão cria um novo saldo
+                estoqueModel.addEstoque(paramClienteID, moedaNome: MOEDA_BTC, quantidade: quantidade, saldo: valor_compra)
+            }
             
             //Atualiza saldo do Cliente
             clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)

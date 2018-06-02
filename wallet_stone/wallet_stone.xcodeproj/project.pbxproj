@@ -46,6 +46,7 @@
 		698C286920C1B22D00662C54 /* wallet_stoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C286820C1B22D00662C54 /* wallet_stoneTests.swift */; };
 		698C287B20C1D08100662C54 /* ClienteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE420B98D1B0002DEAD /* ClienteModel.swift */; };
 		698C287E20C1DCB700662C54 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C287D20C1DCB700662C54 /* logo.png */; };
+		698C288020C2C1A400662C54 /* EstoqueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C287F20C2C1A400662C54 /* EstoqueModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		698C286A20C1B22D00662C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698C287720C1C26000662C54 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/wallet_stone-gmjgzzkkmjaotybcaauthcnqbseu/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		698C287D20C1DCB700662C54 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		698C287F20C2C1A400662C54 /* EstoqueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstoqueModel.swift; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +234,7 @@
 				69791CE420B98D1B0002DEAD /* ClienteModel.swift */,
 				69791CF520BAF6DF0002DEAD /* MoedaModel.swift */,
 				6952FF0220BD025C00D6FDC7 /* TransacaoModel.swift */,
+				698C287F20C2C1A400662C54 /* EstoqueModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				6952FF0B20BD55B900D6FDC7 /* TransacoesViewController.swift in Sources */,
 				69791CE820B9E7520002DEAD /* ListCriptoTableViewCell.swift in Sources */,
 				69791CBD20B7AA500002DEAD /* APIManager.swift in Sources */,
+				698C288020C2C1A400662C54 /* EstoqueModel.swift in Sources */,
 				69791CDD20B901870002DEAD /* EntradaViewController.swift in Sources */,
 				69791CAA20B76A520002DEAD /* ViewController.swift in Sources */,
 				69791CE520B98D1B0002DEAD /* ClienteModel.swift in Sources */,

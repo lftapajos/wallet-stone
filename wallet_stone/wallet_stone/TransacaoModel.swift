@@ -68,7 +68,7 @@ class TransacaoModel {
         return quantidade
     }
     
-    //Lista quantidate das transações por cliente e moeda
+    //Lista quantidade das transações por cliente e moeda
     func listAllValueByClienteCoin(_ clienteID: String, moedaNome: String) -> Double {
         
         let realm = try! Realm()

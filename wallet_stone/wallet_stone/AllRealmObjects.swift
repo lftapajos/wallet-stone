@@ -41,3 +41,13 @@ class Transacoes : Object {
     dynamic var valorTransacao = 0.0
     dynamic var dataHoraTransacao = ""
 }
+
+//Realm de Estoque
+class Estoque : Object {
+    
+    dynamic var estoqueID = ""
+    dynamic var clienteID = ""
+    dynamic var moedaNome = ""
+    dynamic var quantidade = 0.0
+    dynamic var saldo = 0.0
+}

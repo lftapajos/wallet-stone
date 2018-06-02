@@ -15,3 +15,6 @@ let API_COTACAO_DOLAR = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1
 let API_COTACAO_BITCOIN = "https://www.mercadobitcoin.net/api/BTC/ticker/"
 
 //https://www.mercadobitcoin.net/api/BTC/day-summary/2018/5/23/
+
+let MOEDA_BRITA = "Brita"
+let MOEDA_BTC = "BTC"

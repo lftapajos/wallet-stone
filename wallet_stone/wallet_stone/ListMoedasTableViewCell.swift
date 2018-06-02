@@ -15,26 +15,53 @@ class ListMoedasTableViewCell: UITableViewCell {
     @IBOutlet weak var valorLabel: UILabel!
     @IBOutlet weak var trocaButton: UIButton!
     
+    let clienteModel = ClienteModel()
+    let estoqueModel = EstoqueModel()
+    
     //Confihura a célula de Moedas
-    func configuraCelulaMoeda(quantidade: Double, valor: Double, moeda: Moeda) {
+    func configuraCelulaMoeda(moeda: Moeda) {
+        
+        let email = UserDefaults.standard.string(forKey: "emailCliente")
+        let cliente = clienteModel.listDetailCliente(email!)
         
         moedaLabel.text = moeda.nome
-        quantidadeLabel.text = "Quantidade de moedas: \(quantidade)"
         
-        if (moeda.nome == "Brita") {
-            valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: valor))"
-        } else if (moeda.nome == "BTC") {
-            valorLabel.text = "Valores: \(valor)" //U\(formatCoin("en_US", valor: valor))
+        var estoque = Estoque()
+        
+        if (moeda.nome == MOEDA_BRITA) {
+            
+            estoque = estoqueModel.listAllEstoquByClienteCoin(cliente.clienteID, moedaNome: MOEDA_BRITA)
+            quantidadeLabel.text = "Quantidade de moedas: \(estoque.quantidade)"
+            
+            if (estoque.saldo < 0) {
+                
+                //Zera Estoque
+                estoqueModel.zeraSaldoClienteByCoin(cliente.clienteID, moedaNome: MOEDA_BRITA)
+                
+                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: 0))"
+            } else {
+                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: estoque.saldo))"
+            }
+            
+        } else if (moeda.nome == MOEDA_BTC) {
+           
+            estoque = estoqueModel.listAllEstoquByClienteCoin(cliente.clienteID, moedaNome: MOEDA_BTC)
+            quantidadeLabel.text = "Quantidade de moedas: \(estoque.quantidade)"
+            
+            if (estoque.saldo < 0) {
+                
+                //Zera Estoque
+                estoqueModel.zeraSaldoClienteByCoin(cliente.clienteID, moedaNome: MOEDA_BTC)
+                
+                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: 0))"
+            } else {
+                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: estoque.saldo))"
+            }
         }
         
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0).cgColor
         self.layer.cornerRadius = 8
-        
-        //Verifca o saldo do cliente para a moeda selecionada
-//        if (quantidade <= 0) {
-//            trocaButton.removeFromSuperview()
-//        }
         
     }
     

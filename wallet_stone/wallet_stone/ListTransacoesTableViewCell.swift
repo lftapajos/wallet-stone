@@ -25,9 +25,9 @@ class ListTransacoesTableViewCell: UITableViewCell {
 
         //Formato moedas por tipo
         var valorFomatado = ""
-        if (transancao.moedaNome == "Brita") {
+        if (transancao.moedaNome == MOEDA_BRITA) {
             valorFomatado = formatCoin("pt_BR", valor: transancao.valorTransacao)
-        } else if (transancao.moedaNome == "BTC") {
+        } else if (transancao.moedaNome == MOEDA_BTC) {
             valorFomatado = "\(transancao.valorTransacao)"
         }
         
