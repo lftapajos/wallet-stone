@@ -82,7 +82,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         let quantidade = quantidadeTextField.text
         
         if ((quantidade! == "") || (Double(quantidade!)! == 0.0)) {
-            print("Favor preencher uma quantidade válida!")
+            //print("Favor preencher uma quantidade válida!")
             
             //Envia notificação de mensagem
             let mensagemDict:[String: String] = ["mensagem": "Favor preencher uma quantidade válida!"]
@@ -143,7 +143,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 //Atualiza saldo do Cliente
                 clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
                 
-                //Grava Transação de compra
+                //Grava Transação de venda
                 transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valor_venda, tipo: "VENDA", quantidade: quantidade)
                 
                 //Verifica a soma de moedas do Cliente
@@ -176,42 +176,45 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func calculateBtc(_ quantidade: Double) {
         
+        //calculateBuyBtc
+        
         //Recupera a Cotação do Dólar
         let cotacaoDolar = moedaModel.loadDollarQuotes("Brita")
         
-        //Recupera a Cotação do Dólar
+        //Recupera a Cotação de BTC
         let cotacaoBtc = moedaModel.loadDollarQuotes("BTC")
         
-        //Converte o saldo de Reais para Dólares
-        let saldoConvertido = convertRealToDollar(cotacaoBtc.cotacaoVenda, valor: saldoAtual)
+        //Converte a cotação para Real
+        let cotacao_formatada = (formatCurrency(cotacaoBtc.cotacaoVenda) * formatCurrency(cotacaoDolar.cotacaoVenda))
+        //print("cotacao_formatada =====> \(cotacao_formatada)")
+        
+        //Calcula o valor da venda em reais
+        let valor_venda = (quantidade * formatCurrency(cotacao_formatada))
+        //print("valor_venda =====> \(valor_venda)")
+        
+        //Saldo atual formatado
+        let saldoFormatado = formatCurrency(Double(saldoAtual))
+        //print("saldoFormatado =====> \(saldoFormatado)")
+        
+        //Calcula novo saldo em reais
+        let novo_saldo = (saldoFormatado + valor_venda)
+        //print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica a soma de moedas do Cliente
         let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
+        //print("verificaQuantidade =====> \(verificaQuantidade)")
         
-        //Somente executa a operação se a quantidade em saldo é maior ou igual a zero
+        //Verifica se existe saldo suciciente para a compra
         if (verificaQuantidade >= quantidade) {
             
-            //Calcula BTC
-            let saldoFinalDesconvertido = calculateSellBtc(quantidade, saldoAtualDolar: saldoConvertido, valorCotacaoVenda: cotacaoBtc.cotacaoVenda)
-            
             //Verifica se existe saldo suciciente para a compra
-            if (saldoFinalDesconvertido > 0) {
-                
-                //Valor da Transação
-                //let valorTransacao = (saldoConvertido + saldoFinalDesconvertido)
-                //saldoFinalDesconvertido = ((valorTransacao * cotacaoDolar.cotacaoVenda) * )
-                
-                let valorTransacao = ((quantidade * cotacaoBtc.cotacaoVenda) * cotacaoDolar.cotacaoVenda)
-                
+            if (novo_saldo > 0) {
                 
                 //Atualiza saldo do Cliente
-                clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
+                clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
                 
-                //Grava Transação de compra
-                transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)
-                
-                //Atualiza o saldo atual
-                saldoAtual = saldoFinalDesconvertido
+                //Grava Transação de venda
+                transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valor_venda, tipo: "VENDA", quantidade: quantidade)
                 
                 //Verifica a soma de moedas do Cliente
                 let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
@@ -220,20 +223,14 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 }
                 
                 //Envia notificação para atualizar o saldo
-                let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
+                let saldoDict:[String: Double] = ["saldo": novo_saldo]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
-                
             } else {
-                //print("Operação não pode ser executa por falta de saldo!")
-                
                 //Envia notificação de mensagem
                 let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
-                
             }
         } else {
-            //print("Operação não pode ser executa por falta de saldo!")
-            
             //Envia notificação de mensagem
             let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
