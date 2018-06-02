@@ -146,8 +146,8 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
       
         
         //Grava Transação de troca
-        transacaoModel.saveTransacation(clienteID, moedaNome: MOEDA_BRITA, valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
-        transacaoModel.saveTransacation(clienteID, moedaNome: MOEDA_BTC, valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
+        transacaoModel.saveTransaction(clienteID, moedaNome: MOEDA_BRITA, valor: novoValorOrigemConvertido, tipo: "TROCA", quantidade: quantidadeDouble)
+        transacaoModel.saveTransaction(clienteID, moedaNome: MOEDA_BTC, valor: novoValorTrocaConvertido, tipo: "TROCA", quantidade: novaQuantidadeTroca)
         
         //Mostra mensagem
         Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in

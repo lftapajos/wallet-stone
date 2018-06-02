@@ -77,3 +77,13 @@ func convertRealToDollar(_ cotacao:Double, valor: Double) -> Double {
     let calculo = (valorCalculo / cotacao)
     return calculo
 }
+
+func getDateToday() -> String {
+    
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM-dd-yyyy"
+    let resultDate = formatter.string(from: date)
+    
+    return resultDate
+}

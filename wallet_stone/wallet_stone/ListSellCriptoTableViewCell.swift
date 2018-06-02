@@ -148,7 +148,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
                 
                 //Grava Transação de venda
-                transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valor_venda, tipo: "VENDA", quantidade: quantidade)
+                transacaoModel.saveTransaction(paramClienteID, moedaNome: moedaAtual, valor: valor_venda, tipo: "VENDA", quantidade: quantidade)
                 
                 //Verifica a soma de moedas do Cliente
                 let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)
@@ -221,7 +221,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
                 
                 //Grava Transação de venda
-                transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valor_venda, tipo: "VENDA", quantidade: quantidade)
+                transacaoModel.saveTransaction(paramClienteID, moedaNome: moedaAtual, valor: valor_venda, tipo: "VENDA", quantidade: quantidade)
                 
                 //Verifica a soma de moedas do Cliente
                 let verificaQuantidade = transacaoModel.listAllQuantityByClienteCoin(paramClienteID, moedaNome: moedaAtual)

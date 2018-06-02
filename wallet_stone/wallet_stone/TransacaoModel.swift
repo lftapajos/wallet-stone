@@ -11,7 +11,7 @@ import RealmSwift
 
 class TransacaoModel {
     
-    func saveTransacation(_ clienteID: String, moedaNome: String, valor: Double, tipo: String, quantidade: Double) {
+    func saveTransaction(_ clienteID: String, moedaNome: String, valor: Double, tipo: String, quantidade: Double) {
         
         let realm = try! Realm()
         
@@ -27,7 +27,7 @@ class TransacaoModel {
         transacao.tipo = tipo
         transacao.quantidade = quantidade
         transacao.valorTransacao = valor
-        transacao.dataHoraTransacao = ""
+        transacao.dataHoraTransacao = getDateToday()
         
         try! realm.write {
             realm.add(transacao)
