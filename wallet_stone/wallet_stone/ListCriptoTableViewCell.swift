@@ -71,118 +71,51 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             if (moedaAtual == MOEDA_BRITA) {
                 
                 //Calcula Brita
-                calculateBrita(Double(quantidade!)!)
+                buyBrita(Double(quantidade!)!)
             }
             
             //Calcula compra da Moeda Bitcoin BTC
             if (moedaAtual == MOEDA_BTC) {
                 
                 //Calcula BTC
-                calculateBtc(Double(quantidade!)!)
+                buyBtc(Double(quantidade!)!)
             }
         }
-        
         quantidadeTextField.text = ""
     }
     
-    func formatCurrency(_ value: Double) -> Double{
-        
-        let stringValue = String(format: "%.2f", value)
-        let outputString = Double(stringValue)
-        
-        return outputString!
-    }
-    
-    func calculateBrita(_ quantidade: Double) {
+    //Função para comprar moeda Brita
+    func buyBrita(_ quantidade: Double) {
         
         //calculateBuyBrita
-        
-        //Calcula Brita
-        let valor_compra = (formatCurrency(quantidade) * formatCurrency(valorCotacaoCompra))
-        //print("valor_compra =====> \(valor_compra)")
-        
-        let saldoFormatado = formatCurrency(Double(saldoAtual))
-        //print("saldoFormatado =====> \(saldoFormatado)")
-        
-        let novo_saldo = (saldoFormatado - valor_compra)
-        //print("novo_saldo =====> \(novo_saldo)")
-        
-        //Verifica se existe saldo suciciente para a compra
-        if (novo_saldo > 0) {
+        calculateBuyBrita(quantidade, valorCotacaoCompra: valorCotacaoCompra, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (novo_saldo) in
             
-            //Verifica se o Cliente já possui saldo para a moeda Brita
-            if (estoqueModel.getSaldoClienteByCoin(paramClienteID, moedaNome: MOEDA_BRITA)) {
-                
-                //Se tiver, atualiza o saldo
-                estoqueModel.updateSaldoCliente(paramClienteID, moedaNome: MOEDA_BRITA, novaQuantidade: quantidade, novoSaldo: valor_compra)
-                
-            } else {
-                
-                //Senão cria um novo saldo
-                estoqueModel.addEstoque(paramClienteID, moedaNome: MOEDA_BRITA, quantidade: quantidade, saldo: valor_compra)
+            //Se salvou, mostra o novo saldo
+            if (novo_saldo > 0) {
+                //Envia notificação para atualizar o saldo
+                let saldoDict:[String: Double] = ["saldo": novo_saldo]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
             }
-            
-            //Atualiza saldo do Cliente
-            clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
-            
-            //Grava Transação de compra
-            transacaoModel.saveTransaction(paramClienteID, moedaNome: moedaAtual, valor: valor_compra, tipo: "COMPRA", quantidade: quantidade)
-            
-            //Envia notificação para atualizar o saldo
-            let saldoDict:[String: Double] = ["saldo": novo_saldo]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
-            
-        }
+        }, failureBlock: {
+            //print("Erro!")
+        })
     }
     
-    func calculateBtc(_ quantidade: Double) {
+    //Função para comprar moeda BTC
+    func buyBtc(_ quantidade: Double) {
         
         //calculateBuyBtc
-        
-        //Recupera a Cotação do Dólar
-        let cotacaoDolar = moedaModel.loadDollarQuotes(MOEDA_BRITA)
-        
-        //Recupera a Cotação de BTC
-        let cotacaoBtc = moedaModel.loadDollarQuotes(MOEDA_BTC)
-        
-        let cotacao_formatada = (formatCurrency(cotacaoBtc.cotacaoCompra) * formatCurrency(cotacaoDolar.cotacaoCompra))
-        //print("cotacao_formatada =====> \(cotacao_formatada)")
-        
-        let valor_compra = (formatCurrency(quantidade) * formatCurrency(cotacao_formatada))
-        //print("valor_compra =====> \(valor_compra)")
-        
-        let saldoFormatado = formatCurrency(Double(saldoAtual))
-        //print("saldoFormatado =====> \(saldoFormatado)")
-        
-        let novo_saldo = (saldoFormatado - valor_compra)
-        //print("novo_saldo =====> \(novo_saldo)")
-        
-        //Verifica se existe saldo suciciente para a compra
-        if (novo_saldo > 0) {
+        calculateBuyBtc(quantidade, valorCotacaoCompra: valorCotacaoCompra, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (novo_saldo) in
             
-            //Verifica se o Cliente já possui saldo para a moeda Brita
-            if (estoqueModel.getSaldoClienteByCoin(paramClienteID, moedaNome: MOEDA_BTC)) {
-                
-                //Se tiver, atualiza o saldo
-                estoqueModel.updateSaldoCliente(paramClienteID, moedaNome: MOEDA_BTC, novaQuantidade: quantidade, novoSaldo: valor_compra)
-                
-            } else {
-                
-                //Senão cria um novo saldo
-                estoqueModel.addEstoque(paramClienteID, moedaNome: MOEDA_BTC, quantidade: quantidade, saldo: valor_compra)
+            //Se salvou, mostra o novo saldo
+            if (novo_saldo > 0) {
+                //Envia notificação para atualizar o saldo
+                let saldoDict:[String: Double] = ["saldo": novo_saldo]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
             }
-            
-            //Atualiza saldo do Cliente
-            clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
-            
-            //Grava Transação de compra
-            transacaoModel.saveTransaction(paramClienteID, moedaNome: moedaAtual, valor: valor_compra, tipo: "COMPRA", quantidade: quantidade)
-            
-            //Envia notificação para atualizar o saldo
-            let saldoDict:[String: Double] = ["saldo": novo_saldo]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
-            
-        }
+        }, failureBlock: {
+            //print("Erro!")
+        })
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
