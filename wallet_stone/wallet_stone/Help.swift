@@ -87,3 +87,13 @@ func getDateToday() -> String {
     
     return resultDate
 }
+
+func getDateTimeToday() -> String {
+    
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy hh:mm:ss"
+    let resultDate = formatter.string(from: date)
+    
+    return resultDate
+}
