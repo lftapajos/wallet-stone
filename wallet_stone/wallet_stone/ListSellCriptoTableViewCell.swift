@@ -127,7 +127,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 print(valorTransacao)
                 //Atualiza saldo do Cliente
-                clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
                 transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)
@@ -195,7 +195,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
                 
                 
                 //Atualiza saldo do Cliente
-                clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+                clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
                 
                 //Grava Transação de compra
                 transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "VENDA", quantidade: quantidade)

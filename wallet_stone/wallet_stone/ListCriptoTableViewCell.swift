@@ -86,36 +86,41 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         quantidadeTextField.text = ""
     }
     
+    func formatCurrency(_ value: Double) -> Double{
+        
+        let stringValue = String(format: "%.2f", value)
+        let outputString = Double(stringValue)
+        
+        return outputString!
+    }
+    
     func calculateBrita(_ quantidade: Double) {
         
+        //calculateBuyBrita
+        
         //Calcula Brita
-        let saldoFinalDesconvertido = calculateBuyBrita(quantidade, saldoAtual: saldoAtual, valorCotacaoCompra: valorCotacaoCompra)
+        let valor_compra = (formatCurrency(quantidade) * formatCurrency(valorCotacaoCompra))
+        print("valor_compra =====> \(valor_compra)")
+        
+        let saldoFormatado = formatCurrency(Double(saldoAtual))
+        print("saldoFormatado =====> \(saldoFormatado)")
+        
+        let novo_saldo = (saldoFormatado - valor_compra)
+        print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica se existe saldo suciciente para a compra
-        if (saldoFinalDesconvertido > 0) {
-            
-            //Valor da Transação
-            let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
+        if (novo_saldo > 0) {
             
             //Atualiza saldo do Cliente
-            clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+            clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: novo_saldo)
             
             //Grava Transação de compra
-            transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: quantidade)
-            
-            //Atualiza o saldo atual
-            saldoAtual = saldoFinalDesconvertido
+            transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valor_compra, tipo: "COMPRA", quantidade: quantidade)
             
             //Envia notificação para atualizar o saldo
-            let saldoDict:[String: Double] = ["saldo": saldoFinalDesconvertido]
+            let saldoDict:[String: Double] = ["saldo": novo_saldo]
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
             
-        } else {
-            //print("Operação não pode ser executa por falta de saldo!")
-            
-            //Envia notificação de mensagem
-            let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
         }
     }
     
@@ -143,7 +148,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             let valorTransacao = (saldoAtual - saldoFinalDesconvertido)
             
             //Atualiza saldo do Cliente
-            clienteModel.atualizaSaldoCliente(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, novoSaldo: saldoFinalDesconvertido)
+            clienteModel.atualizaSaldoCliente(paramClienteID, novoSaldo: saldoFinalDesconvertido)
             
             //Grava Transação de compra
             transacaoModel.saveTransacation(paramClienteID, moedaNome: moedaAtual, valor: valorTransacao, tipo: "COMPRA", quantidade: quantidade)

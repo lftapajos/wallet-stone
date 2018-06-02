@@ -123,7 +123,7 @@ class ClienteModel {
     }
     
     //Atualiza saldo do cliente
-    func atualizaSaldoCliente(_ clienteID: String, moedaNome: String, valor: Double, novoSaldo: Double) {
+    func atualizaSaldoCliente(_ clienteID: String, novoSaldo: Double) {
         
         let realm = try! Realm()
         
