@@ -26,12 +26,12 @@ class ViewController: UIViewController {
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
         moedaModel.deleteMoeda()
         
-//        let resultDate = "05-31-2017"
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yyyy"
-        let resultDate = formatter.string(from: date)
-        print(resultDate)
+        let resultDate = "06-01-2017"
+//        let date = Date()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MM-dd-yyyy"
+//        let resultDate = formatter.string(from: date)
+//        print(resultDate)
         
         //Carrega Loading enquanto os dados não são carregados pela chamada da API
         self.overlayView = OverlayView().loadView(self.view)

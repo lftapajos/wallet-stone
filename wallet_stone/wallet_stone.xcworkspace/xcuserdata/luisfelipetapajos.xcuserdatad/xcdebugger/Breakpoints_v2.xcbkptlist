@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "wallet_stone/ClienteModel.swift"
-            timestampString = "549599146.886108"
+            filePath = "wallet_stone/APIManager.swift"
+            timestampString = "549601621.973815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "atualizaSaldoCliente(_:novoSaldo:)"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "loadAPIdata(_:completion:failureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,173 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "wallet_stone/ClienteModel.swift"
-            timestampString = "549599149.314075"
+            filePath = "wallet_stone/APIManager.swift"
+            timestampString = "549601645.419327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "atualizaSaldoCliente(_:novoSaldo:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wallet_stone.ClienteModel.atualizaSaldoCliente (Swift.String, novoSaldo : Swift.Double) -&gt; ()"
-                  moduleName = "wallet_stone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/ClienteModel.swift"
-                  timestampString = "549599460.104513"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "132"
-                  endingLineNumber = "132"
-                  offsetFromSymbolStart = "332">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wallet_stone.ClienteModel.atualizaSaldoCliente (Swift.String, novoSaldo : Swift.Double) -&gt; ()"
-                  moduleName = "wallet_stone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/ClienteModel.swift"
-                  timestampString = "549599460.106952"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "132"
-                  endingLineNumber = "132"
-                  offsetFromSymbolStart = "383">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "wallet_stone/ClienteModel.swift"
-            timestampString = "549599151.616254"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "atualizaSaldoCliente(_:novoSaldo:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wallet_stone.ClienteModel.atualizaSaldoCliente (Swift.String, novoSaldo : Swift.Double) -&gt; ()"
-                  moduleName = "wallet_stone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/ClienteModel.swift"
-                  timestampString = "549599460.112829"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "479">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wallet_stone.ClienteModel.(atualizaSaldoCliente (Swift.String, novoSaldo : Swift.Double) -&gt; ()).(closure #1)"
-                  moduleName = "wallet_stone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/ClienteModel.swift"
-                  timestampString = "549599460.115288"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "39">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "wallet_stone/TransacaoModel.swift"
-            timestampString = "549599292.8279819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "saveTransacation(_:moedaNome:valor:tipo:quantidade:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "wallet_stone/TransacaoModel.swift"
-            timestampString = "549599294.7904069"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "saveTransacation(_:moedaNome:valor:tipo:quantidade:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wallet_stone.TransacaoModel.saveTransacation (Swift.String, moedaNome : Swift.String, valor : Swift.Double, tipo : Swift.String, quantidade : Swift.Double) -&gt; ()"
-                  moduleName = "wallet_stone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/TransacaoModel.swift"
-                  timestampString = "549599460.132357"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "1514">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wallet_stone.TransacaoModel.(saveTransacation (Swift.String, moedaNome : Swift.String, valor : Swift.Double, tipo : Swift.String, quantidade : Swift.Double) -&gt; ()).(closure #1)"
-                  moduleName = "wallet_stone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfelipetapajos/Aplicativos/Desafio_Stone/wallet-stone/wallet_stone/wallet_stone/TransacaoModel.swift"
-                  timestampString = "549599460.135123"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "wallet_stone/TransacaoModel.swift"
-            timestampString = "549599296.8858809"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "saveTransacation(_:moedaNome:valor:tipo:quantidade:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "loadAPIdata(_:completion:failureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
