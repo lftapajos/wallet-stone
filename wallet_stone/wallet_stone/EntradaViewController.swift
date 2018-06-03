@@ -38,7 +38,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         
         saldoAtual = Double(cliente.saldo)
         
-        let saldoFomatado = formatCoin("pt_BR", valor:  saldoAtual)
+        let saldoFomatado = Help().formatCoin("pt_BR", valor:  saldoAtual)
         saldoLabel.text = "\(saldoFomatado)"
         
         clienteID = cliente.clienteID
@@ -57,7 +57,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
         print(notification.userInfo ?? "")
         if let dict = notification.userInfo as NSDictionary? {
             if let saldoNovo = dict["saldo"] as? Double {
-                saldoLabel.text = "\(formatCoin("pt_BR", valor:  saldoNovo))"
+                saldoLabel.text = "\(Help().formatCoin("pt_BR", valor:  saldoNovo))"
                 
                 //Mostra alerta de mensagem
                 Alert(controller: self).showError(message: "Compra efetuada com sucesso!", handler : { action in

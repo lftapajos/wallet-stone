@@ -29,7 +29,7 @@ class TransacoesViewController: UIViewController {
         
         nomeLabel.text = cliente.nome
         
-        let saldoFomatado = formatCoin("pt_BR", valor:  Double(cliente.saldo))
+        let saldoFomatado = Help().formatCoin("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
         
         self.tableView.delegate = self

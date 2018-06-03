@@ -38,9 +38,9 @@ class ListMoedasTableViewCell: UITableViewCell {
                 //Zera Estoque
                 estoqueModel.zeraSaldoClienteByCoin(cliente.clienteID, moedaNome: MOEDA_BRITA)
                 
-                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: 0))"
+                valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: 0))"
             } else {
-                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: estoque.saldo))"
+                valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: estoque.saldo))"
             }
             
         } else if (moeda.nome == MOEDA_BTC) {
@@ -53,9 +53,9 @@ class ListMoedasTableViewCell: UITableViewCell {
                 //Zera Estoque
                 estoqueModel.zeraSaldoClienteByCoin(cliente.clienteID, moedaNome: MOEDA_BTC)
                 
-                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: 0))"
+                valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: 0))"
             } else {
-                valorLabel.text = "Valores: \(formatCoin("pt_BR", valor: estoque.saldo))"
+                valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: estoque.saldo))"
             }
         }
         

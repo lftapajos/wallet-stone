@@ -37,8 +37,8 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         saldoAtual = saldo
         paramClienteID = clienteID
         
-        let cotacaoCompra = formatCoin("en_US", valor: cripto.cotacaoCompra)
-        let cotacaoVenda = formatCoin("en_US", valor: cripto.cotacaoVenda)
+        let cotacaoCompra = Help().formatCoin("en_US", valor: cripto.cotacaoCompra)
+        let cotacaoVenda = Help().formatCoin("en_US", valor: cripto.cotacaoVenda)
         
         cotacaoCompraLabel.text = "Cotação de Compra: U\(String(describing: cotacaoCompra))"
         cotacaoVendaLabel.text = "Cotação de Venda: U\(String(describing: cotacaoVenda))"
@@ -112,7 +112,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func sellBrita(_ quantidade: Double) {
         
         //calculateSellBrita
-        calculateSellBrita(quantidade, valorCotacaoVenda: valorCotacaoVenda, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (retorno) in
+        Help().calculateSellBrita(quantidade, valorCotacaoVenda: valorCotacaoVenda, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (retorno) in
             
             let erro = retorno["erro"]! as! Int
             let removeCampos = retorno["remove_campos"]! as! Int
@@ -139,7 +139,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func sellBtc(_ quantidade: Double) {
         
         //calculateBuyBtc
-        calculateSellBtc(quantidade, valorCotacaoVenda: valorCotacaoVenda, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (retorno) in
+        Help().calculateSellBtc(quantidade, valorCotacaoVenda: valorCotacaoVenda, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (retorno) in
             
             let erro = retorno["erro"]! as! Int
             let removeCampos = retorno["remove_campos"]! as! Int

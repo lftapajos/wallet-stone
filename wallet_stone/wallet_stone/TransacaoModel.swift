@@ -29,7 +29,7 @@ class TransacaoModel {
         transacao.tipo = tipo
         transacao.quantidade = quantidade
         transacao.valorTransacao = valor
-        transacao.dataHoraTransacao = getDateTimeToday()
+        transacao.dataHoraTransacao = Help().getDateTimeToday()
         
         try! realm.write {
             realm.add(transacao)
@@ -58,7 +58,7 @@ class TransacaoModel {
         
         transacao.tipo = tipo
         
-        transacao.dataHoraTransacao = getDateTimeToday()
+        transacao.dataHoraTransacao = Help().getDateTimeToday()
         
         try! realm.write {
             realm.add(transacao)

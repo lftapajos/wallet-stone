@@ -230,7 +230,7 @@
 		69791CE120B98CB90002DEAD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				69791CBF20B7AAA70002DEAD /* ApiResponse.swift */,
+				69791CDF20B980050002DEAD /* AllRealmObjects.swift */,
 				69791CE420B98D1B0002DEAD /* ClienteModel.swift */,
 				69791CF520BAF6DF0002DEAD /* MoedaModel.swift */,
 				6952FF0220BD025C00D6FDC7 /* TransacaoModel.swift */,
@@ -270,7 +270,7 @@
 		698C287C20C1D92000662C54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				69791CDF20B980050002DEAD /* AllRealmObjects.swift */,
+				69791CBF20B7AAA70002DEAD /* ApiResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";

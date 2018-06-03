@@ -39,7 +39,7 @@ class PerfilViewController: UIViewController {
         
         clienteID = cliente.clienteID
         
-        let saldoFomatado = formatCoin("pt_BR", valor:  Double(cliente.saldo))
+        let saldoFomatado = Help().formatCoin("pt_BR", valor:  Double(cliente.saldo))
         saldoLabel.text = "\(saldoFomatado)"
         
         nomeLabel.text = cliente.nome

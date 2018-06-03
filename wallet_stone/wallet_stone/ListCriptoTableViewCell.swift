@@ -37,8 +37,8 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         saldoAtual = saldo
         paramClienteID = clienteID
         
-        let cotacaoCompra = formatCoin("en_US", valor: cripto.cotacaoCompra)
-        let cotacaoVenda = formatCoin("en_US", valor: cripto.cotacaoVenda)
+        let cotacaoCompra = Help().formatCoin("en_US", valor: cripto.cotacaoCompra)
+        let cotacaoVenda = Help().formatCoin("en_US", valor: cripto.cotacaoVenda)
         
         cotacaoCompraLabel.text = "Cotação de Compra: U\(String(describing: cotacaoCompra))"
         cotacaoVendaLabel.text = "Cotação de Venda: U\(String(describing: cotacaoVenda))"
@@ -88,7 +88,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func buyBrita(_ quantidade: Double) {
         
         //calculateBuyBrita
-        calculateBuyBrita(quantidade, valorCotacaoCompra: valorCotacaoCompra, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (novo_saldo) in
+        Help().calculateBuyBrita(quantidade, valorCotacaoCompra: valorCotacaoCompra, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (novo_saldo) in
             
             //Se salvou, mostra o novo saldo
             if (novo_saldo > 0) {
@@ -105,7 +105,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
     func buyBtc(_ quantidade: Double) {
         
         //calculateBuyBtc
-        calculateBuyBtc(quantidade, valorCotacaoCompra: valorCotacaoCompra, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (novo_saldo) in
+        Help().calculateBuyBtc(quantidade, valorCotacaoCompra: valorCotacaoCompra, saldoAtual: saldoAtual, clienteID: paramClienteID, moedaAtual: moedaAtual, completion: { (novo_saldo) in
             
             //Se salvou, mostra o novo saldo
             if (novo_saldo > 0) {

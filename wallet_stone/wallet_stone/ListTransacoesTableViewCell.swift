@@ -24,7 +24,7 @@ class ListTransacoesTableViewCell: UITableViewCell {
         let moeda = moedaModel.loadCoinByName(transancao.moedaNome)
 
         //Formato moedas por tipo
-        let valorFomatado = formatCoin("pt_BR", valor: transancao.valorTransacao)
+        let valorFomatado = Help().formatCoin("pt_BR", valor: transancao.valorTransacao)
         
         //Carrega valores
         moedaLabel.text = moeda.nome
