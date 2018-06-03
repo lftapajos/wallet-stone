@@ -40,9 +40,11 @@ class ListTransacoesTableViewCell: UITableViewCell {
         } else if (transancao.tipo == "TROCA") {
             
             //Busca moeda diferente da moeda selecionada
-            let moedaTrocada = moedaModel.loadChangeCoinByName(transancao.moedaNome)
+            //let moedaTrocada = moedaModel.loadChangeCoinByName(transancao.moedaNome)
             
-            moedaLabel.text = "\(moeda.nome) por \(moedaTrocada.nome)"
+            moedaLabel.text = "\(transancao.moedaNomeOrigem) por \(transancao.moedaNomeTroca)"
+            quantidadeLabel.text = "\(transancao.quantidadeOrigem) ==> \(transancao.quantidadeTroca)"
+            valorTransacaoLabel.text = "\(Help().formatCoin("pt_BR", valor: transancao.novoValorOrigem)) ==> \(Help().formatCoin("pt_BR", valor: transancao.novoValorTroca))"
             
             tipoimageView.image = UIImage(named: "btn_transacao_troca")
         }

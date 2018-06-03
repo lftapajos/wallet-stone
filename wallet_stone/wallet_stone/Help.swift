@@ -288,7 +288,7 @@ class Help {
         estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BTC, novaQuantidade: novaQuantidadeTroca, novoSaldo: novoValorTrocaConvertido)
         
         //Grava Transação de troca
-        transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BTC, novoValorOrigem: novoValorTrocaConvertido, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidade, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
+        transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BTC, novoValorOrigem: valorTroca, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidade, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
         
         dict["erro"] = 0
         
@@ -310,7 +310,7 @@ class Help {
         estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BRITA, novaQuantidade: novaQuantidadeTroca, novoSaldo: novoValorTrocaConvertido)
         
         //Grava Transação de troca
-        transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BRITA, novoValorOrigem: novoValorTrocaConvertido, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidade, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
+        transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BRITA, novoValorOrigem: valorTroca, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidade, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
         
         dict["erro"] = 0
         

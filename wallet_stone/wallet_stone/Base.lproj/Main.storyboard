@@ -491,15 +491,8 @@
                                                     <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4fL-zJ-FTG">
-                                                    <rect key="frame" x="311" y="31" width="50" height="27"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="27" id="CFU-8k-fNx"/>
-                                                        <constraint firstAttribute="width" constant="50" id="ePH-YK-vKq"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Moeda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZj-d1-gi1">
-                                                    <rect key="frame" x="119.5" y="8" width="135" height="24"/>
+                                                    <rect key="frame" x="104" y="8" width="135" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="sID-df-DQu"/>
                                                     </constraints>
@@ -507,6 +500,13 @@
                                                     <color key="textColor" red="0.14608848090000001" green="0.64867514370000001" blue="0.74278676509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4fL-zJ-FTG">
+                                                    <rect key="frame" x="285" y="31" width="50" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="CFU-8k-fNx"/>
+                                                        <constraint firstAttribute="width" constant="50" id="ePH-YK-vKq"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="leadingMargin" secondItem="ijD-wq-HY6" secondAttribute="leading" id="22B-S9-L9b"/>
@@ -518,7 +518,7 @@
                                                 <constraint firstItem="ijD-wq-HY6" firstAttribute="top" secondItem="kxc-LC-BYX" secondAttribute="bottom" constant="8" id="dqi-v6-vuR"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="kxc-LC-BYX" secondAttribute="leading" id="jZy-Xu-lKf"/>
                                                 <constraint firstItem="kxc-LC-BYX" firstAttribute="top" secondItem="QRz-bO-1c1" secondAttribute="bottom" constant="6" id="uRc-d5-iVS"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="4fL-zJ-FTG" secondAttribute="trailing" constant="5" id="z3a-t8-dOH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4fL-zJ-FTG" secondAttribute="trailing" id="z3a-t8-dOH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
