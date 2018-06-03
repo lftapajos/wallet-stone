@@ -45,8 +45,8 @@
 		698C283E20C1A0D700662C54 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C283D20C1A0D700662C54 /* OverlayView.swift */; };
 		698C286920C1B22D00662C54 /* wallet_stoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C286820C1B22D00662C54 /* wallet_stoneTests.swift */; };
 		698C287B20C1D08100662C54 /* ClienteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69791CE420B98D1B0002DEAD /* ClienteModel.swift */; };
-		698C287E20C1DCB700662C54 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C287D20C1DCB700662C54 /* logo.png */; };
 		698C288020C2C1A400662C54 /* EstoqueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C287F20C2C1A400662C54 /* EstoqueModel.swift */; };
+		698C288420C3761100662C54 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C288320C3761100662C54 /* logo2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +103,8 @@
 		698C286820C1B22D00662C54 /* wallet_stoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallet_stoneTests.swift; sourceTree = "<group>"; };
 		698C286A20C1B22D00662C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698C287720C1C26000662C54 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/wallet_stone-gmjgzzkkmjaotybcaauthcnqbseu/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
-		698C287D20C1DCB700662C54 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		698C287F20C2C1A400662C54 /* EstoqueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstoqueModel.swift; sourceTree = "<group>"; };
+		698C288320C3761100662C54 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
 		DFDD5516283F061DFCD3D09F /* Pods-wallet_stone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet_stone.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet_stone/Pods-wallet_stone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,7 +190,7 @@
 		69791CC120B83A600002DEAD /* Assests */ = {
 			isa = PBXGroup;
 			children = (
-				698C287D20C1DCB700662C54 /* logo.png */,
+				698C288320C3761100662C54 /* logo2.png */,
 				698C283720BF1EDD00662C54 /* btn_transacao_troca.png */,
 				6952FF0420BD52BB00D6FDC7 /* btn_transacao_venda.png */,
 				6952FF0520BD52BB00D6FDC7 /* btn_transacao_compra.png */,
@@ -372,7 +372,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				698C287E20C1DCB700662C54 /* logo.png in Resources */,
 				69791CF420BAF48F0002DEAD /* btn_transacoes.png in Resources */,
 				698C283820BF1EDD00662C54 /* btn_transacao_troca.png in Resources */,
 				69791CCF20B83A940002DEAD /* button_voltar.png in Resources */,
@@ -380,6 +379,7 @@
 				69791CD620B83E430002DEAD /* registrar_button_c.png in Resources */,
 				6952FF0720BD52BB00D6FDC7 /* btn_transacao_compra.png in Resources */,
 				69791CB220B76A520002DEAD /* LaunchScreen.storyboard in Resources */,
+				698C288420C3761100662C54 /* logo2.png in Resources */,
 				69791CD420B83E330002DEAD /* entrar_button_c.png in Resources */,
 				69791CF020BAED5F0002DEAD /* btn_vender_moeda.png in Resources */,
 				69791CEE20BAEC010002DEAD /* btn_comprar_moeda.png in Resources */,
