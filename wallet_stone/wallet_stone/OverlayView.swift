@@ -20,15 +20,15 @@ class OverlayView {
         //Label
         let innerLabel = UILabel()
         innerLabel.textColor = UIColor.black //UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0)
-        innerLabel.frame = CGRect(x: (view.frame.size.width - 200)/2 , y: 0, width: 95, height: 50)
-        innerLabel.text = "Loading ..."
+        innerLabel.frame = CGRect(x: 10, y: 0, width: 210, height: 50)
+        innerLabel.text = "Carregando cotações ..."
         innerLabel.backgroundColor = UIColor.clear
         
         //View Center
         let innerView = UIView()
         innerView.backgroundColor = UIColor.white
         innerView.layer.cornerRadius = 10
-        innerView.frame = CGRect(x: (view.frame.size.width - 200)/2 , y: (view.frame.size.height - 50)/2, width: 200, height: 50)
+        innerView.frame = CGRect(x: (view.frame.size.width - 200)/2 , y: 50, width: 200, height: 50)
         
         //Add Label
         innerView.addSubview(innerLabel)

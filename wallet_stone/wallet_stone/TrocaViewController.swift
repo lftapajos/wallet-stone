@@ -124,50 +124,88 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     @IBAction func confirmarTroca(_ sender: Any) {
         
         print("Confirmar a troca de moedas.")
-        confirmBritaByBtc()
         
+        if (moedaOrigem == MOEDA_BRITA) {
+            confirmBritaByBtc(Double(quantidadeTextField.text!)!)
+        } else if (moedaOrigem == MOEDA_BTC) {
+            confirmBtcByBrita(Double(quantidadeTextField.text!)!)
+        }
     }
     
-    func confirmBritaByBtc() {
-        
-        let quantidade = quantidadeTextField.text
-        let quantidadeDouble = Double(quantidade!)!
+    func confirmBritaByBtc(_ quantidade: Double) {
         
         //Calcula valor da operação
-        let valor = (quantidadeDouble / moeda2.cotacaoVenda)
+        let valor = (quantidade / moeda2.cotacaoVenda)
         
         //Operações de cálculo para conversão de Brita para BTC
-        let novaQuantidadeOrigem = (quantidadeOrigem - quantidadeDouble)
+        //let novaQuantidadeOrigem = (quantidadeOrigem - quantidade)
         let novaQuantidadeTroca = (quantidadeTroca + valor)
         
-        let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
+        //let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
         let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
         
-        let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+        //let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
         let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
-      
         
-        //Subtrai o saldo do estoque de Brita
-        estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BRITA, novaQuantidade: -quantidadeDouble, novoSaldo: -(quantidadeDouble  * moeda1.cotacaoVenda))
-        
-        //Zera saldo de BTC
-        estoqueModel.zeraSaldoClienteByCoin(clienteID, moedaNome: MOEDA_BTC)
-        
-        //Atualiza o novo saldo do estoque de BTC
-        estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BTC, novaQuantidade: novaQuantidadeTroca, novoSaldo: novoValorTrocaConvertido)
-        
-        //Grava Transação de troca
-        transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BTC, novoValorOrigem: novoValorOrigemConvertido, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidadeDouble, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
-        
-        
-        //Mostra mensagem
-        Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in
-            self.dismiss(animated: false)
+        calculateChangeBritaByBtc(quantidade, clienteID: clienteID, cotacaoVendaMoedaOrigem: moeda1.cotacaoVenda, cotacaoVendaMoedaTroca: moeda2.cotacaoVenda, quantidadeOrigem: quantidadeOrigem, valorTroca: valorTroca, novaQuantidadeTroca: novaQuantidadeTroca, novoValorTrocaConvertido: novoValorTrocaConvertido, completion: { (retorno) in
+            
+            let erro = retorno["erro"]! as! Int
+            
+            if (erro == 0) {
+                //Envia notificação para atualizar o saldo
+                
+                //Mostra mensagem
+                Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in
+                    self.dismiss(animated: false)
+                })
+                
+                //Desabilita botão de confirmação
+                self.trataConfirmacaoButton(true)
+                
+            } else {
+                //Erro
+            }
+        }, failureBlock: {
+            //print("Erro!")
         })
+    }
+    
+    func confirmBtcByBrita(_ quantidade: Double) {
         
-        //Desabilita botão de confirmação
-        trataConfirmacaoButton(true)
+        //Calcula valor da operação
+        let valor = (quantidade / moeda2.cotacaoVenda)
         
+        //Operações de cálculo para conversão de Brita para BTC
+        //let novaQuantidadeOrigem = (quantidadeOrigem - quantidade)
+        let novaQuantidadeTroca = (quantidadeTroca + valor)
+        
+        //let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
+        let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
+        
+        //let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+        let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
+        
+        calculateChangeBtcByBrita(quantidade, clienteID: clienteID, cotacaoVendaMoedaOrigem: moeda1.cotacaoVenda, cotacaoVendaMoedaTroca: moeda2.cotacaoVenda, quantidadeOrigem: quantidadeOrigem, valorTroca: valorTroca, novaQuantidadeTroca: novaQuantidadeTroca, novoValorTrocaConvertido: novoValorTrocaConvertido, completion: { (retorno) in
+            
+            let erro = retorno["erro"]! as! Int
+            
+            if (erro == 0) {
+                //Envia notificação para atualizar o saldo
+                
+                //Mostra mensagem
+                Alert(controller: self).showError(message: "Troca de Brita por BTC efetuada com sucesso!", handler : { action in
+                    self.dismiss(animated: false)
+                })
+                
+                //Desabilita botão de confirmação
+                self.trataConfirmacaoButton(true)
+                
+            } else {
+                //Erro
+            }
+        }, failureBlock: {
+            //print("Erro!")
+        })
     }
     
     func calculateBritaByBtc() {

@@ -271,6 +271,50 @@ func calculateSellBtc(_ quantidade: Double, valorCotacaoVenda: Double, saldoAtua
     
 }
 
+//Cálculo de troca da moeda Brita
+func calculateChangeBritaByBtc(_ quantidade: Double, clienteID: String, cotacaoVendaMoedaOrigem: Double, cotacaoVendaMoedaTroca: Double, quantidadeOrigem: Double, valorTroca: Double, novaQuantidadeTroca: Double, novoValorTrocaConvertido: Double, completion: @escaping ([String: Any])->(), failureBlock: @escaping ()->Void) {
+    
+    var dict = [String: Any]()
+    
+    //Subtrai o saldo do estoque de Brita
+    estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BRITA, novaQuantidade: -quantidade, novoSaldo: -(quantidade  * cotacaoVendaMoedaOrigem))
+    
+    //Zera saldo de BTC
+    estoqueModel.zeraSaldoClienteByCoin(clienteID, moedaNome: MOEDA_BTC)
+    
+    //Atualiza o novo saldo do estoque de BTC
+    estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BTC, novaQuantidade: novaQuantidadeTroca, novoSaldo: novoValorTrocaConvertido)
+    
+    //Grava Transação de troca
+    transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BTC, novoValorOrigem: novoValorTrocaConvertido, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidade, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
+    
+    dict["erro"] = 0
+    
+    completion(dict)
+}
+
+//Cálculo de troca da moeda Bitcoin BTC
+func calculateChangeBtcByBrita(_ quantidade: Double, clienteID: String, cotacaoVendaMoedaOrigem: Double, cotacaoVendaMoedaTroca: Double, quantidadeOrigem: Double, valorTroca: Double, novaQuantidadeTroca: Double, novoValorTrocaConvertido: Double, completion: @escaping ([String: Any])->(), failureBlock: @escaping ()->Void) {
+    
+    var dict = [String: Any]()
+    
+    //Subtrai o saldo do estoque de Brita
+    estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BTC, novaQuantidade: -quantidade, novoSaldo: -(quantidade  * cotacaoVendaMoedaOrigem))
+    
+    //Zera saldo de BTC
+    estoqueModel.zeraSaldoClienteByCoin(clienteID, moedaNome: MOEDA_BRITA)
+    
+    //Atualiza o novo saldo do estoque de BTC
+    estoqueModel.updateSaldoCliente(clienteID, moedaNome: MOEDA_BRITA, novaQuantidade: novaQuantidadeTroca, novoSaldo: novoValorTrocaConvertido)
+    
+    //Grava Transação de troca
+    transacaoModel.saveTransactionChange(clienteID, moedaNomeOrigem: MOEDA_BRITA, moedaNomeTroca: MOEDA_BRITA, novoValorOrigem: novoValorTrocaConvertido, novoValorTroca: novoValorTrocaConvertido, quantidadeOrigem: quantidade, quantidadeTroca: novaQuantidadeTroca, tipo: "TROCA")
+    
+    dict["erro"] = 0
+    
+    completion(dict)
+}
+
 //Converte Dólar para Real
 func convertDollarToReal(_ cotacao: Double, valor: Double) -> Double {
     let calculo = (cotacao * valor)
