@@ -21,9 +21,9 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         //Teste
-        nomeTextField.text = "Jose"
-        emailTextField.text = "jose@gmail.com"
-        senhaTextField.text = "j0$3"
+//        nomeTextField.text = "Jose"
+//        emailTextField.text = "jose@gmail.com"
+//        senhaTextField.text = "j0$3"
         
         nomeTextField.delegate = self
         emailTextField.delegate = self

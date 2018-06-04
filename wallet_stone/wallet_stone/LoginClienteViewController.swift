@@ -21,8 +21,8 @@ class LoginClienteViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         //Teste
-        emailTextField.text = "jose@gmail.com"
-        senhaTextField.text = "j0$3"
+//        emailTextField.text = "jose@gmail.com"
+//        senhaTextField.text = "j0$3"
         
         emailTextField.delegate = self
         senhaTextField.delegate = self
