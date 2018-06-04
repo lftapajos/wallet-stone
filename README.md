@@ -30,7 +30,7 @@ Ao abrir o aplicativo as cotações das moedas "Brita" e "Bitcoin (BTC)" são ca
 
 <a href="https://imgflip.com/gif/2bl8wq"><img src="https://i.imgflip.com/2bl8wq.gif" title="made at imgflip.com"/></a>
 
-Caso as cotações não seja encontradas, uma mensagem de erro irá aparecer pedindo para que retorne novamente mais tarde. Isso foi criado porque as cotação são parte fundamental nas operações de compra, venda e troca do aplicativo.
+Caso as cotações não sejam encontradas, uma mensagem de erro irá aparecer pedindo para que retorne novamente mais tarde. Isso foi criado porque as cotação são parte fundamental do aplicativo para as operações de compra, venda e troca.
 
 <a href="https://imgflip.com/gif/2bl8ps"><img src="https://i.imgflip.com/2bl8ps.gif" title="made at imgflip.com"/></a>
 
@@ -52,7 +52,7 @@ Campos para teste de registro:
 
 ## Login de Clientes
 
-Efetuando o login o cliente poderá executar as operações do aplicativo.
+Efetuando o login, o cliente poderá executar as operações do aplicativo.
 
 Campos para teste de login:
 - Email: jose@gmail.com
@@ -62,7 +62,7 @@ Campos para teste de login:
 
 ## Tela de Compra
 
-Aqui o cliente poderá comprar moedas dos 2 tipos: Brita e Bitcoin (BTC).
+Aqui o cliente poderá comprar moedas dos 2 tipos: "Brita" e "Bitcoin (BTC)".
 
 Chamada para a tela de compra de Moedas:
 
@@ -94,13 +94,13 @@ Chamada para a tela de venda de Moedas:
 
 ## Vendendo Brita
 
-Vendendo moedas do tipo Brita. É necessário ter saldo suficiente para a operação.
+Vendendo moedas do tipo Brita. É necessário ter saldo suficiente para realizar a operação.
 
 <a href="https://imgflip.com/gif/2ba39m"><img src="https://i.imgflip.com/2ba39m.gif" title="made at imgflip.com"/></a>
 
 ## Vendendo BTC
 
-Vendendo moedas do tipo Bitcoin (BTC). É necessário ter saldo suficiente para a operação.
+Vendendo moedas do tipo Bitcoin (BTC). É necessário ter saldo suficiente para realizar a operação.
 
 <a href="https://imgflip.com/gif/2ba3fn"><img src="https://i.imgflip.com/2ba3fn.gif" title="made at imgflip.com"/></a>
 
@@ -136,7 +136,7 @@ Isso ocorre caso o valor escolhido para troca seja muito baixo tendendo a zero.
 
 - Aviso de saldo insuficiente para a troca.
 
-Isso ocorre quando o cliente desejar trocar uma quantidade de moedas superior a quantidade disponível por ele. 
+Isso ocorre quando o cliente deseja trocar uma quantidade de moedas superior a quantidade disponível por ele. 
 
 <a href="https://imgflip.com/gif/2belqu"><img src="https://i.imgflip.com/2belqu.gif" title="made at imgflip.com"/></a>
 
@@ -157,6 +157,8 @@ Transações de troca efetuadas:
 <a href="https://imgflip.com/gif/2bknhn"><img src="https://i.imgflip.com/2bknhn.gif" title="made at imgflip.com"/></a>
 
 ## Status do Código
+
+- Enviado.
 
 ## Licença
 
