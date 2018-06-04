@@ -24,16 +24,13 @@ class OverlayView {
         innerLabel.text = "Carregando cotações ..."
         innerLabel.backgroundColor = UIColor.clear
         
-        //View Center
+        //View Central
         let innerView = UIView()
         innerView.backgroundColor = UIColor.white
         innerView.layer.cornerRadius = 10
         innerView.frame = CGRect(x: (view.frame.size.width - 200)/2 , y: 50, width: 200, height: 50)
         
-        //Add Label
         innerView.addSubview(innerLabel)
-        
-        //Add Inner View
         overlayView.addSubview(innerView)
         
         return overlayView

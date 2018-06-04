@@ -10,15 +10,15 @@ import UIKit
 
 class Alert: NSObject {
     
-    // MARK: Declarations
+    // MARK: Declarações
     let controller: UIViewController
     
-    // MARK: Constructor
+    // MARK: Construtor
     init(controller: UIViewController) {
         self.controller = controller
     }
     
-    // MARK: Methods
+    // MARK: Métodos
     //Alerta de Erro
     func showError(_ title: String = "ATENÇÃO", message: String = "Error", handler: @escaping (UIAlertAction) -> Void) {
         let details = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

@@ -10,6 +10,7 @@ import UIKit
 
 class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: Declarações
     @IBOutlet weak var nomeTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var senhaTextField: UITextField!
@@ -19,6 +20,7 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Teste
         nomeTextField.text = "Jose"
         emailTextField.text = "jose@gmail.com"
         senhaTextField.text = "j0$3"
@@ -28,6 +30,7 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
         senhaTextField.delegate = self
     }
 
+    // MARK: Métodos
     @IBAction func retornar(_ sender: Any) {
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
@@ -58,13 +61,13 @@ class RegistrarClienteViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

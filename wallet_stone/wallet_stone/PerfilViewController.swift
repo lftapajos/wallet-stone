@@ -10,6 +10,7 @@ import UIKit
 
 class PerfilViewController: UIViewController {
 
+    // MARK: Declarações
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +24,7 @@ class PerfilViewController: UIViewController {
     
     var clienteID = ""
     
+    // MARK: Métodos
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,8 +35,8 @@ class PerfilViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         
+        //Recupera o usuário pelo e-mail logado
         let email = UserDefaults.standard.string(forKey: "emailCliente")
-        
         let cliente = clienteModel.listDetailCliente(email!)
         
         clienteID = cliente.clienteID
@@ -124,10 +126,10 @@ class PerfilViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
+// MARK: TableView Delegate
 extension PerfilViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

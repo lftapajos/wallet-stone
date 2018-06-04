@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+// MARK: Modelo de Moeda
 class MoedaModel {
     
     //Adiciona uma nova moedas ao Realm

@@ -10,6 +10,7 @@ import UIKit
 
 class ListTransacoesTableViewCell: UITableViewCell {
 
+    // MARK: Declarações
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var quantidadeLabel: UILabel!
     @IBOutlet weak var valorTransacaoLabel: UILabel!
@@ -18,7 +19,7 @@ class ListTransacoesTableViewCell: UITableViewCell {
     
     let moedaModel = MoedaModel()
     
-    //Configura a célula de Transação
+    // MARK: Configura célula
     func configuraCelulaTransacao(transancao: Transacoes) {
         
         let moeda = moedaModel.loadCoinByName(transancao.moedaNome)
@@ -52,15 +53,13 @@ class ListTransacoesTableViewCell: UITableViewCell {
         
     }
     
+    // MARK: Métodos
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

@@ -26,7 +26,8 @@ class APIManager {
     //Carrega dados da Cotação diária do Dólar
     func fetchDollarQuotationFromApi(_ data: String) -> Promise<[Dolar]> {
         
-        let urlString = "\(API_COTACAO_DOLAR)?%40dataCotacao='\(data)'&%24format=json"
+        let dataStr = "'\(data)'"
+        let urlString = "\(API_COTACAO_DOLAR)?%40dataCotacao=\(dataStr)&%24format=json"
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         return Promise<[Dolar]> {
@@ -63,12 +64,6 @@ class APIManager {
                 switch (response.result) {
                 case .success(let responseString):
                     //print(responseString)
-                    
-                    //Conversão necessária devido à formatação do JSON
-                    //let json = "{\"data\": [\(responseString)]}"
-                    //print(json)
-                    //let bitcoinResponse = ApiResponse(JSONString:"\(json)")!
-                    
                     let bitcoinResponse = ApiResponse(JSONString:"\(responseString)")!
                     fullfil([bitcoinResponse.bitcoins!])
                 case .failure(let error):
@@ -88,6 +83,7 @@ class APIManager {
             dolares -> Void in
             
             if (dolares.count != 0) {
+                
                 //Adiciona cotação de Brita ao Realm
                 MoedaModel().addMoeda(MOEDA_BRITA, cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
                 

@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-//API de Moedas
+// MARK: API de Moedas
 class ApiResponse : Mappable {
     
     var dolares : [Dolar]?
@@ -34,7 +34,7 @@ class ApiResponse : Mappable {
 //    }]
 //}
 
-//Modelo de Brita
+// MARK: Modelo de Brita
 class Dolar: Mappable {
     
     var nome : String?
@@ -65,7 +65,7 @@ class Dolar: Mappable {
 //    }
 //}
 
-//Modelo de BTC
+// MARK: Modelo de BTC
 class Bitcoin: Mappable {
     
     var nome : String = ""

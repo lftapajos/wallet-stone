@@ -10,14 +10,17 @@ import UIKit
 
 class LoginClienteViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: Declarações
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var senhaTextField: UITextField!
     
     let clienteModel = ClienteModel()
     
+    // MARK: Métodos
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Teste
         emailTextField.text = "jose@gmail.com"
         senhaTextField.text = "j0$3"
         
@@ -56,13 +59,14 @@ class LoginClienteViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
-        textField.resignFirstResponder()
-        return true
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: TextField
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
     }
 }

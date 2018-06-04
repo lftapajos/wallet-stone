@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Declarações
     var overlayView = UIView()
     
     let moedaModel = MoedaModel()
     
     @IBOutlet weak var entradaButton: UIButton!
     
+    // MARK: Carrega dados
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,12 +30,12 @@ class ViewController: UIViewController {
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
         moedaModel.deleteMoeda()
         
-        //let resultDate = "06-01-2017"
         let date = Date()
-        let yesterday = Calendar.current.date(byAdding: .day, value: -3, to: date)!
+        //let yesterday = Calendar.current.date(byAdding: .day, value: -3, to: date)!
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd-yyyy"
-        let resultDate = formatter.string(from: yesterday)
+        let resultDate = formatter.string(from: date)
+        //let resultDate = formatter.string(from: yesterday)
         print(resultDate)
         
         //Carrega Loading enquanto os dados não são carregados pela chamada da API
@@ -70,6 +72,7 @@ class ViewController: UIViewController {
         })
     }
     
+    // MARK: Ações de Botão
     //Chama a View de registro de cliente
     @IBAction func registroCliente(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -84,10 +87,9 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
-    
+    // MARK: Métodos
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

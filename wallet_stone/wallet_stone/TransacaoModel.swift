@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+// MARK: Modelo de Transação
 class TransacaoModel {
     
     //Salva as transações de compra e venda
@@ -98,24 +99,5 @@ class TransacaoModel {
         }
         
         return quantidade
-    }
-    
-    //Lista quantidade das transações por cliente e moeda
-    func listAllValueByClienteCoin(_ clienteID: String, moedaNome: String) -> Double {
-        
-        let realm = try! Realm()
-        
-        let allTransacoes = realm.objects(Transacoes.self).filter("clienteID = %@ AND moedaNome = %@", clienteID, moedaNome)
-        
-        var valor = 0.0
-        for transacao in allTransacoes {
-            if (transacao.tipo == "COMPRA") {
-                valor = (valor + transacao.valorTransacao)
-            } else if (transacao.tipo == "VENDA") {
-                valor = (valor - transacao.valorTransacao)
-            }
-        }
-        
-        return valor
     }
 }

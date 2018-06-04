@@ -10,6 +10,7 @@ import UIKit
 
 class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
 
+    // MARK: Declarações
     var valorCotacaoCompra = 0.0
     var saldoAtual = 0.0
     var moedaAtual = ""
@@ -30,7 +31,8 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    func configuraCelulaMoeda(clienteID: String, saldo: Double, cripto: Moeda) { //index: Int, Dolar
+    // MARK: Configura célula
+    func configuraCelulaMoeda(clienteID: String, saldo: Double, cripto: Moeda) {
         
         moedaLabel.text = cripto.nome
         moedaAtual = cripto.nome
@@ -53,6 +55,7 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         quantidadeTextField.delegate = self
     }
     
+    // MARK: Done
     func doneButtonTappedForMyNumericTextField() {
         
         quantidadeTextField.resignFirstResponder()
@@ -136,20 +139,19 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         })
     }
     
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
     }
     
+    // MARK: Métodos
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

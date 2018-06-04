@@ -10,6 +10,7 @@ import UIKit
 
 class SaidaViewController: UIViewController {
 
+    // MARK: Declarações
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +22,7 @@ class SaidaViewController: UIViewController {
     
     var dataSourceArray = [Moeda]()
     
+    // MARK: Métodos
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +35,8 @@ class SaidaViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         
+        //Recupera o usuário pelo e-mail logado
         let email = UserDefaults.standard.string(forKey: "emailCliente")
-        
         let cliente = clienteModel.listDetailCliente(email!)
         
         saldoAtual = Double(cliente.saldo)
@@ -96,6 +98,7 @@ class SaidaViewController: UIViewController {
     
 }
 
+// MARK: TableView Delegate
 extension SaidaViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

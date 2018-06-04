@@ -10,6 +10,7 @@ import UIKit
 
 class TransacoesViewController: UIViewController {
 
+    // MARK: Declarações
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -20,11 +21,12 @@ class TransacoesViewController: UIViewController {
     let clienteModel = ClienteModel()
     let transacaoModel = TransacaoModel()
     
+    // MARK: Métodos
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Recupera o usuário pelo e-mail logado
         let email = UserDefaults.standard.string(forKey: "emailCliente")
-        
         let cliente = clienteModel.listDetailCliente(email!)
         
         nomeLabel.text = cliente.nome
@@ -49,7 +51,6 @@ class TransacoesViewController: UIViewController {
             })
         }
         
-        
     }
 
     @IBAction func retornar(_ sender: Any) {
@@ -64,6 +65,7 @@ class TransacoesViewController: UIViewController {
     }
 }
 
+// MARK: TableView Delegate
 extension TransacoesViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,45 +74,12 @@ extension TransacoesViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as! ListTransacoesTableViewCell
-        //let cell2 = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath ) as! ListTransacoesTrocaTableViewCell
         
         let row = indexPath.row
         let transacao = dataSourceArray[row]
         
-        //print("transacao =====> \(transacao.tipo)")
-        
         cell.configuraCelulaTransacao(transancao: transacao)
         return cell
-        
-//        if (transacao.tipo == "TROCA") {
-//            cell2.configuraCelulaTransacao(transancao: transacao)
-//            return cell2
-//        } else {
-//            cell.configuraCelulaTransacao(transancao: transacao)
-//            return cell
-//        }
-        
-        
-        
-//        if indexPath.row == 0 {
-//            cell.configuraCelulaTransacao(transancao: transacao)
-//            return cell
-//        } else if indexPath.row == 1 {
-//            cell2.configuraCelulaTransacao(transancao: transacao)
-//            return cell2
-//        }
-        
-//        let row = indexPath.row
-//        let transacao = dataSourceArray[row]
-//        
-//        if (dataSourceArray[row].tipo == "TROCA") {
-//            cell2.configuraCelulaTransacao(transancao: transacao)
-//            return cell2
-//        } else {
-//            cell.configuraCelulaTransacao(transancao: transacao)
-//            return cell
-//        }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

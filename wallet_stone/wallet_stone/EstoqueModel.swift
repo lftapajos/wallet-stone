@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+// MARK: Modelo de Estoque
 class EstoqueModel {
     
     //Adiciona um novo cliente ao Realm

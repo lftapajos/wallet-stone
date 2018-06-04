@@ -10,6 +10,7 @@ import UIKit
 
 class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
 
+    // MARK: Deckarações
     var valorCotacaoVenda = 0.0
     var saldoAtual = 0.0
     var moedaAtual = ""
@@ -30,7 +31,8 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    func configuraCelulaMoeda(clienteID: String, saldo: Double, cripto: Moeda) { //index: Int, Dolar
+    // MARK: Configura célula
+    func configuraCelulaMoeda(clienteID: String, saldo: Double, cripto: Moeda) {
         
         moedaLabel.text = cripto.nome
         moedaAtual = cripto.nome
@@ -61,6 +63,7 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
+    // MARK: Remove Campos
     func removeQuantity() {
         let label = UILabel()
         label.text = "0"
@@ -77,13 +80,13 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         quantidadeTextField.removeFromSuperview()
     }
     
+    // MARK: Done
     func doneButtonTappedForMyNumericTextField() {
         
         quantidadeTextField.resignFirstResponder()
         let quantidade = quantidadeTextField.text
         
         if ((quantidade! == "") || (Double(quantidade!)! == 0.0)) {
-            //print("Favor preencher uma quantidade válida!")
             
             //Envia notificação de mensagem
             let mensagemDict:[String: String] = ["mensagem": "Favor preencher uma quantidade válida!"]
@@ -163,20 +166,19 @@ class ListSellCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
         })
     }
     
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
     }
-    
+
+    // MARK: Métodos
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

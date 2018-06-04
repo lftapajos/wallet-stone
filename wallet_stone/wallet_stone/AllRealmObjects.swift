@@ -9,7 +9,9 @@
 import Foundation
 import RealmSwift
 
-//Realm de Cliente
+// MARK: Modelos do Realm
+
+// MARK: Modelo de Cliente
 class Cliente : Object {
     
     dynamic var clienteID = ""
@@ -19,7 +21,7 @@ class Cliente : Object {
     dynamic var saldo = 0.0
 }
 
-//Realm de Moeda
+// MARK: Modelo de Moeda
 class Moeda : Object {
     
     dynamic var moedaID = ""
@@ -29,7 +31,7 @@ class Moeda : Object {
     dynamic var dataHoraCotacao = ""
 }
 
-//Realm de Relatório
+// MARK: Modelo de Transações
 class Transacoes : Object {
     
     dynamic var transacaoID = ""
@@ -40,7 +42,6 @@ class Transacoes : Object {
     dynamic var quantidade = 0.0
     dynamic var valorTransacao = 0.0
     dynamic var dataHoraTransacao = ""
-    
     //Troca
     dynamic var moedaNomeOrigem = ""
     dynamic var novoValorOrigem = 0.0
@@ -50,7 +51,7 @@ class Transacoes : Object {
     dynamic var quantidadeTroca = 0.0
 }
 
-//Realm de Estoque
+// MARK: Modelo de Estoque
 class Estoque : Object {
     
     dynamic var estoqueID = ""

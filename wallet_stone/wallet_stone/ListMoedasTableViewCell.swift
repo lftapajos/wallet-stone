@@ -10,6 +10,7 @@ import UIKit
 
 class ListMoedasTableViewCell: UITableViewCell {
 
+    // MARK: Declarações
     @IBOutlet weak var moedaLabel: UILabel!
     @IBOutlet weak var quantidadeLabel: UILabel!
     @IBOutlet weak var valorLabel: UILabel!
@@ -18,9 +19,10 @@ class ListMoedasTableViewCell: UITableViewCell {
     let clienteModel = ClienteModel()
     let estoqueModel = EstoqueModel()
     
-    //Confihura a célula de Moedas
+    // MARK: Configura célula
     func configuraCelulaMoeda(moeda: Moeda) {
-        
+    
+        //Recupera o usuário pelo e-mail logado
         let email = UserDefaults.standard.string(forKey: "emailCliente")
         let cliente = clienteModel.listDetailCliente(email!)
         
@@ -73,6 +75,7 @@ class ListMoedasTableViewCell: UITableViewCell {
         
     }
     
+    // MARK: Métodos
     @IBAction func trocarMoedas(_ sender: Any) {
         
         let moedaNome = moedaLabel.text
@@ -85,18 +88,16 @@ class ListMoedasTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }
 
-//Configura botões de retorno do teclado
+// MARK: Configura botões de retorno do teclado
 extension UITextField {
     func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
         let onCancel = onCancel ?? (target: self, action: #selector(cancelButtonTapped))
@@ -119,6 +120,7 @@ extension UITextField {
     func cancelButtonTapped() { self.resignFirstResponder() }
 }
 
+// MARK: Adiciona função ao Double
 extension Double {
     func rounded(toPlaces places:Int) -> Double {
         let divisor = pow(10.0, Double(places))

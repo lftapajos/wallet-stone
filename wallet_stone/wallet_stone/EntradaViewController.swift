@@ -10,6 +10,7 @@ import UIKit
 
 class EntradaViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: Declarações
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +21,7 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
     let clienteModel = ClienteModel()
     let moedaModel = MoedaModel()
     
+    // MARK: Métodos
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,8 +34,8 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
+        //Recupera o usuário pelo e-mail logado
         let email = UserDefaults.standard.string(forKey: "emailCliente")
-        
         let cliente = clienteModel.listDetailCliente(email!)
         
         saldoAtual = Double(cliente.saldo)
@@ -91,15 +93,16 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
     }
 }
 
+// MARK: TableView Delegate
 extension EntradaViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

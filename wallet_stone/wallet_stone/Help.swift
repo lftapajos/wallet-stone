@@ -15,7 +15,7 @@ class Help {
     let estoqueModel = EstoqueModel()
     let moedaModel = MoedaModel()
     
-    //Formata Moedas
+    // MARK: Formata Moedas
     func formatCoin(_ codigo: String, valor: Double) -> String {
         
         let formatter = NumberFormatter()
@@ -27,40 +27,23 @@ class Help {
         
     }
     
-    func formatCurrency(_ value: Double) -> Double{
-        
-        let stringValue = String(format: "%.2f", value)
-        let outputString = Double(stringValue)
-        
-        return outputString!
-    }
-    
-    func updateQuantity(_ clienteID: String, moedaNome: String, quantidade: Double) {
-        
-    }
-    
-    //Cálculo de compra da moeda Brita
+    // MARK: Compra da moeda Brita
     func calculateBuyBrita(_ quantidade: Double, valorCotacaoCompra: Double, saldoAtual: Double, clienteID: String, moedaAtual: String, completion: @escaping (Double)->(), failureBlock: @escaping ()->Void) {
-        
-        //Calcula Brita
         
         //Recupera a Cotação do Dolar
         let cotacaoCompra = Double(valorCotacaoCompra).rounded(toPlaces: 2)
         
-        //let valor_compra = (formatCurrency(quantidade) * formatCurrency(valorCotacaoCompra))
-        //print("valor_compra =====> \(valor_compra)")
-        
+        //Arredonda a quantidade
         let quantidadeDouble = Double(quantidade).rounded(toPlaces: 2)
         
+        //Arredonda o saldo
         let saldoFormatado = Double(saldoAtual).rounded(toPlaces: 2)
         
-        //let saldoFormatado = formatCurrency(Double(saldoAtual))
-        //print("saldoFormatado =====> \(saldoFormatado)")
-        
+        //Calcula o valor da compra
         let valor_compra = (quantidadeDouble * cotacaoCompra)
         
+        //Calcula o novo saldo
         let novo_saldo = (saldoFormatado - valor_compra)
-        //print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica se existe saldo suciciente para a compra
         if (novo_saldo > 0) {
@@ -86,12 +69,12 @@ class Help {
             completion(novo_saldo)
             
         } else {
-            print("Saldo insuficiente!")
+            //print("Saldo insuficiente!")
             completion(-1)
         }
     }
     
-    //Cálculo de compra da moeda Bitcoin BTC
+    // MARK: Compra da moeda Bitcoin BTC
     func calculateBuyBtc(_ quantidade: Double, valorCotacaoCompra: Double, saldoAtual: Double, clienteID: String, moedaAtual: String, completion: @escaping (Double)->(), failureBlock: @escaping ()->Void) {
         
         //Recupera a Cotação do Dolar
@@ -100,22 +83,23 @@ class Help {
         //Recupera a Cotação de BTC
         let cotacaoBtc = moedaModel.loadDollarQuotes(MOEDA_BTC)
         
+        //Arredonda a cotação
         let cotacao_formatada = Double(cotacaoBtc.cotacaoCompra).rounded(toPlaces: 2)
-        //let cotacaoDolarDouble = Double(cotacaoDolar.cotacaoCompra).rounded(toPlaces: 2)
-        //let cotacao_formatada = (cotacaoCompraDouble * cotacaoDolarDouble)
-        //print("cotacao_formatada =====> \(cotacao_formatada)")
         
+        //Arredonda a quantidade
         let quantidadeDouble = Double(quantidade).rounded(toPlaces: 7)
+        
+        //Calcula o valor da co pra
         let valor_compra = (quantidadeDouble * cotacao_formatada)
-        //print("valor_compra =====> \(valor_compra)")
-        
+ 
+        //Converte o valor da compra para reais
         let valorCompraReal = (valor_compra * cotacaoCompraDolar)
-        
+  
+        //Arredonda o saldo atual
         let saldoFormatado = Double(saldoAtual).rounded(toPlaces: 2)
-        //print("saldoFormatado =====> \(saldoFormatado)")
         
+        //Calcula o novo saldo
         let novo_saldo = (saldoFormatado - valorCompraReal)
-        //print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica se existe saldo suciciente para a compra
         if (novo_saldo > 0) {
@@ -140,36 +124,35 @@ class Help {
             
             completion(novo_saldo)
         } else {
-            print("Saldo insuficiente!")
+            //print("Saldo insuficiente!")
             completion(-1)
         }
     }
     
-    //Cálculo de venda da moeda Brita
+    // MARK: Cálculo de venda da moeda Brita
     func calculateSellBrita(_ quantidade: Double, valorCotacaoVenda: Double, saldoAtual: Double, clienteID: String, moedaAtual: String, completion: @escaping ([String: Any])->(), failureBlock: @escaping ()->Void) {
         
         var dict = [String: Any]()
         
+        //Arredonda a quantidade
         let quantidadeDouble = Double(quantidade).rounded(toPlaces: 2)
         
         //Recupera a Cotação do Dolar
         let cotacaoVenda = Double(valorCotacaoVenda).rounded(toPlaces: 2)
         
+        //Calcula o valor da venda
         let valor_venda = (quantidadeDouble * cotacaoVenda)
-        //print("valor_venda =====> \(valor_venda)")
         
+        //Arredonda o saldo atual
         let saldoFormatado = Double(saldoAtual).rounded(toPlaces: 2)
-        //print("saldoFormatado =====> \(saldoFormatado)")
-        
+ 
+        //Calcula o novo saldo
         let novo_saldo = (saldoFormatado + valor_venda)
-        //print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica a soma de moedas do Cliente
         let verificaQuantidade = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaAtual)
-        //transacaoModel.listAllQuantityByClienteCoin(clienteID, moedaNome: moedaAtual)
-        //print("verificaQuantidade =====> \(verificaQuantidade)")
-        
-        //Verifica se existe saldo suciciente para a compra
+
+        //Verifica se existe saldo suciciente para a venda
         if (verificaQuantidade.quantidade >= quantidadeDouble) {
             
             //Verifica se existe saldo suciciente para a compra
@@ -189,7 +172,6 @@ class Help {
                 
                 //Remove campo de quantidade se o saldo zerar
                 if (verificaQuantidade.quantidade <= 0) {
-                    //removeQuantity()
                     dict["remove_campos"] = 1
                 } else {
                     dict["remove_campos"] = 0
@@ -201,7 +183,6 @@ class Help {
                 completion(dict)
                 
             } else {
-                //print("Operação não pode ser executa por falta de saldo!")
                 
                 dict["remove_campos"] = 0
                 dict["novo_saldo"] = novo_saldo
@@ -210,7 +191,6 @@ class Help {
                 completion(dict)
             }
         } else {
-            //print("Operação não pode ser executa por falta de saldo!")
             
             dict["remove_campos"] = 0
             dict["novo_saldo"] = novo_saldo
@@ -221,11 +201,12 @@ class Help {
         
     }
     
-    //Cálculo de venda da moeda Bitcoin BTC
+    // MARK: Cálculo de venda da moeda Bitcoin BTC
     func calculateSellBtc(_ quantidade: Double, valorCotacaoVenda: Double, saldoAtual: Double, clienteID: String, moedaAtual: String, completion: @escaping ([String: Any])->(), failureBlock: @escaping ()->Void) {
         
         var dict = [String: Any]()
         
+        //Arredonda a quantidade
         let quantidadeDouble = Double(quantidade).rounded(toPlaces: 7)
         
         //Recupera a Cotação do Dólar
@@ -234,33 +215,25 @@ class Help {
         //Recupera a Cotação de BTC
         let cotacaoBtc = moedaModel.loadDollarQuotes(MOEDA_BTC)
         
+        //Arredonda a cotação de venda
         let cotacaoVenda = Double(cotacaoBtc.cotacaoVenda).rounded(toPlaces: 2)
-        //print("cotacaoVenda =====> \(cotacaoVenda)")
         
         //Converte a cotação para Real
         let cotacao_formatada = (cotacaoVenda * cotacaoDolar)
-        //print("cotacao_formatada =====> \(cotacao_formatada)")
-        //100583.32
         
         //Calcula o valor da venda em reais
         let valor_venda = (quantidadeDouble * cotacao_formatada)
-        //print("valor_venda =====> \(valor_venda)")
-        
-        //let valorVendaReal = (valor_venda * cotacaoDolar)
         
         //Saldo atual formatado
         let saldoFormatado = Double(saldoAtual).rounded(toPlaces: 2)
-        //print("saldoFormatado =====> \(saldoFormatado)")
         
         //Calcula novo saldo em reais
         let novo_saldo = (saldoFormatado + valor_venda)
-        //print("novo_saldo =====> \(novo_saldo)")
         
         //Verifica a quantidade de moedas no estoque do Cliente
         let verificaQuantidade = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaAtual)
-        //print("verificaQuantidade =====> \(verificaQuantidade)")
         
-        //Verifica se existe saldo suciciente para a compra
+        //Verifica se existe saldo suciciente para a venda
         if (verificaQuantidade.quantidade >= quantidadeDouble) {
             
             //Verifica se existe saldo suciciente para a compra
@@ -280,7 +253,6 @@ class Help {
                 
                 //Remove campo de quantidade se o saldo zerar
                 if (verificaQuantidade.quantidade <= 0) {
-                    //removeQuantity()
                     dict["remove_campos"] = 1
                 } else {
                     dict["remove_campos"] = 0
@@ -291,7 +263,6 @@ class Help {
                 
                 completion(dict)
             } else {
-                //print("Operação não pode ser executa por falta de saldo!")
                 
                 dict["remove_campos"] = 0
                 dict["novo_saldo"] = novo_saldo
@@ -300,7 +271,6 @@ class Help {
                 completion(dict)
             }
         } else {
-            //print("Operação não pode ser executa por falta de saldo!")
             
             dict["remove_campos"] = 0
             dict["novo_saldo"] = novo_saldo
@@ -311,7 +281,7 @@ class Help {
         
     }
     
-    //Cálculo de troca da moeda Brita
+    // MARK: Cálculo de troca da moeda Brita
     func calculateChangeBritaByBtc(_ quantidade: Double, clienteID: String, cotacaoVendaMoedaOrigem: Double, cotacaoVendaMoedaTroca: Double, quantidadeOrigem: Double, valorTroca: Double, novaQuantidadeTroca: Double, novoValorTrocaConvertido: Double, completion: @escaping ([String: Any])->(), failureBlock: @escaping ()->Void) {
         
         var dict = [String: Any]()
@@ -333,7 +303,7 @@ class Help {
         completion(dict)
     }
     
-    //Cálculo de troca da moeda Bitcoin BTC
+    // MARK: Cálculo de troca da moeda Bitcoin BTC
     func calculateChangeBtcByBrita(_ quantidade: Double, clienteID: String, cotacaoVendaMoedaOrigem: Double, cotacaoVendaMoedaTroca: Double, quantidadeOrigem: Double, valorTroca: Double, novaQuantidadeTroca: Double, novoValorTrocaConvertido: Double, completion: @escaping ([String: Any])->(), failureBlock: @escaping ()->Void) {
         
         var dict = [String: Any]()
@@ -355,30 +325,11 @@ class Help {
         completion(dict)
     }
     
+    // MARK: Funções de ajuda    
     //Converte Dólar para Real
     func convertDollarToReal(_ cotacao: Double, valor: Double) -> Double {
         let calculo = (cotacao * valor)
         return calculo
-    }
-    
-    //Converte Real para Dólar
-    func convertRealToDollar(_ cotacao:Double, valor: Double) -> Double {
-        
-        let valorCalculo = Double(round(valor * 10000000) / 10000000)
-        
-        let calculo = (valorCalculo / cotacao)
-        return calculo
-    }
-    
-    //Recuera a data atual
-    func getDateToday() -> String {
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yyyy"
-        let resultDate = formatter.string(from: date)
-        
-        return resultDate
     }
     
     //Recuera a data e hora atual

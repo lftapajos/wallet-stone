@@ -10,6 +10,7 @@ import UIKit
 
 class TrocaViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: Declarações
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var quantidadeTextField: UITextField!{
@@ -49,6 +50,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
     let transacaoModel = TransacaoModel()
     let estoqueModel = EstoqueModel()
     
+    // MARK: Métodos
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,8 +60,10 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
+        //Recupera o usuário pelo e-mail logado
         let email = UserDefaults.standard.string(forKey: "emailCliente")
         let cliente = clienteModel.listDetailCliente(email!)
+
         clienteID = cliente.clienteID
         
         let saldoFomatado = Help().formatCoin("pt_BR", valor:  Double(cliente.saldo))
@@ -80,9 +84,6 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         
         //Recupera o valor de cada moeda para efetuar a troca
         valorOrigem = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaOrigem).saldo
-        
-        
-        
         valorTroca = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaTroca).saldo
         
         //Formata campos para início dos cálculos
@@ -136,11 +137,6 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-        
-        
-        
-        
-        
     }
     
     func trataConfirmacaoButton(_ habilita: Bool) {
@@ -159,21 +155,33 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: Done
+    func doneButtonTappedForMyNumericTextField() {
+        quantidadeTextField.resignFirstResponder()
+        
+        if (moedaOrigem == MOEDA_BRITA) {
+            calculateBritaByBtc()
+        } else if (moedaOrigem == MOEDA_BTC) {
+            calculateBtcByBrita()
+        }
+        
+    }
+    
     func confirmBritaByBtc(_ quantidade: Double) {
         
         //Calcula valor da operação
         let valor = (quantidade / moeda2.cotacaoVenda)
         
         //Operações de cálculo para conversão de Brita para BTC
-        //let novaQuantidadeOrigem = (quantidadeOrigem - quantidade)
         let novaQuantidadeTroca = (quantidadeTroca + valor)
         
-        //let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
+        //Novo valor de troca
         let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
-        
-        //let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+
+        //Novo valor convertido
         let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
         
+        //calculateChangeBritaByBtc
         Help().calculateChangeBritaByBtc(quantidade, clienteID: clienteID, cotacaoVendaMoedaOrigem: moeda1.cotacaoVenda, cotacaoVendaMoedaTroca: moeda2.cotacaoVenda, quantidadeOrigem: quantidadeOrigem, valorTroca: valorTroca, novaQuantidadeTroca: novaQuantidadeTroca, novoValorTrocaConvertido: novoValorTrocaConvertido, completion: { (retorno) in
             
             let erro = retorno["erro"]! as! Int
@@ -203,15 +211,15 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         let valor = (quantidade / moeda2.cotacaoVenda)
         
         //Operações de cálculo para conversão de Brita para BTC
-        //let novaQuantidadeOrigem = (quantidadeOrigem - quantidade)
         let novaQuantidadeTroca = (quantidadeTroca + valor)
         
-        //let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
+        //Calcula o valor da troca
         let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
         
-        //let novoValorOrigemConvertido = convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+        //Converte o valor da troca
         let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
         
+        //calculateChangeBtcByBrita
         Help().calculateChangeBtcByBrita(quantidade, clienteID: clienteID, cotacaoVendaMoedaOrigem: moeda1.cotacaoVenda, cotacaoVendaMoedaTroca: moeda2.cotacaoVenda, quantidadeOrigem: quantidadeOrigem, valorTroca: valorTroca, novaQuantidadeTroca: novaQuantidadeTroca, novoValorTrocaConvertido: novoValorTrocaConvertido, completion: { (retorno) in
             
             let erro = retorno["erro"]! as! Int
@@ -337,11 +345,11 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
                 let novaQuantidadeOrigem = (quantidadeOrigem - quantidadeDouble)
                 let novaQuantidadeTroca = (quantidadeTroca + valor)
                 
+                //Calcula e arredonda novo valor de origem
                 let novoValorOrigem = (novaQuantidadeOrigem * Double(moeda1.cotacaoVenda).rounded(toPlaces: 2))
                 let novoValorTroca = (novaQuantidadeTroca * Double(moeda2.cotacaoVenda).rounded(toPlaces: 2))
                 
-                //let novoValorOrigemConvertido = (Double(moeda1.cotacaoVenda).rounded(toPlaces: 2) * novoValorOrigem)
-                // * Double(moeda2.cotacaoVenda).rounded(toPlaces: 2)
+                //Calcula novo valor de troca
                 let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
                 
                 //Atualiza campos
@@ -376,31 +384,20 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         moedaTrocaValorLabel.text = "\(Help().formatCoin("pt_BR", valor: valueTemp))"
     }
     
-    func doneButtonTappedForMyNumericTextField() {
-        quantidadeTextField.resignFirstResponder()
-        
-        if (moedaOrigem == MOEDA_BRITA) {
-            calculateBritaByBtc()
-        } else if (moedaOrigem == MOEDA_BTC) {
-            calculateBtcByBrita()
-        }
-        
-    }
-    
     @IBAction func retornar(_ sender: Any) {
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
