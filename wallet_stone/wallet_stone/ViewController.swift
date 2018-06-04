@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     let moedaModel = MoedaModel()
     
+    @IBOutlet weak var entradaButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,12 +28,13 @@ class ViewController: UIViewController {
         //Remove todas as Moedas antes de recuperar as novas cotações diárias
         moedaModel.deleteMoeda()
         
-        let resultDate = "06-01-2017"
-//        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "MM-dd-yyyy"
-//        let resultDate = formatter.string(from: date)
-//        print(resultDate)
+        //let resultDate = "06-01-2017"
+        let date = Date()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -3, to: date)!
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let resultDate = formatter.string(from: yesterday)
+        print(resultDate)
         
         //Carrega Loading enquanto os dados não são carregados pela chamada da API
         self.overlayView = OverlayView().loadView(self.view)
@@ -45,6 +48,16 @@ class ViewController: UIViewController {
                 
                 //Remove overlayView
                 self.overlayView.removeFromSuperview()
+            } else {
+                //Cotação não encontrada
+                //Mostra alerta de mensagem
+                Alert(controller: self).showError(message: "Cotação do dólar não encontrada! Tente novamente mais tarde.", handler : { action in
+                    self.dismiss(animated: false)
+                })
+                
+                //Remove overlayView
+                self.overlayView.removeFromSuperview()
+                self.entradaButton.isEnabled = false
             }
             
         }, failureBlock: {

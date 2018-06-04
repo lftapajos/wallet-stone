@@ -60,6 +60,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QeV-0H-6Ll"/>
+                    <connections>
+                        <outlet property="entradaButton" destination="c0p-fh-eNE" id="m4I-Kk-W7L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

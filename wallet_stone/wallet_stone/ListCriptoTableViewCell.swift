@@ -92,9 +92,18 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             
             //Se salvou, mostra o novo saldo
             if (novo_saldo > 0) {
+                
+                self.saldoAtual = novo_saldo
+                
                 //Envia notificação para atualizar o saldo
                 let saldoDict:[String: Double] = ["saldo": novo_saldo]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
+            } else {
+                
+                //Envia notificação de Mensagem
+                let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
+                
             }
         }, failureBlock: {
             //print("Erro!")
@@ -109,9 +118,18 @@ class ListCriptoTableViewCell: UITableViewCell, UITextFieldDelegate {
             
             //Se salvou, mostra o novo saldo
             if (novo_saldo > 0) {
+                
+                self.saldoAtual = novo_saldo
+                
                 //Envia notificação para atualizar o saldo
                 let saldoDict:[String: Double] = ["saldo": novo_saldo]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "atualizaSaldo"), object: nil, userInfo: saldoDict)
+            } else {
+                
+                //Envia notificação de Mensagem
+                let mensagemDict:[String: String] = ["mensagem": "Saldo insuficiente!"]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mensagemRetorno"), object: nil, userInfo: mensagemDict)
+                
             }
         }, failureBlock: {
             //print("Erro!")

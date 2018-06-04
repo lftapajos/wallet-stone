@@ -87,25 +87,30 @@ class APIManager {
         apiCall.then {
             dolares -> Void in
             
-            //Adiciona cotação de Brita ao Realm
-            MoedaModel().addMoeda(MOEDA_BRITA, cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
-            
-            //Carrega a API com a moeda BTC
-            let apiCall2 = self.fetchBtcQuotationFromApi()
-            apiCall2.then {
-                bitcoins -> Void in
+            if (dolares.count != 0) {
+                //Adiciona cotação de Brita ao Realm
+                MoedaModel().addMoeda(MOEDA_BRITA, cotacaoCompra: dolares[0].cotacaoCompra!, cotacaoVenda: dolares[0].cotacaoVenda!, dataHoraCotacao: dolares[0].dataHoraCotacao!)
                 
-                let cotacaoCompra = Double((bitcoins[0].buy! as NSString).doubleValue)
-                let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
-                
-                //Adiciona cotação de BTC ao modelo de Moeda do Realm
-                MoedaModel().addMoeda(MOEDA_BTC, cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
-                
+                //Carrega a API com a moeda BTC
+                let apiCall2 = self.fetchBtcQuotationFromApi()
+                apiCall2.then {
+                    bitcoins -> Void in
+                    
+                    let cotacaoCompra = Double((bitcoins[0].buy! as NSString).doubleValue)
+                    let cotacaoVenda = Double((bitcoins[0].sell! as NSString).doubleValue)
+                    
+                    //Adiciona cotação de BTC ao modelo de Moeda do Realm
+                    MoedaModel().addMoeda(MOEDA_BTC, cotacaoCompra: cotacaoCompra, cotacaoVenda: cotacaoVenda, dataHoraCotacao: "\(bitcoins[0].date!)")
+                    
+                    //Efetua retorno
+                    completion(true)
+                    
+                    }.catch { error
+                        -> Void in
+                }
+            } else {
                 //Efetua retorno
-                completion(true)
-                
-                }.catch { error
-                    -> Void in
+                completion(false)
             }
             
         }.catch { error

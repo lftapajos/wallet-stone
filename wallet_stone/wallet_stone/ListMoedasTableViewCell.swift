@@ -30,8 +30,9 @@ class ListMoedasTableViewCell: UITableViewCell {
         
         if (moeda.nome == MOEDA_BRITA) {
             
-            estoque = estoqueModel.listAllEstoquByClienteCoin(cliente.clienteID, moedaNome: MOEDA_BRITA)
-            quantidadeLabel.text = "Quantidade de moedas: \(estoque.quantidade)"
+            estoque = estoqueModel.listAllEstoqueByClienteCoin(cliente.clienteID, moedaNome: MOEDA_BRITA)
+            
+            quantidadeLabel.text = "Quantidade de moedas: \(Double(estoque.quantidade).rounded(toPlaces: 4))"
             
             if (estoque.saldo < 0) {
                 
@@ -45,9 +46,16 @@ class ListMoedasTableViewCell: UITableViewCell {
             
         } else if (moeda.nome == MOEDA_BTC) {
            
-            estoque = estoqueModel.listAllEstoquByClienteCoin(cliente.clienteID, moedaNome: MOEDA_BTC)
-            quantidadeLabel.text = "Quantidade de moedas: \(estoque.quantidade)"
+            let cotacaoDolar = MoedaModel().loadCoinByName(MOEDA_BRITA).cotacaoCompra
             
+            estoque = estoqueModel.listAllEstoqueByClienteCoin(cliente.clienteID, moedaNome: MOEDA_BTC)
+            
+            let quantidadeArredondada = Double(estoque.quantidade).rounded(toPlaces: 7)
+            let cotacaoArredondada = Double(moeda.cotacaoCompra).rounded(toPlaces: 4)
+            let novoSaldo = ((quantidadeArredondada * cotacaoArredondada) * cotacaoDolar)
+            
+            quantidadeLabel.text = "Quantidade de moedas: \(Double(estoque.quantidade).rounded(toPlaces: 7))"
+
             if (estoque.saldo < 0) {
                 
                 //Zera Estoque
@@ -55,7 +63,7 @@ class ListMoedasTableViewCell: UITableViewCell {
                 
                 valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: 0))"
             } else {
-                valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: estoque.saldo))"
+                valorLabel.text = "Valores: \(Help().formatCoin("pt_BR", valor: novoSaldo))"
             }
         }
         
@@ -109,4 +117,11 @@ extension UITextField {
     // Default actions:
     func doneButtonTapped() { self.resignFirstResponder() }
     func cancelButtonTapped() { self.resignFirstResponder() }
+}
+
+extension Double {
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
 }

@@ -88,7 +88,7 @@ class EstoqueModel {
     }
     
     //Lista estoque por cliente e moeda
-    func listAllEstoquByClienteCoin(_ clienteID: String, moedaNome: String) -> Estoque {
+    func listAllEstoqueByClienteCoin(_ clienteID: String, moedaNome: String) -> Estoque {
         
         let realm = try! Realm()
         let estoque = Estoque()

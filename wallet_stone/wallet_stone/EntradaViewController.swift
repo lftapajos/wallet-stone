@@ -59,6 +59,8 @@ class EntradaViewController: UIViewController, UITextFieldDelegate {
             if let saldoNovo = dict["saldo"] as? Double {
                 saldoLabel.text = "\(Help().formatCoin("pt_BR", valor:  saldoNovo))"
                 
+                saldoAtual = saldoNovo
+                
                 //Mostra alerta de mensagem
                 Alert(controller: self).showError(message: "Compra efetuada com sucesso!", handler : { action in
                     self.dismiss(animated: false)

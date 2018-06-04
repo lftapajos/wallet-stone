@@ -32,15 +32,12 @@ class ListTransacoesTableViewCell: UITableViewCell {
         valorTransacaoLabel.text = "Valor: \(valorFomatado)"
         dataHoraTransacaoLabel.text = transancao.dataHoraTransacao
         
-        //Mostra imagem de operação compra ou venda
+        //Mostra imagem de operação compra, venda ou troca
         if (transancao.tipo == "COMPRA") {
             tipoimageView.image = UIImage(named: "btn_transacao_compra")
         } else if (transancao.tipo == "VENDA") {
             tipoimageView.image = UIImage(named: "btn_transacao_venda")
         } else if (transancao.tipo == "TROCA") {
-            
-            //Busca moeda diferente da moeda selecionada
-            //let moedaTrocada = moedaModel.loadChangeCoinByName(transancao.moedaNome)
             
             moedaLabel.text = "\(transancao.moedaNomeOrigem) por \(transancao.moedaNomeTroca)"
             quantidadeLabel.text = "\(transancao.quantidadeOrigem) ==> \(transancao.quantidadeTroca)"

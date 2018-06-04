@@ -75,12 +75,15 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         moeda2 = moedaModel.loadCoinByName(moedaTroca)
         
         //Recupera a quantidade de cada moeda para efetuar a troca
-        quantidadeOrigem = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaOrigem).quantidade
-        quantidadeTroca = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaTroca).quantidade
-
+        quantidadeOrigem = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaOrigem).quantidade
+        quantidadeTroca = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaTroca).quantidade
+        
         //Recupera o valor de cada moeda para efetuar a troca
-        valorOrigem = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaOrigem).saldo
-        valorTroca = estoqueModel.listAllEstoquByClienteCoin(clienteID, moedaNome: moedaTroca).saldo
+        valorOrigem = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaOrigem).saldo
+        
+        
+        
+        valorTroca = estoqueModel.listAllEstoqueByClienteCoin(clienteID, moedaNome: moedaTroca).saldo
         
         //Formata campos para início dos cálculos
         formatInitialFields()
@@ -90,30 +93,54 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         
         //Origem
         if (moedaOrigem == MOEDA_BRITA) {
+            
+            //Arredonda quantidade de origem
+            quantidadeOrigem = Double(quantidadeOrigem).rounded(toPlaces: 4)
+            moedaOrigemQuantidadeLabel.text = "\(quantidadeOrigem)"
+            
             let valorOrigemFormatado = Help().formatCoin("pt_BR", valor: valorOrigem)
             moedaOrigemValorLabel.text = "\(valorOrigemFormatado)"
             
         } else if (moedaOrigem == MOEDA_BTC) {
-            //let valorOrigemConvertido = convertDollarToReal(moeda1.cotacaoCompra, valor: valorOrigem)
+            
+            //Arredonda quantidade de origem
+            quantidadeOrigem = Double(quantidadeOrigem).rounded(toPlaces: 7)
+            moedaOrigemQuantidadeLabel.text = "\(quantidadeOrigem)"
+            
             let valorOrigemFormatado = Help().formatCoin("en_US", valor: valorOrigem)
             moedaOrigemValorLabel.text = "U\(valorOrigemFormatado)"
+            
         }
         
         //Troca
         if (moedaTroca == MOEDA_BRITA) {
+            
+            //Arredonda quantidade de troca
+            quantidadeTroca = Double(quantidadeTroca).rounded(toPlaces: 4)
+            moedaTrocaQuantidadeLabel.text = "\(quantidadeTroca)"
+            
             let valorTrocaFormatado = Help().formatCoin("pt_BR", valor: valorTroca)
             moedaTrocaValorLabel.text = "\(valorTrocaFormatado)"
             valorLabel.text = "\(valorTrocaFormatado)"
             
+            
         } else if (moedaTroca == MOEDA_BTC) {
+            
+            //Arredonda quantidade de troca
+            quantidadeTroca = Double(quantidadeTroca).rounded(toPlaces: 4)
+            moedaTrocaQuantidadeLabel.text = "\(quantidadeTroca)"
+            
             let valorTrocaFormatado = Help().formatCoin("en_US", valor: valorTroca)
             moedaTrocaValorLabel.text = "U\(valorTrocaFormatado)"
             valorLabel.text = "U\(valorTrocaFormatado)"
             
         }
         
-        moedaOrigemQuantidadeLabel.text = "\(quantidadeOrigem)"
-        moedaTrocaQuantidadeLabel.text = "\(quantidadeTroca)"
+        
+        
+        
+        
+        
     }
     
     func trataConfirmacaoButton(_ habilita: Bool) {
@@ -291,7 +318,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
             
             let quantidadeDouble = Double(quantidade!)!
             //Calcula valor da operação
-            let valor = (quantidadeDouble / moeda2.cotacaoVenda)
+            let valor = (Double(quantidadeDouble).rounded(toPlaces: 2) / Double(moeda2.cotacaoVenda).rounded(toPlaces: 2))
             
             //Se a quantidade é maior que o saldo de Brita, mostra erro.
             if (quantidadeDouble > quantidadeOrigem) {
@@ -310,14 +337,15 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
                 let novaQuantidadeOrigem = (quantidadeOrigem - quantidadeDouble)
                 let novaQuantidadeTroca = (quantidadeTroca + valor)
                 
-                let novoValorOrigem = (novaQuantidadeOrigem * moeda1.cotacaoVenda)
-                let novoValorTroca = (novaQuantidadeTroca * moeda2.cotacaoVenda)
+                let novoValorOrigem = (novaQuantidadeOrigem * Double(moeda1.cotacaoVenda).rounded(toPlaces: 2))
+                let novoValorTroca = (novaQuantidadeTroca * Double(moeda2.cotacaoVenda).rounded(toPlaces: 2))
                 
-                let novoValorOrigemConvertido = Help().convertDollarToReal(moeda1.cotacaoVenda, valor: novoValorOrigem)
+                //let novoValorOrigemConvertido = (Double(moeda1.cotacaoVenda).rounded(toPlaces: 2) * novoValorOrigem)
+                // * Double(moeda2.cotacaoVenda).rounded(toPlaces: 2)
                 let novoValorTrocaConvertido = (novoValorTroca + valorTroca)
                 
                 //Atualiza campos
-                updateFieldsBtcByBrita(novaQuantidadeOrigem, valueOrigem: novoValorOrigemConvertido, qtdeChange: novaQuantidadeTroca, valueChange: novoValorTroca, valueTemp: novoValorTrocaConvertido)
+                updateFieldsBtcByBrita(novaQuantidadeOrigem, valueOrigem: novoValorOrigem, qtdeChange: novaQuantidadeTroca, valueChange: novoValorTroca, valueTemp: novoValorTrocaConvertido)
                 
                 //Habilita botão de confirmação
                 trataConfirmacaoButton(false)
@@ -342,7 +370,7 @@ class TrocaViewController: UIViewController, UITextFieldDelegate {
         valorLabel.text = "\(Help().formatCoin("pt_BR", valor: valueTemp))"
         
         moedaOrigemQuantidadeLabel.text = "\(qtdeOrigem)"
-        moedaOrigemValorLabel.text = "\(Help().formatCoin("en_US", valor: valueOrigem))"
+        moedaOrigemValorLabel.text = "U\(Help().formatCoin("en_US", valor: valueOrigem))"
         
         moedaTrocaQuantidadeLabel.text = "\(qtdeChange)"
         moedaTrocaValorLabel.text = "\(Help().formatCoin("pt_BR", valor: valueTemp))"
