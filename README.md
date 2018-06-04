@@ -24,6 +24,20 @@ Desafio desenvolvido para a empresa Stone. Desenvolvimento de aplicativo para cr
 
 ## Como usar
 
+## Carregando Cotações
+
+Ao abrir o aplicativo as cotações das moedas "Brita" e "Bitcoin (BTC)" são carregadas de suas respectivas APIs.
+
+<a href="https://imgflip.com/gif/2bl8wq"><img src="https://i.imgflip.com/2bl8wq.gif" title="made at imgflip.com"/></a>
+
+Caso as cotações não seja encontradas, uma mensagem de erro irá aparecer pedindo para que retorne novamente mais tarde. Isso foi criado porque as cotação são parte fundamental nas operações de compra, venda e troca do aplicativo.
+
+<a href="https://imgflip.com/gif/2bl8ps"><img src="https://i.imgflip.com/2bl8ps.gif" title="made at imgflip.com"/></a>
+
+Se as cotações forem carregadas, então o aplicativo estará pronto para ser executado.
+
+<a href="https://imgflip.com/gif/2bl8mr"><img src="https://i.imgflip.com/2bl8mr.gif" title="made at imgflip.com"/></a>
+
 ## Registo de Clientes
 
 É necessário criar um Cliente novo para executar as operações do aplicativo.
@@ -48,7 +62,7 @@ Campos para teste de login:
 
 ## Tela de Compra
 
-Aqui o cliente poderá compras moedas dos 2 tipos.: Brita e Bitcoin (BTC).
+Aqui o cliente poderá comprar moedas dos 2 tipos: Brita e Bitcoin (BTC).
 
 Chamada para a tela de compra de Moedas:
 
