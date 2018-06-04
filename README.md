@@ -140,7 +140,7 @@ Se tudo ocorrer bem, esse aviso deverá aparecer e uma nova transação será cr
 
 Transações de troca efetuadas:
 
-<a href="https://imgflip.com/gif/2belz4"><img src="https://i.imgflip.com/2belz4.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2bknhn"><img src="https://i.imgflip.com/2bknhn.gif" title="made at imgflip.com"/></a>
 
 ## Status do Código
 
